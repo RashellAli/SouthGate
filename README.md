@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SouthGate Protection - Coming Soon</title>
   <style>
+    <img src="IMG_0329.jpg" alt="SouthGate Protection Logo" />
     body {
       margin: 0;
       background-color: #000;
@@ -58,7 +59,6 @@
 </head>
 <body>
   <div class="container">
-    img src="logo.jpg" alt="SouthGate Protection Logo" />
     <h1 class="fade-in-text">SouthGate Protection</h1>
     <p class="fade-in-text delay">Coming Soon...</p>
   </div>
