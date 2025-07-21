@@ -2,34 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SouthGate Protection</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 50px;
+      padding: 50px 20px;
       background-color: #111;
       color: #eee;
     }
+
+    img, h1, p {
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
     img {
-      max-width: 300px;
+      max-width: 350px;
+      width: 100%;
       height: auto;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
+      animation-delay: 0.2s;
     }
+
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation-delay: 0.5s;
     }
+
     p {
-      font-size: 1.25rem;
-      color: #ccc;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-    }
-    .coming-soon {
       font-size: 1.5rem;
+      color: #ccc;
+      max-width: 700px;
+      margin: 0 auto 25px;
+      line-height: 1.8;
+      animation-delay: 0.8s;
+    }
+
+    .coming-soon {
+      font-size: 2rem;
       color: #aaa;
+      animation-delay: 1.1s;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+
+      .coming-soon {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -37,7 +72,7 @@
   <img src="logo.jpg" alt="SouthGate Protection Logo" />
   <h1>SouthGate Protection</h1>
   <p>
-    An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening local safety through high visibility patrols and a trusted, consistent presence.
+    An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening local safety through high-visibility patrols and a trusted, consistent presence.
   </p>
   <p class="coming-soon">Coming Soon...</p>
 </body>
