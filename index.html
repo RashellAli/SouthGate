@@ -7,143 +7,92 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 60px 20px;
+      padding: 50px;
       background-color: #111;
-      color: #eee;
-    }
-
-    img {
-      max-width: 460px;
-      height: auto;
-      margin-bottom: 35px;
-      animation: fadeIn 2s ease-in forwards;
-    }
-
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 2s ease-in forwards;
-    }
-
-    .fade-in.delay-1 {
-      animation-delay: 0.5s;
-    }
-
-    .fade-in.delay-2 {
-      animation-delay: 1s;
-    }
-
-    .fade-in.delay-3 {
-      animation-delay: 1.5s;
-    }
-
-    .fade-in.delay-4 {
-      animation-delay: 2s;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    .motto {
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-bottom: 30px;
       color: #fff;
     }
 
-    p {
+    img {
+      max-width: 350px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .motto {
       font-size: 1.8rem;
-      color: #ccc;
-      max-width: 750px;
-      margin: 0 auto 30px;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeIn 3s ease-in-out forwards;
+    }
+
+    .mission {
+      font-size: 1.4rem;
+      margin-bottom: 60px;
     }
 
     .coming-soon {
-      font-size: 1.6rem;
-      color: #aaa;
-      margin-bottom: 40px; /* Increased spacing here */
+      font-size: 1.3rem;
+      margin-bottom: 80px;
+      color: #ccc;
     }
 
     form {
-      max-width: 500px;
-      margin: 30px auto 0;
-      text-align: left;
-      color: #ccc;
-      animation: fadeIn 2s ease-in forwards;
-      opacity: 0;
-      animation-delay: 2s;
-      animation-fill-mode: forwards;
+      background-color: #222;
+      padding: 25px;
+      border-radius: 10px;
+      display: inline-block;
+      max-width: 400px;
+      width: 100%;
     }
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-    input[type="email"],
-    textarea {
+    input, textarea {
       width: 100%;
       padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 4px;
+      margin: 10px 0;
       border: none;
+      border-radius: 5px;
       font-size: 1rem;
-      font-family: Arial, sans-serif;
-      box-sizing: border-box;
     }
 
     button {
-      background: #ffd700;
+      padding: 10px 20px;
+      background-color: #444;
+      color: white;
       border: none;
-      padding: 12px 25px;
-      border-radius: 4px;
-      color: #111;
-      font-weight: bold;
+      border-radius: 5px;
       cursor: pointer;
       font-size: 1rem;
-      transition: background 0.3s ease;
     }
 
     button:hover {
-      background: #e6c200;
+      background-color: #666;
     }
 
-    a {
-      color: #ffd700;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <img src="logo.jpg" alt="SouthGate Protection Logo" class="fade-in delay-1" />
-
-  <div class="motto fade-in delay-2">Presence. Purpose. Protection.</div>
-
-  <p class="fade-in delay-3">
+  <img src="logo.jpg" alt="SouthGate Protection Logo" />
+  <p class="motto">Presence. Purpose. Protection.</p>
+  <p class="mission">
     An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening local safety through high visibility patrols and a trusted, consistent presence.
   </p>
+  <p class="coming-soon">Coming Soon...</p>
 
-  <p class="coming-soon fade-in delay-3">Coming Soon...</p>
+  <p style="color: #fff; font-size: 1.1rem;">For any enquiries, please fill in the form below:</p>
+  <form action="https://formsubmit.co/info@southgateprotection.co.uk" method="POST">
+    <!-- Redirect after submission -->
+    <input type="hidden" name="_next" value="https://southgateprotection.co.uk/thankyou.html">
+    <!-- Disable CAPTCHA -->
+    <input type="hidden" name="_captcha" value="false">
 
-  <p style="color: white; font-size: 1.3rem; margin-top: 25px; margin-bottom: 15px;" class="fade-in delay-4">
-    Have a question or enquiry? Please use the form below and we’ll respond as soon as possible.
-  </p>
-
-  <form action="mailto:info@southgateprotection.co.uk" method="POST" enctype="text/plain">
-    <label for="email">Your Email:</label>
-    <input type="email" id="email" name="email" required placeholder="you@example.com" />
-
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
-
-    <button type="submit">Send Enquiry</button>
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
   </form>
 </body>
 </html>
