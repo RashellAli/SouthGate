@@ -58,9 +58,9 @@
 </head>
 <body>
   <div class="container">
-    <img src="logo.png" alt="SouthGate Protection Logo" class="logo" />
+    img src="logo.jpg" alt="SouthGate Protection Logo" />
     <h1 class="fade-in-text">SouthGate Protection</h1>
     <p class="fade-in-text delay">Coming Soon...</p>
   </div>
 </body>
-</html>![IMG_0329](https://github.com/user-attachments/assets/d2fc67b0-a9a1-463b-8ad7-7ca82cd9ca59)
+</
