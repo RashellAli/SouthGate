@@ -1,8 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>SouthGate Protection</title>
+  
+  <!-- Favicon for better browser compatibility -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -77,35 +80,3 @@
     }
   </style>
 </head>
-<body>
-  <img src="logo.jpg" alt="SouthGate Protection Logo" />
-  <p class="motto">Presence. Purpose. Protection.</p>
-  <p class="mission">
-    An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening local safety through high visibility patrols and a trusted, consistent presence.
-  </p>
-  <p class="coming-soon">Coming Soon...</p>
-
-  <p style="color: #fff; font-size: 1.1rem;">For any enquiries, please fill in the form below:</p>
-  <form action="https://formsubmit.co/info@southgateprotection.co.uk" method="POST">
-    <!-- Disable CAPTCHA -->
-    <input type="hidden" name="_captcha" value="false">
-    <!-- Skip email confirmation -->
-    <input type="hidden" name="_confirmation" value="false">
-    <!-- Email format -->
-    <input type="hidden" name="_template" value="table">
-    <!-- Redirect after submission -->
-    <input type="hidden" name="_next" value="https://southgateprotection.co.uk/thankyou.html">
-
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" placeholder="Your Name" required />
-
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Your Email" required />
-
-    <label for="message">Message</label>
-    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-
-    <button type="submit">Send Message</button>
-  </form>
-</body>
-</html>
