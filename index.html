@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>SouthGate Protection</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+
   <!-- Favicon and Manifest -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
@@ -16,29 +16,32 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 50px;
+      padding: 40px 20px;
       background-color: #111;
       color: #eee;
+      max-width: 600px;
+      margin: 0 auto;
     }
     img {
-      max-width: 350px;
+      max-width: 280px;
       height: auto;
       margin-bottom: 30px;
     }
     p.motto {
       color: white;
-      font-size: 1.6rem;
-      margin-bottom: 15px;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
       animation: fadeIn 2s ease-in;
     }
     p.mission {
       font-size: 1.3rem;
       margin-bottom: 40px;
       color: #eee;
+      line-height: 1.5;
     }
     p.coming-soon {
       font-size: 1.8rem;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       color: #aaa;
     }
     form {
@@ -46,14 +49,15 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 15px;
     }
     input, textarea {
-      padding: 10px;
+      padding: 12px;
       font-size: 1rem;
       border-radius: 5px;
       border: none;
       outline: none;
+      box-sizing: border-box;
     }
     button {
       padding: 12px;
