@@ -99,10 +99,20 @@
 
   <p class="enquiry-text">If you have any enquiries, please fill in the form below.</p>
 
-  <form id="enquiry-form" action="https://formsubmit.co/your-email@example.com" method="POST">
+  <form id="enquiry-form" action="https://formsubmit.co/info@southgateprotection.co.uk" method="POST">
     <input type="text" name="name" placeholder="Your Name" required />
     <input type="email" name="email" placeholder="Your Email" required />
     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+    <!-- Redirect to your thank you page, update if you have a different URL -->
+    <input type="hidden" name="_next" value="https://southgateprotection.co.uk/thank-you.html" />
+
+    <!-- Auto reply to sender -->
+    <input type="hidden" name="_autoresponse" value="Thanks for contacting SouthGate Protection! We have received your message and will get back to you shortly." />
+
+    <!-- Disable captcha -->
+    <input type="hidden" name="_captcha" value="false" />
+
     <button type="submit">Send</button>
   </form>
 </body>
