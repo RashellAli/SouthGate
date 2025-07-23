@@ -76,10 +76,6 @@
     button:hover {
       background-color: #666;
     }
-    /* Hide the honeypot field */
-    .hidden-field {
-      display: none;
-    }
 
     /* Fade-in animation */
     @keyframes fadeIn {
@@ -103,23 +99,9 @@
 
   <p class="enquiry-text">If you have any enquiries, please fill in the form below.</p>
 
-  <form id="enquiry-form" 
-        action="https://formsubmit.co/info@southgateprotection.co.uk" 
-        method="POST" 
-        autocomplete="off">
-
-    <!-- Honeypot field to prevent spam -->
-    <input type="text" name="_honey" class="hidden-field" autocomplete="off" />
-
-    <!-- Disable captcha -->
-    <input type="hidden" name="_captcha" value="false" />
-
-    <!-- Redirect to thank you page after submission -->
-    <input type="hidden" name="_next" value="https://southgateprotection.co.uk/thank-you.html" />
-
-    <!-- Your inputs -->
-    <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
-    <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+  <form id="enquiry-form" action="https://formsubmit.co/your-email@example.com" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
     <button type="submit">Send</button>
   </form>
