@@ -151,7 +151,7 @@
       padding: 50px 20px;
       background-color: #111;
       color: #eee;
-      margin-top: 50px;
+      display: none; /* hidden by default */
     }
     #partnerships video {
       width: 100%;
@@ -172,8 +172,8 @@
   <!-- Navigation -->
   <nav id="nav-menu">
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#partnerships">Partnerships</a></li>
+      <li><a href="#home" onclick="hidePartnerships()">Home</a></li>
+      <li><a href="#" onclick="showPartnerships()">Partnerships</a></li>
     </ul>
   </nav>
 
@@ -217,6 +217,17 @@
   <script>
     function toggleMenu() {
       document.getElementById('nav-menu').classList.toggle('show');
+    }
+
+    function showPartnerships() {
+      document.getElementById('nav-menu').classList.remove('show'); // close menu
+      document.getElementById('partnerships').style.display = "block"; // show section
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // scroll to top
+    }
+
+    function hidePartnerships() {
+      document.getElementById('partnerships').style.display = "none"; // hide section
+      document.getElementById('nav-menu').classList.remove('show'); // close menu
     }
   </script>
 </body>
