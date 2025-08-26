@@ -97,9 +97,86 @@
       animation: fadeIn 2s ease-in forwards;
       opacity: 0;
     }
+
+    /* Hamburger Menu */
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 1000;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger div {
+      width: 100%;
+      height: 4px;
+      background-color: #eee;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 200px;
+      height: 100%;
+      background-color: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: right 0.3s ease;
+      z-index: 999;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+    nav ul li {
+      margin: 20px 0;
+    }
+    nav ul li a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    nav.show {
+      right: 0;
+    }
+
+    /* Partnerships Section */
+    #partnerships {
+      padding: 50px 20px;
+      background-color: #111;
+      color: #eee;
+      margin-top: 50px;
+    }
+    #partnerships video {
+      width: 100%;
+      border: 2px solid #444;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
+  <!-- Hamburger -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="nav-menu">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#partnerships">Partnerships</a></li>
+    </ul>
+  </nav>
+
   <img src="logo.jpg" alt="SouthGate Protection Logo" />
   <p class="motto">Presence. Purpose. Protection.</p>
   <p class="mission">
@@ -120,11 +197,27 @@
     <button type="submit">Send</button>
   </form>
 
+  <!-- Partnerships Section -->
+  <section id="partnerships">
+    <h2>Partnerships</h2>
+    <p>Working alongside FazAmnesty and other initiatives to protect our community and support safe weapons surrender.</p>
+    <video controls>
+      <source src="path-to-your-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
   <footer>
     &copy; 2025 SouthGate Protection CIC. All rights reserved.<br />
     Registered in England and Wales — Company No. 16604543<br />
     SouthGate Protection CIC is registered with the Information Commissioner’s Office. ICO Registration Number: ZB946179<br />
     <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
