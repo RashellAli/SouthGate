@@ -172,34 +172,38 @@
   <!-- Navigation -->
   <nav id="nav-menu">
     <ul>
-      <li><a href="#home" onclick="hidePartnerships()">Home</a></li>
+      <li><a href="#" onclick="showHome()">Home</a></li>
       <li><a href="#" onclick="showPartnerships()">Partnerships</a></li>
     </ul>
   </nav>
 
-  <img src="logo.jpg" alt="SouthGate Protection Logo" />
-  <p class="motto">Presence. Purpose. Protection.</p>
-  <p class="mission">
-    An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening safety across the area and its surrounding communities through high-visibility patrols and a trusted, consistent presence.
-  </p>
+  <!-- Homepage content wrapper -->
+  <div id="homepage">
+    <img src="logo.jpg" alt="SouthGate Protection Logo" />
+    <p class="motto">Presence. Purpose. Protection.</p>
+    <p class="mission">
+      An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening safety across the area and its surrounding communities through high-visibility patrols and a trusted, consistent presence.
+    </p>
 
-  <p class="enquiry-text">If you have any enquiries, please fill in the form below.</p>
+    <p class="enquiry-text">If you have any enquiries, please fill in the form below.</p>
 
-  <form id="enquiry-form" action="https://formsubmit.co/info@southgateprotection.co.uk" method="POST">
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_next" value="https://southgateprotection.co.uk/thankyou.html" />
-    <input type="hidden" name="_subject" value="New enquiry from SouthGate Protection website" />
-    <input type="hidden" name="_verification" value="true" />
+    <form id="enquiry-form" action="https://formsubmit.co/info@southgateprotection.co.uk" method="POST">
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://southgateprotection.co.uk/thankyou.html" />
+      <input type="hidden" name="_subject" value="New enquiry from SouthGate Protection website" />
+      <input type="hidden" name="_verification" value="true" />
 
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send</button>
-  </form>
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
 
-  <!-- Partnerships Section (Hidden by default) -->
+  <!-- Partnerships Section -->
   <section id="partnerships">
     <h2>Partnerships</h2>
+    <!-- Add your video and descriptive text here -->
     <p>Working alongside FazAmnesty and other initiatives to protect our community and support safe weapons surrender.</p>
     <video controls>
       <source src="path-to-your-video.mp4" type="video/mp4">
@@ -219,14 +223,17 @@
     }
 
     function showPartnerships() {
+      document.getElementById('homepage').style.display = "none"; // hide homepage
+      document.getElementById('partnerships').style.display = "block"; // show partnerships
       document.getElementById('nav-menu').classList.remove('show'); // close menu
-      document.getElementById('partnerships').style.display = "block"; // show section
-      window.scrollTo({ top: 0, behavior: 'smooth' }); // scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function hidePartnerships() {
-      document.getElementById('partnerships').style.display = "none"; // hide section
+    function showHome() {
+      document.getElementById('partnerships').style.display = "none"; // hide partnerships
+      document.getElementById('homepage').style.display = "block"; // show homepage
       document.getElementById('nav-menu').classList.remove('show'); // close menu
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
