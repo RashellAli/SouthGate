@@ -12,11 +12,10 @@
       color: #eee;
       margin: 0;
       padding: 0;
-      text-align: center;
     }
 
     .container {
-      max-width: 700px;
+      max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
     }
@@ -24,7 +23,7 @@
     h1 {
       font-size: 2rem;
       margin-bottom: 20px;
-      color: #fff;
+      text-align: center;
       animation: fadeIn 2s ease-in forwards;
       opacity: 0;
     }
@@ -32,33 +31,51 @@
     p.description {
       font-size: 1.1rem;
       line-height: 1.5;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
+      text-align: center;
       animation: fadeIn 2.5s ease-in forwards;
       opacity: 0;
     }
 
-    .partner-section {
+    .partner-card {
+      display: flex;
       background-color: #222;
-      padding: 20px;
       border-radius: 8px;
+      padding: 20px;
       margin-bottom: 40px;
+      align-items: flex-start;
+      gap: 20px;
       animation: fadeIn 3s ease-in forwards;
       opacity: 0;
+      flex-wrap: wrap;
     }
 
-    .partner-section img {
+    .partner-card img {
       max-width: 200px;
-      height: auto;
       border-radius: 8px;
-      margin-bottom: 15px;
+      flex-shrink: 0;
     }
 
-    video {
-      width: 300px;       /* Square width */
-      height: 300px;      /* Square height */
-      border-radius: 8px;
+    .partner-info {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .partner-info h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .partner-info p {
+      line-height: 1.5;
+    }
+
+    .partner-video {
+      width: 300px;
+      height: 300px;
       margin-top: 20px;
-      object-fit: cover;  /* Keeps aspect ratio while filling the square */
+      border-radius: 8px;
+      object-fit: cover;
     }
 
     @keyframes fadeIn {
@@ -72,12 +89,24 @@
       font-size: 0.9rem;
       color: #aaa;
       border-top: 1px solid #444;
+      text-align: center;
     }
 
     footer a {
       color: #aaa;
       text-decoration: underline;
       margin: 0 5px;
+    }
+
+    @media (max-width: 700px) {
+      .partner-card {
+        flex-direction: column;
+        align-items: center;
+      }
+      .partner-video {
+        width: 80%;
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -89,17 +118,19 @@
       SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support each other’s work.
     </p>
 
-    <div class="partner-section">
+    <!-- Faron Paul Card -->
+    <div class="partner-card">
       <img src="faron-paul.jpg" alt="Faron Paul">
-      <h2>Faron Paul</h2>
-      <p>
-        Faron Paul runs the FazAmnesty weapons amnesty program, working alongside communities and authorities to safely collect knives and reduce violent incidents. I was honoured to work with Faron at the Notting Hill Carnival, supporting the amnesty and helping strengthen local community safety. SouthGate Protection has proudly partnered with Faron to support events and initiatives that make a real difference.
-      </p>
-
-      <video controls>
-        <source src="fazamnesty-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <div class="partner-info">
+        <h2>Faron Paul</h2>
+        <p>
+          Faron Paul runs the FazAmnesty weapons amnesty program, working alongside communities and authorities to safely collect knives and reduce violent incidents. I was honoured to work with Faron at the Notting Hill Carnival, supporting the amnesty and helping strengthen local community safety. SouthGate Protection has proudly partnered with Faron to support events and initiatives that make a real difference.
+        </p>
+        <video class="partner-video" controls>
+          <source src="fazamnesty-video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
 
   </div>
