@@ -21,6 +21,13 @@
       margin-bottom: 20px;
     }
 
+    .intro-text {
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
+
     .dropdown {
       background-color: #222;
       color: #FFD700; /* gold/yellow */
@@ -49,15 +56,24 @@
       text-align: center;
     }
 
-    .dropdown-content img {
+    .slideshow-container {
+      position: relative;
       width: 100%;
       max-width: 400px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      display: none; /* hidden by default for slideshow */
+      height: 300px; /* fixed height so text doesn't move */
+      margin: 0 auto 15px auto;
     }
 
-    .dropdown-content p {
+    .slideshow-container img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      border-radius: 5px;
+    }
+
+    .description {
       font-size: 0.9rem;
       line-height: 1.5;
       margin-bottom: 15px;
@@ -80,19 +96,22 @@
 
   <h1>Partnerships</h1>
 
-  <p style="font-size: 1rem; text-align: center; margin-bottom: 20px;">
+  <p class="intro-text">
     SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support each other’s initiatives.
   </p>
 
   <div class="dropdown" onclick="toggleDropdown()">Faron Paul | FazAmnesty</div>
   <div class="dropdown-content" id="dropdownContent">
-    <!-- Slideshow of images -->
-    <img src="faron1.jpg" alt="Faron Paul">
-    <img src="faron2.jpg" alt="Faron Paul">
-    <img src="faron3.jpg" alt="Faron Paul">
     
-    <!-- Description stays still while slideshow runs -->
-    <p>
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+      <img src="faron1.jpg" alt="Faron Paul">
+      <img src="faron2.jpg" alt="Faron Paul">
+      <img src="faron3.jpg" alt="Faron Paul">
+    </div>
+
+    <!-- Description stays completely still -->
+    <p class="description">
       I was honoured to have worked with Faron Paul at the Notting Hill Carnival. Together we helped raise awareness, support initiatives, and work toward a safer community.
     </p>
 
@@ -108,7 +127,7 @@
 
     // Slideshow
     let slideIndex = 0;
-    const slides = document.querySelectorAll(".dropdown-content img");
+    const slides = document.querySelectorAll(".slideshow-container img");
 
     function showSlides() {
       slides.forEach((slide, index) => {
