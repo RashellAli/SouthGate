@@ -115,6 +115,21 @@
       margin-left: auto;
       margin-right: auto;
     }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    footer a {
+      color: #aaa;
+      text-decoration: underline;
+      margin: 0 10px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
@@ -149,6 +164,12 @@
     <p style="text-align:center;"><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" style="color: gold;">Read more about Faron Paul's story</a></p>
   </div>
 
+  <footer>
+    &copy; 2025 SouthGate Protection CIC. All rights reserved.<br />
+    Registered in England and Wales — Company No. 16604543<br />
+    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
+  </footer>
+
   <script>
     function toggleMenu() {
       var menu = document.getElementById('menu');
@@ -168,19 +189,33 @@
       }
     }
 
-    // Slideshow
+    // Slideshow with pause on hover/touch
     let slideIndex = 0;
     const slides = document.querySelectorAll('.slideshow-container img');
+    let slideInterval;
 
     function showSlides() {
       slides.forEach(img => img.classList.remove('active'));
       slideIndex++;
       if(slideIndex > slides.length) slideIndex = 1;
       slides[slideIndex-1].classList.add('active');
-      setTimeout(showSlides, 3000); // Change every 3 seconds
     }
 
-    showSlides();
+    function startSlideshow() {
+      slideInterval = setInterval(showSlides, 3000); // Change every 3 seconds
+    }
+
+    function pauseSlideshow() {
+      clearInterval(slideInterval);
+    }
+
+    startSlideshow();
+
+    const slideshowContainer = document.querySelector('.slideshow-container');
+    slideshowContainer.addEventListener('mouseenter', pauseSlideshow);
+    slideshowContainer.addEventListener('mouseleave', startSlideshow);
+    slideshowContainer.addEventListener('touchstart', pauseSlideshow);
+    slideshowContainer.addEventListener('touchend', startSlideshow);
   </script>
 </body>
 </html>
