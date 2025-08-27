@@ -7,7 +7,7 @@
 <style>
   body { font-family: Arial, sans-serif; background-color:#111; color:#eee; margin:0; padding:40px 20px; max-width:1000px; margin-left:auto; margin-right:auto; }
   h2 { color: gold; cursor: pointer; margin-bottom:10px; }
-  .content { display:none; margin-bottom:40px; }
+  .content { display:block; margin-bottom:40px; } /* keep as original */
   .slideshow { width:100%; max-width:400px; height:400px; margin-bottom:20px; overflow:hidden; position:relative; }
   .slideshow img { width:100%; height:100%; position:absolute; top:0; left:0; opacity:0; transition: opacity 1s ease-in-out; object-fit:cover; }
   .video { width:100%; max-width:400px; height:400px; margin-top:20px; }
@@ -27,7 +27,7 @@
 </head>
 <body>
 
-<!-- Hamburger -->
+<!-- Fixed Hamburger -->
 <div class="hamburger-container">
   <div class="hamburger" onclick="toggleDropdown('dropdown-partnerships')">
     <div></div>
@@ -39,15 +39,15 @@
   </div>
 </div>
 
-<h2 onclick="toggleContent('farons-content')">Faron Paul | FazAmnesty</h2>
-<div id="farons-content" class="content">
+<h2>Faron Paul | FazAmnesty</h2>
+<div class="content">
   <div class="slideshow">
     <img src="faron1.jpg" style="opacity:1">
     <img src="faron2.jpg">
     <img src="faron3.jpg">
   </div>
   <p class="text-story">
-    SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support each other’s initiatives.<br>
+    SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support initiatives.<br>
     I was honoured to work with Faron Paul at the Notting Hill Carnival. As a team, we assisted medics to reach the busy crowd, helped those who were passed out or injured, and dealt with weapon collections.
   </p>
   <video class="video" controls poster="fazamnesty-video-cover.PNG">
@@ -57,34 +57,29 @@
 </div>
 
 <script>
-function toggleContent(id) {
-  const el = document.getElementById(id);
-  el.style.display = (el.style.display==='block') ? 'none' : 'block';
-}
+  // Dropdown
+  function toggleDropdown(id) {
+    const dropdown = document.getElementById(id);
+    dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+  }
 
-// Dropdown
-function toggleDropdown(id) {
-  const dropdown = document.getElementById(id);
-  dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.hamburger, .hamburger div')) {
-    const dropdowns = document.getElementsByClassName("dropdown");
-    for (let i=0;i<dropdowns.length;i++){
-      if(dropdowns[i].style.display==='block'){dropdowns[i].style.display='none';}
+  window.onclick = function(event) {
+    if (!event.target.matches('.hamburger, .hamburger div')) {
+      const dropdowns = document.getElementsByClassName("dropdown");
+      for (let i=0;i<dropdowns.length;i++){
+        if(dropdowns[i].style.display==='block'){dropdowns[i].style.display='none';}
+      }
     }
   }
-}
 
-// Slideshow
-let slides = document.querySelectorAll('.slideshow img');
-let current = 0;
-setInterval(()=> {
-  slides[current].style.opacity = 0;
-  current = (current+1)%slides.length;
-  slides[current].style.opacity = 1;
-}, 3000);
+  // Slideshow (original)
+  let slides = document.querySelectorAll('.slideshow img');
+  let current = 0;
+  setInterval(()=> {
+    slides[current].style.opacity = 0;
+    current = (current+1)%slides.length;
+    slides[current].style.opacity = 1;
+  }, 3000);
 </script>
 </body>
 </html>
