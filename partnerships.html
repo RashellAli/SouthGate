@@ -6,8 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   body { font-family: Arial, sans-serif; background-color:#111; color:#eee; margin:0; padding:40px 20px; max-width:1000px; margin-left:auto; margin-right:auto; }
+  h1 { color:#eee; margin-bottom:10px; }
+  .subtitle { font-size:1.1rem; margin-bottom:30px; }
   h2 { color: gold; cursor: pointer; margin-bottom:10px; }
-  .content { display:none; margin-bottom:40px; }
+  .content { display:none; margin-bottom:40px; padding-left:15px; border-left:3px solid #555; }
   .slideshow { width:100%; max-width:400px; height:400px; margin-bottom:20px; overflow:hidden; position:relative; }
   .slideshow img { width:100%; height:100%; position:absolute; top:0; left:0; opacity:0; transition: opacity 1s ease-in-out; object-fit:cover; }
   .video { width:100%; max-width:400px; height:400px; margin-top:20px; }
@@ -22,8 +24,8 @@
   .dropdown { display:none; position:absolute; right:0; background-color:#222; border-radius:5px; overflow:hidden; margin-top:10px; }
   .dropdown a { display:block; color:#fff; padding:10px 20px; text-decoration:none; font-weight:bold; }
   .dropdown a:hover { background-color:#444; }
-  .text-story { font-size:1.1rem; line-height:1.5; margin-top:10px; }
-  .partner-description { font-size:1rem; margin-bottom:20px; }
+  .text-story { font-size:1rem; line-height:1.5; margin-top:10px; }
+  a.readmore { color: #1E90FF; text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -40,7 +42,8 @@
   </div>
 </div>
 
-<p class="partner-description">SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support initiatives.</p>
+<h1>Partnerships</h1>
+<p class="subtitle">SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support initiatives.</p>
 
 <h2 onclick="toggleContent('faron-content')">Faron Paul | FazAmnesty</h2>
 <div id="faron-content" class="content">
@@ -55,16 +58,15 @@
   <video class="video" controls poster="fazamnesty-video-cover.PNG">
     <source src="fazamnesty-video.mp4" type="video/mp4">
   </video>
-  <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank">Read Faron Paul's Story</a></p>
+  <p><a class="readmore" href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank">Read Faron Paul's Story</a></p>
 </div>
 
 <script>
-  // Dropdown Hamburger
+  // Hamburger dropdown
   function toggleDropdown(id) {
     const dropdown = document.getElementById(id);
     dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
   }
-
   window.onclick = function(event) {
     if (!event.target.matches('.hamburger, .hamburger div')) {
       const dropdowns = document.getElementsByClassName("dropdown");
