@@ -42,15 +42,16 @@
   .dropdown-content {
     display: none;
     background-color: #222;
-    overflow: hidden;
     padding: 20px 15px;
     margin-bottom: 30px;
     border-left: 3px solid #f1c40f;
   }
 
+  /* Slideshow container with fixed height */
   .slideshow-container {
     position: relative;
     max-width: 400px;
+    height: 400px; /* Fixed height so text below stays static */
     margin: 0 auto 20px auto;
     border-radius: 5px;
     overflow: hidden;
@@ -59,19 +60,15 @@
   .slides {
     display: none;
     width: 100%;
+    height: 100%; /* Fill the container */
     border-radius: 5px;
+    object-fit: cover; /* Maintain aspect ratio and crop if needed */
   }
 
-  .story {
-    font-size: 0.95rem; /* slightly smaller text */
+  .story, .initiatives {
+    font-size: 0.95rem;
     line-height: 1.5;
     margin-bottom: 20px;
-  }
-
-  .initiatives {
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-    color: #ccc;
   }
 
   video {
@@ -89,6 +86,8 @@
 
 <button class="dropdown">Faron Paul | FazAmnesty</button>
 <div class="dropdown-content">
+
+  <!-- Slideshow stays fixed above text -->
   <div class="slideshow-container">
     <img class="slides" src="faron1.jpg" alt="Faron Paul 1">
     <img class="slides" src="faron2.jpg" alt="Faron Paul 2">
@@ -100,7 +99,7 @@
   </p>
 
   <p class="initiatives">
-    SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support each other’s initiatives.
+    SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support initiatives.
   </p>
 
   <video src="fazamnesty-video.mp4" controls></video>
