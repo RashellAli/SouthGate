@@ -1,96 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Partnerships | SouthGate Protection CIC</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  body { font-family: Arial, sans-serif; background-color:#111; color:#eee; margin:0; padding:40px 20px; max-width:1000px; margin-left:auto; margin-right:auto; }
-  h1 { color:#eee; margin-bottom:10px; }
-  .subtitle { font-size:1.1rem; margin-bottom:30px; }
-  h2 { color: gold; cursor: pointer; margin-bottom:10px; }
-  .content { display:none; margin-bottom:40px; padding-left:15px; border-left:3px solid #555; }
-  .slideshow { width:100%; max-width:400px; height:400px; margin-bottom:20px; overflow:hidden; position:relative; }
-  .slideshow img { width:100%; height:100%; position:absolute; top:0; left:0; opacity:0; transition: opacity 1s ease-in-out; object-fit:cover; }
-  .video { width:100%; max-width:400px; height:400px; margin-top:20px; }
-  .hamburger-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-  }
-  .hamburger { width:30px; height:30px; cursor:pointer; }
-  .hamburger div { width:100%; height:4px; background-color:#fff; margin:6px 0; transition:0.4s; }
-  .dropdown { display:none; position:absolute; right:0; background-color:#222; border-radius:5px; overflow:hidden; margin-top:10px; }
-  .dropdown a { display:block; color:#fff; padding:10px 20px; text-decoration:none; font-weight:bold; }
-  .dropdown a:hover { background-color:#444; }
-  .text-story { font-size:1rem; line-height:1.5; margin-top:10px; }
-  a.readmore { color: #1E90FF; text-decoration: underline; }
-</style>
+  <meta charset="UTF-8" />
+  <title>Partnerships | SouthGate Protection CIC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #eee;
+      margin: 0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #eee;
+      margin-bottom: 10px;
+    }
+
+    .subtext {
+      color: #ccc;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 999;
+      width: 30px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger div {
+      width: 100%;
+      height: 4px;
+      background-color: white;
+    }
+    .menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #111;
+      height: 100%;
+      width: 250px;
+      flex-direction: column;
+      padding: 60px 20px;
+      z-index: 998;
+    }
+    .menu a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin: 15px 0;
+      display: block;
+    }
+
+    /* Drop-down */
+    .dropdown {
+      background-color: #111;
+      border-left: 4px solid #daa520; /* gold-yellow line */
+      padding: 15px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.1rem;
+      color: #daa520;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dropdown-content {
+      display: none;
+      background-color: #222;
+      padding: 20px;
+      text-align: center;
+      color: #eee;
+    }
+
+    .slideshow {
+      max-width: 400px;
+      height: 400px;
+      margin: 0 auto 20px auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    video {
+      max-width: 400px;
+      display: block;
+      margin: 20px auto;
+    }
+
+    a.read-more {
+      color: #daa520;
+      text-decoration: underline;
+      display: block;
+      margin-top: 10px;
+    }
+
+    p.text-content {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+  </style>
 </head>
 <body>
-
-<!-- Fixed Hamburger -->
-<div class="hamburger-container">
-  <div class="hamburger" onclick="toggleDropdown('hamburger-dropdown')">
+  <!-- Hamburger -->
+  <div class="hamburger" onclick="toggleMenu()">
     <div></div>
     <div></div>
     <div></div>
   </div>
-  <div id="hamburger-dropdown" class="dropdown">
+  <div class="menu" id="menu">
     <a href="index.html">Home</a>
   </div>
-</div>
 
-<h1>Partnerships</h1>
-<p class="subtitle">SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support initiatives.</p>
+  <h1>Partnerships</h1>
+  <p class="subtext">SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support each other’s initiatives.</p>
 
-<h2 onclick="toggleContent('faron-content')">Faron Paul | FazAmnesty🔽</h2>
-<div id="faron-content" class="content">
-  <div class="slideshow">
-    <img src="faron1.jpg" style="opacity:1">
-    <img src="faron2.jpg">
-    <img src="faron3.jpg">
+  <div class="dropdown" onclick="toggleDropdown()">
+    Faron Paul | FazAmnesty <span id="arrow">▼</span>
   </div>
-  <p class="text-story">
-    I was honoured to work with Faron Paul at the Notting Hill Carnival. As a team, we assisted medics to reach the busy crowd, helped those who were passed out or injured, and dealt with weapon collections.
-  </p>
-  <video class="video" controls poster="fazamnesty-video-cover.PNG">
-    <source src="fazamnesty-video.mp4" type="video/mp4">
-  </video>
-  <p><a class="readmore" href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank">Read Faron Paul's Story</a></p>
-</div>
+  <div class="dropdown-content" id="dropdownContent">
+    <div class="slideshow">
+      <img src="faron1.jpg" class="slide active" />
+      <img src="faron2.jpg" class="slide" />
+      <img src="faron3.jpg" class="slide" />
+    </div>
 
-<script>
-  // Hamburger dropdown
-  function toggleDropdown(id) {
-    const dropdown = document.getElementById(id);
-    dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
-  }
-  window.onclick = function(event) {
-    if (!event.target.matches('.hamburger, .hamburger div')) {
-      const dropdowns = document.getElementsByClassName("dropdown");
-      for (let i=0;i<dropdowns.length;i++){
-        if(dropdowns[i].style.display==='block'){dropdowns[i].style.display='none';}
+    <p class="text-content">
+      I was honoured to work with Faron Paul at the Notting Hill Carnival. As a team we assisted medics through the busy crowd, supported those who were passed or injured, and conducted weapon collections.
+    </p>
+
+    <video controls poster="fazamnesty-video-cover.PNG">
+      <source src="fazamnesty-video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" class="read-more">Read more about Faron Paul</a>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById('menu');
+      if(menu.style.display === 'flex'){
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
       }
     }
-  }
 
-  // Partner dropdown content
-  function toggleContent(id) {
-    const content = document.getElementById(id);
-    content.style.display = (content.style.display === 'block') ? 'none' : 'block';
-  }
+    function toggleDropdown() {
+      var content = document.getElementById('dropdownContent');
+      var arrow = document.getElementById('arrow');
+      if(content.style.display === 'block'){
+        content.style.display = 'none';
+        arrow.textContent = '▼';
+      } else {
+        content.style.display = 'block';
+        arrow.textContent = '▲';
+      }
+    }
 
-  // Slideshow
-  let slides = document.querySelectorAll('.slideshow img');
-  let current = 0;
-  setInterval(()=> {
-    slides[current].style.opacity = 0;
-    current = (current+1)%slides.length;
-    slides[current].style.opacity = 1;
-  }, 3000);
-</script>
-
+    // Slideshow
+    let slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide+1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 3000);
+  </script>
 </body>
 </html>
