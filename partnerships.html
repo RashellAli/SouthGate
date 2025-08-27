@@ -1,222 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>SouthGate Protection CIC | Partnerships</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta charset="UTF-8">
+  <title>SouthGate Protection CIC - Partnerships</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #111;
       color: #eee;
       margin: 0;
-      padding: 0;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
       text-align: center;
     }
-
-    .container {
-      max-width: 800px;
-      margin: 80px auto 40px auto;
-      padding: 0 20px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    p.description {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      margin-bottom: 40px;
-    }
-
-    /* Accordion - Gold & Black Theme */
-    .accordion {
-      background-color: #c9a24d;  /* Gold background */
-      color: #111;                /* Black text */
-      border-radius: 8px;
-      margin-bottom: 15px;
-      cursor: pointer;
-      padding: 15px 20px;
-      text-align: left;
-      outline: none;
-      transition: background-color 0.3s;
-      font-weight: bold;
-    }
-
-    .accordion:hover {
-      background-color: #b08f40; /* Darker gold on hover */
-    }
-
-    .accordion h2 {
-      margin: 0;
-      font-size: 1.2rem;
-      display: inline-block;
-    }
-
-    .panel {
-      background-color: #1a1a1a;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      padding: 0 20px;
-    }
-
-    .panel-content {
-      padding: 20px 0;
-    }
-
-    .panel img {
-      max-width: 150px;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-
-    .panel video {
-      width: 250px;
-      height: 250px;
-      border-radius: 8px;
-      object-fit: cover;
-      margin-top: 15px;
-    }
-
-    /* Hamburger Menu */
     .hamburger {
       position: fixed;
       top: 20px;
       right: 20px;
-      z-index: 999;
-      cursor: pointer;
-    }
-
-    .hamburger div {
       width: 30px;
-      height: 4px;
-      background-color: #eee;
-      margin: 6px 0;
-      transition: 0.4s;
+      height: 25px;
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-
-    .menu-content {
-      display: none;
+    .hamburger div {
+      width: 100%;
+      height: 4px;
+      background-color: gold;
+    }
+    .menu {
       position: fixed;
       top: 60px;
       right: 20px;
       background-color: #222;
-      border-radius: 8px;
       padding: 10px 20px;
-      z-index: 999;
+      display: none;
+      border-radius: 5px;
+      flex-direction: column;
+      gap: 10px;
     }
-
-    .menu-content a {
+    .menu a {
       color: #eee;
       text-decoration: none;
-      display: block;
-      padding: 8px 0;
     }
-
-    footer {
-      margin-top: 50px;
+    h2 {
+      color: gold;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1rem;
+      margin: 10px 0;
+      line-height: 1.4;
+    }
+    .partner-section {
+      border: 1px solid #444;
+      border-radius: 5px;
       padding: 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-      border-top: 1px solid #444;
-      text-align: center;
+      margin-bottom: 30px;
+      background-color: #1a1a1a;
     }
-
-    footer a {
-      color: #aaa;
-      text-decoration: underline;
-      margin: 0 5px;
-    }
-
-    @media (max-width: 700px) {
-      .panel video {
-        width: 80%;
-        height: auto;
-      }
+    video {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-
-  <!-- Hamburger Menu -->
-  <div class="hamburger" onclick="toggleMenu()">
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
     <div></div>
     <div></div>
     <div></div>
   </div>
-  <div class="menu-content" id="menuContent">
+  <div class="menu" id="menu">
     <a href="index.html">Home</a>
   </div>
 
-  <div class="container">
-    <h1>Partnerships</h1>
-    <p class="description">
-      SouthGate Protection collaborates with trusted partners to strengthen community safety and support each other’s work.
-    </p>
+  <h2>Partnerships</h2>
+  <p>SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support each other’s initiatives.</p>
 
-    <!-- Accordion for Faron Paul -->
-    <button class="accordion">
-      <h2>Faron Paul</h2>
-    </button>
-    <div class="panel">
-      <div class="panel-content">
-        <img src="faron-paul.jpg" alt="Faron Paul">
-        <p>
-          Faron Paul runs the FazAmnesty weapons amnesty program, working alongside communities and authorities to safely collect knives and reduce violent incidents. I was honoured to work with Faron at the Notting Hill Carnival, supporting the amnesty and helping strengthen local community safety. SouthGate Protection has proudly partnered with Faron to support events and initiatives that make a real difference.
-        </p>
-        <video controls>
-          <source src="fazamnesty-video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-
+  <div class="partner-section">
+    <h2>Faron Paul - FazAmnesty</h2>
+    <p>It was an honour to work alongside Faron Paul at the Notting Hill Carnival, supporting his weapons amnesty initiative and helping the community stay safe. Our collaboration highlights the impact small efforts can make when dedicated to community protection.</p>
+    <video controls>
+      <source src="fazamnesty-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 
-  <footer>
-    &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
-    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
-  </footer>
-
   <script>
-    // Accordion
-    const acc = document.getElementsByClassName("accordion");
-    for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        const panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        }
-      });
-    }
-
-    // Hamburger menu toggle
-    function toggleMenu() {
-      const menu = document.getElementById("menuContent");
-      if (menu.style.display === "block") {
-        menu.style.display = "none";
-      } else {
-        menu.style.display = "block";
-      }
-    }
-
-    // Close menu when clicking outside
-    window.onclick = function(event) {
-      const menu = document.getElementById("menuContent");
-      const hamburger = document.querySelector('.hamburger');
-      if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
-        menu.style.display = "none";
-      }
-    }
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    hamburger.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    });
   </script>
-
 </body>
 </html>
