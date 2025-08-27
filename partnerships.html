@@ -23,7 +23,7 @@
 
     .dropdown {
       background-color: #222;
-      color: #fff;
+      color: #FFD700; /* gold/yellow */
       padding: 15px;
       width: 80%;
       max-width: 600px;
@@ -46,6 +46,7 @@
       padding: 15px;
       border: 1px solid #444;
       border-top: none;
+      text-align: center;
     }
 
     .dropdown-content img {
@@ -53,6 +54,7 @@
       max-width: 400px;
       margin-bottom: 10px;
       border-radius: 5px;
+      display: none; /* hidden by default for slideshow */
     }
 
     .dropdown-content p {
@@ -89,7 +91,7 @@
     <img src="faron2.jpg" alt="Faron Paul">
     <img src="faron3.jpg" alt="Faron Paul">
     
-    <!-- Description -->
+    <!-- Description stays still while slideshow runs -->
     <p>
       I was honoured to have worked with Faron Paul at the Notting Hill Carnival. Together we helped raise awareness, support initiatives, and work toward a safer community.
     </p>
@@ -101,23 +103,19 @@
   <script>
     function toggleDropdown() {
       var content = document.getElementById("dropdownContent");
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
+      content.style.display = (content.style.display === "block") ? "none" : "block";
     }
 
-    // Simple automatic slideshow for images
+    // Slideshow
     let slideIndex = 0;
     const slides = document.querySelectorAll(".dropdown-content img");
 
     function showSlides() {
       slides.forEach((slide, index) => {
-        slide.style.display = index === slideIndex ? "block" : "none";
+        slide.style.display = (index === slideIndex) ? "block" : "none";
       });
       slideIndex = (slideIndex + 1) % slides.length;
-      setTimeout(showSlides, 3000); // Change slide every 3 seconds
+      setTimeout(showSlides, 3000); // Change every 3 seconds
     }
 
     showSlides();
