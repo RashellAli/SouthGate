@@ -39,6 +39,40 @@
       line-height: 1.5;
     }
 
+    /* Contact & Social Border */
+    .contact-social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      border: 2px solid #444;
+      padding: 10px 20px;
+      border-radius: 8px;
+      background-color: #222;
+    }
+    .contact-social a {
+      display: inline-block;
+    }
+    .contact-social img {
+      width: 30px;
+      height: 30px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.2s;
+    }
+    .contact-social img:hover {
+      transform: scale(1.2);
+    }
+    .contact-social span {
+      font-size: 0.95rem;
+      color: #eee;
+    }
+    .contact-social span a {
+      color: #eee;
+      text-decoration: underline;
+    }
+
     /* Hamburger Menu */
     nav {
       position: fixed;
@@ -80,35 +114,6 @@
       padding: 10px;
     }
 
-    /* Social & Email */
-    .contact-social {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    .contact-social a {
-      display: inline-block;
-    }
-    .contact-social img {
-      width: 30px;
-      filter: brightness(0) invert(1); /* white icons */
-      transition: transform 0.2s;
-    }
-    .contact-social img:hover {
-      transform: scale(1.2);
-    }
-    .contact-social span {
-      font-size: 0.95rem;
-      color: #eee;
-    }
-    .contact-social span a {
-      color: #eee;
-      text-decoration: underline;
-    }
-
     footer {
       margin-top: 60px;
       padding-top: 20px;
@@ -142,15 +147,15 @@
     An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening safety across the area and its surrounding communities through high-visibility patrols and a trusted, consistent presence.
   </p>
 
-  <!-- Social Media + Email -->
+  <!-- Contact + Social -->
   <div class="contact-social">
+    <span>Email: <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a></span>
     <a href="https://www.instagram.com/ghost.sgp/" target="_blank">
       <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
     </a>
     <a href="https://www.linkedin.com/in/ali10168523/" target="_blank">
       <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
     </a>
-    <span>Email: <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a></span>
   </div>
 
   <!-- Hamburger Menu -->
