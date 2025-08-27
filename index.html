@@ -19,48 +19,44 @@
       padding: 40px 20px;
       background-color: #111;
       color: #eee;
-      max-width: 600px;
+      max-width: 800px;
       margin: 0 auto;
     }
-
     img {
       max-width: 280px;
       height: auto;
       margin-bottom: 30px;
     }
-
-    p.motto {
+    .mission {
       color: white;
-      font-size: 1.8rem;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      line-height: 1.5;
+      text-align: left;
+    }
+    /* Social media and email section */
+    .contact-bar {
+      background-color: #222;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 15px;
+      border-radius: 5px;
       margin-bottom: 20px;
     }
-
-    p.mission {
-      font-size: 1.2rem; /* slightly smaller */
-      margin-bottom: 40px;
-      color: #eee;
-      line-height: 1.5;
-    }
-
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 10px;
-    }
-
-    .socials img {
+    .contact-bar img {
       width: 24px;
       height: 24px;
     }
-
-    .contact-email {
+    .contact-bar a {
       color: #eee;
+      text-decoration: none;
       font-size: 1rem;
-      margin-bottom: 30px;
     }
 
     footer {
+      margin-top: 40px;
       padding-top: 20px;
       border-top: 1px solid #444;
       font-size: 0.9rem;
@@ -80,26 +76,75 @@
       to { opacity: 1; }
     }
 
-    p, footer, .socials, .contact-email {
+    p, footer, .contact-bar {
       animation: fadeIn 2s ease-in forwards;
       opacity: 0;
+    }
+
+    /* Hamburger menu */
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 999;
+      width: 30px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger div {
+      width: 100%;
+      height: 4px;
+      background-color: white;
+    }
+    .menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #111;
+      height: 100%;
+      width: 250px;
+      flex-direction: column;
+      padding: 60px 20px;
+      z-index: 998;
+    }
+    .menu a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin: 15px 0;
+      display: block;
     }
   </style>
 </head>
 <body>
   <img src="logo.jpg" alt="SouthGate Protection Logo" />
-  <p class="motto">Presence. Purpose. Protection.</p>
+
   <p class="mission">
-    An independent frontline unit dedicated to safeguarding the vulnerable and strengthening safety across communities through high-visibility patrols and a trusted, consistent presence.
+    <strong>Presence. Purpose. Protection.</strong><br>
+    We patrol to protect those who need it most. From supporting vulnerable residents to maintaining a trusted presence in the streets, our mission is simple: safety, visibility, and community trust.<br><br>
+    We work to prevent harm, respond quickly when incidents arise, and build strong connections within the community. By combining high-visibility patrols with a consistent, approachable presence, we ensure everyone feels supported and secure. Our commitment is to act with integrity, professionalism, and compassion, creating safer environments where people can live, work, and thrive.
   </p>
 
-  <!-- Social media and email at bottom above footer -->
-  <div class="socials">
+  <!-- Contact bar -->
+  <div class="contact-bar">
     <a href="https://www.instagram.com/ghost.sgp/"><img src="instagram-logo.png" alt="Instagram" /></a>
     <a href="https://www.linkedin.com/in/ali10168523/"><img src="linkedin-logo.png" alt="LinkedIn" /></a>
+    <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a>
   </div>
-  <div class="contact-email">
-    <a href="mailto:info@southgateprotection.co.uk" style="color: #eee;">info@southgateprotection.co.uk</a>
+
+  <!-- Hamburger menu -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="partnerships.html">Partnerships</a>
   </div>
 
   <footer>
@@ -107,5 +152,16 @@
     Registered in England and Wales — Company No. 16604543<br />
     <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById('menu');
+      if(menu.style.display === 'flex'){
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
+      }
+    }
+  </script>
 </body>
 </html>
