@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SouthGate Protection CIC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Favicon and Manifest -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
@@ -38,38 +38,75 @@
       color: #eee;
       line-height: 1.5;
     }
-    p.enquiry-text {
-      color: white;
-      font-size: 1.2rem;
-      margin-bottom: 15px;
+
+    /* Hamburger Menu */
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
     }
-    form {
-      max-width: 400px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+    nav input {
+      display: none;
     }
-    input, textarea {
-      padding: 12px;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: none;
-      outline: none;
-      box-sizing: border-box;
-    }
-    button {
-      padding: 12px;
-      background-color: #444;
-      color: white;
-      font-weight: bold;
-      border: none;
+    nav label {
+      font-size: 30px;
       cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+      user-select: none;
     }
-    button:hover {
-      background-color: #666;
+    nav ul {
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background: #111;
+      position: absolute;
+      right: 0;
+      top: 50px;
+      width: 200px;
+      text-align: left;
+      border: 1px solid #444;
+    }
+    nav input:checked ~ ul {
+      display: block;
+    }
+    nav ul li {
+      border-bottom: 1px solid #333;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+    }
+
+    /* Social & Email */
+    .contact-social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .contact-social a {
+      display: inline-block;
+    }
+    .contact-social img {
+      width: 30px;
+      filter: brightness(0) invert(1); /* white icons */
+      transition: transform 0.2s;
+    }
+    .contact-social img:hover {
+      transform: scale(1.2);
+    }
+    .contact-social span {
+      font-size: 0.95rem;
+      color: #eee;
+    }
+    .contact-social span a {
+      color: #eee;
+      text-decoration: underline;
     }
 
     footer {
@@ -92,149 +129,44 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
-    p, form, footer {
+    p, footer {
       animation: fadeIn 2s ease-in forwards;
       opacity: 0;
-    }
-
-    /* Hamburger Menu */
-    .hamburger {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      cursor: pointer;
-      z-index: 1000;
-      width: 30px;
-      height: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .hamburger div {
-      width: 100%;
-      height: 4px;
-      background-color: #eee;
-    }
-    nav {
-      position: fixed;
-      top: 0;
-      right: -250px;
-      width: 200px;
-      height: 100%;
-      background-color: #111;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: right 0.3s ease;
-      z-index: 999;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-    }
-    nav ul li {
-      margin: 20px 0;
-    }
-    nav ul li a {
-      color: #eee;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-    nav.show {
-      right: 0;
-    }
-
-    /* Partnerships Section */
-    #partnerships {
-      padding: 50px 20px;
-      background-color: #111;
-      color: #eee;
-      display: none; /* hidden by default */
-    }
-    #partnerships video {
-      width: 100%;
-      border: 2px solid #444;
-      margin-top: 20px;
-      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-  <!-- Hamburger -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
+  <img src="logo.jpg" alt="SouthGate Protection Logo" />
+  <p class="motto">Presence. Purpose. Protection.</p>
+  <p class="mission">
+    An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening safety across the area and its surrounding communities through high-visibility patrols and a trusted, consistent presence.
+  </p>
+
+  <!-- Social Media + Email -->
+  <div class="contact-social">
+    <a href="https://www.instagram.com/ghost.sgp/" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+    </a>
+    <a href="https://www.linkedin.com/in/ali10168523/" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+    </a>
+    <span>Email: <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a></span>
   </div>
 
-  <!-- Navigation -->
-  <nav id="nav-menu">
+  <!-- Hamburger Menu -->
+  <nav>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle">☰</label>
     <ul>
-      <li><a href="#" onclick="showHome()">Home</a></li>
-      <li><a href="#" onclick="showPartnerships()">Partnerships</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="partnerships.html">Partnerships</a></li>
     </ul>
   </nav>
 
-  <!-- Homepage content wrapper -->
-  <div id="homepage">
-    <img src="logo.jpg" alt="SouthGate Protection Logo" />
-    <p class="motto">Presence. Purpose. Protection.</p>
-    <p class="mission">
-      An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening safety across the area and its surrounding communities through high-visibility patrols and a trusted, consistent presence.
-    </p>
-
-    <p class="enquiry-text">If you have any enquiries, please fill in the form below.</p>
-
-    <form id="enquiry-form" action="https://formsubmit.co/info@southgateprotection.co.uk" method="POST">
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_next" value="https://southgateprotection.co.uk/thankyou.html" />
-      <input type="hidden" name="_subject" value="New enquiry from SouthGate Protection website" />
-      <input type="hidden" name="_verification" value="true" />
-
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </div>
-
-  <!-- Partnerships Section -->
-  <section id="partnerships">
-    <h2>Partnerships</h2>
-    <!-- Add your video and descriptive text here -->
-    <p>Working alongside FazAmnesty and other initiatives to protect our community and support safe weapons surrender.</p>
-    <video controls>
-      <source src="path-to-your-video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </section>
-
   <footer>
-    &copy; 2025 SouthGate Protection CIC. All rights reserved.<br />
-    Registered in England and Wales — Company No. 16604543<br />
+    &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
+    Registered in England and Wales — Company No. 16604543<br>
     <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
   </footer>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById('nav-menu').classList.toggle('show');
-    }
-
-    function showPartnerships() {
-      document.getElementById('homepage').style.display = "none"; // hide homepage
-      document.getElementById('partnerships').style.display = "block"; // show partnerships
-      document.getElementById('nav-menu').classList.remove('show'); // close menu
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function showHome() {
-      document.getElementById('partnerships').style.display = "none"; // hide partnerships
-      document.getElementById('homepage').style.display = "block"; // show homepage
-      document.getElementById('nav-menu').classList.remove('show'); // close menu
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
 </body>
 </html>
