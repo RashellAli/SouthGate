@@ -80,9 +80,10 @@
       margin-top: 15px;
       border-left: 3px solid #444;
       padding-left: 15px;
+      text-align: center;
     }
 
-    /* Faron slideshow */
+    /* Slideshow for Faron */
     .slideshow-container {
       position: relative;
       max-width: 300px;
@@ -104,8 +105,27 @@
       opacity: 1;
     }
 
-    .slideshow-container:hover img {
-      animation-play-state: paused;
+    /* Gallery Slideshow */
+    .gallery-container {
+      position: relative;
+      max-width: 300px;
+      height: 300px;
+      margin: 0 auto 20px auto;
+      overflow: hidden;
+    }
+    .gallery-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    .gallery-slide img,
+    .gallery-slide video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     video {
@@ -118,25 +138,7 @@
       margin-right: auto;
     }
 
-    /* Gallery */
-    .gallery-container {
-      max-width: 300px;
-      margin: 30px auto;
-      position: relative;
-      overflow: hidden;
-    }
-    .gallery-slide {
-      display: none;
-      width: 100%;
-    }
-    .gallery-slide img,
-    .gallery-slide video {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
+    /* Footer */
     footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -153,6 +155,7 @@
   </style>
 </head>
 <body>
+
   <!-- Hamburger menu -->
   <div class="hamburger" onclick="toggleMenu()">
     <div></div>
@@ -166,7 +169,8 @@
   <h1>Partnerships</h1>
   <p style="text-align:center;">SouthGate Protection collaborates with trusted partners to strengthen community safety and support each other's initiatives.</p>
 
-  <h2 onclick="toggleDropdown()">Faron Paul | FazAmnesty &#9662;</h2>
+  <!-- Faron Paul dropdown -->
+  <h2 onclick="toggleDropdown('faronDropdown')">Faron Paul | FazAmnesty &#9662;</h2>
   <div class="dropdown-content" id="faronDropdown">
     <div class="slideshow-container">
       <img src="faron1.jpg" class="active" />
@@ -184,21 +188,22 @@
     <p style="text-align:center;"><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" style="color: gold;">Read more about Faron Paul's story</a></p>
   </div>
 
-  <!-- Gallery -->
-  <h2>Gallery &#9662;</h2>
-  <div class="gallery-container" id="gallery">
-    <div class="gallery-slide"><img src="gallery1.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery2.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery3.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery4.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery5.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery6.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery7.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery8.jpg" /></div>
-    <div class="gallery-slide"><video src="gallery1-video.mp4" muted autoplay loop></video></div>
+  <!-- Gallery dropdown -->
+  <h2 onclick="toggleDropdown('galleryDropdown')">Gallery &#9662;</h2>
+  <div class="dropdown-content" id="galleryDropdown">
+    <div class="gallery-container" id="gallerySlides">
+      <div class="gallery-slide"><img src="gallery1.jpg" /></div>
+      <div class="gallery-slide"><img src="gallery2.jpg" /></div>
+      <div class="gallery-slide"><img src="gallery3.jpg" /></div>
+      <div class="gallery-slide"><img src="gallery4.jpg" /></div>
+      <div class="gallery-slide"><img src="gallery5.jpg" /></div>
+      <div class="gallery-slide"><img src="gallery6.jpg" /></div>
+      <div class="gallery-slide"><img src="gallery7.jpg" /></div>
+      <div class="gallery-slide"><img src="gallery8.jpg" /></div>
+      <div class="gallery-slide"><video src="gallery1-video.mp4" muted autoplay loop></video></div>
+    </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     &copy; 2025 SouthGate Protection CIC. All rights reserved.<br />
     Registered in England and Wales — Company No. 16604543<br />
@@ -206,29 +211,27 @@
   </footer>
 
   <script>
-    // Hamburger menu
     function toggleMenu() {
       var menu = document.getElementById('menu');
       menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
     }
 
-    // Dropdown
-    function toggleDropdown() {
-      var dropdown = document.getElementById('faronDropdown');
+    function toggleDropdown(id) {
+      var dropdown = document.getElementById(id);
       dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
     }
 
     // Faron slideshow
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.slideshow-container img');
-    function showSlides() {
-      slides.forEach(img => img.classList.remove('active'));
-      slideIndex++;
-      if(slideIndex > slides.length) slideIndex = 1;
-      slides[slideIndex-1].classList.add('active');
-      setTimeout(showSlides, 3000);
+    let faronIndex = 0;
+    const faronSlides = document.querySelectorAll('.slideshow-container img');
+    function showFaronSlides() {
+      faronSlides.forEach(img => img.classList.remove('active'));
+      faronIndex++;
+      if(faronIndex > faronSlides.length) faronIndex = 1;
+      faronSlides[faronIndex-1].classList.add('active');
+      setTimeout(showFaronSlides, 3000);
     }
-    showSlides();
+    showFaronSlides();
 
     // Gallery slideshow
     let galleryIndex = 0;
@@ -237,7 +240,7 @@
       gallerySlides.forEach(slide => slide.style.display = 'none');
       galleryIndex++;
       if(galleryIndex > gallerySlides.length) galleryIndex = 1;
-      gallerySlides[galleryIndex - 1].style.display = 'block';
+      gallerySlides[galleryIndex-1].style.display = 'block';
       setTimeout(showGallerySlides, 3000);
     }
     showGallerySlides();
