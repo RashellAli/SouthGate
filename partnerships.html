@@ -1,122 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>SouthGate Protection CIC - Partnerships</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-      background-color: #111;
-      color: #eee;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .dropbtn {
-      background-color: #111;
-      color: #FFD700;
-      padding: 15px;
-      font-size: 1.2rem;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      text-align: left;
-    }
-    .dropdown {
-      margin: 20px 0;
-    }
-    .dropdown-content {
-      display: block;
-      background-color: #222;
-      padding: 20px;
-      border-radius: 5px;
-    }
-    .description {
-      text-align: left;
-      font-size: 1rem;
-      line-height: 1.5;
-      margin: 10px 0;
-    }
-    .slideshow-container img {
-      width: 100%;
-      max-height: 250px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
-    video {
-      margin-top: 15px;
-      border-radius: 5px;
-    }
-    footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #444;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-    footer a {
-      color: #aaa;
-      text-decoration: underline;
-      margin: 0 10px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Partnerships | SouthGate Protection CIC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: Arial, sans-serif; background-color:#111; color:#eee; margin:0; padding:40px 20px; max-width:1000px; margin-left:auto; margin-right:auto; }
+  h2 { color: gold; cursor: pointer; margin-bottom:10px; }
+  .content { display:none; margin-bottom:40px; }
+  .slideshow { width:100%; max-width:400px; height:400px; margin-bottom:20px; overflow:hidden; position:relative; }
+  .slideshow img { width:100%; height:100%; position:absolute; top:0; left:0; opacity:0; transition: opacity 1s ease-in-out; object-fit:cover; }
+  .video { width:100%; max-width:400px; height:400px; margin-top:20px; }
+  .hamburger-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  .hamburger { width:30px; height:30px; cursor:pointer; }
+  .hamburger div { width:100%; height:4px; background-color:#fff; margin:6px 0; transition:0.4s; }
+  .dropdown { display:none; position:absolute; right:0; background-color:#222; border-radius:5px; overflow:hidden; margin-top:10px; }
+  .dropdown a { display:block; color:#fff; padding:10px 20px; text-decoration:none; font-weight:bold; }
+  .dropdown a:hover { background-color:#444; }
+  .text-story { font-size:1.1rem; line-height:1.5; }
+</style>
 </head>
 <body>
-  <h1>Partnerships</h1>
-  <p>SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support each other’s initiatives.</p>
 
-  <div class="dropdown">
-    <button class="dropbtn">Faron Paul | FazAmnesty</button>
-    <div class="dropdown-content">
-      
-      <!-- Slideshow -->
-      <div class="slideshow-container">
-        <img class="mySlides" src="faron1.jpg">
-        <img class="mySlides" src="faron2.jpg">
-        <img class="mySlides" src="faron3.jpg">
-      </div>
-
-      <!-- Fixed description text -->
-      <p class="description">
-        I was honoured to work alongside Faron Paul at the Notting Hill Carnival. As a team, we supported medics in navigating the busy crowd, assisted individuals who were unwell or injured, and actively participated in safe and responsible weapon collections, contributing to a safer and more secure environment for all attendees.
-      </p>
-
-      <!-- Read more link -->
-      <p class="description">
-        <strong>Learn more about Faron Paul’s story:</strong> 
-        <a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" style="color:#FFD700; text-decoration:underline;">
-          Read more on gov.uk
-        </a>
-      </p>
-
-      <!-- Video with cover image -->
-      <video src="fazamnesty-video.mp4" controls poster="fazamnesty-video-cover.PNG" style="width:300px; height:300px;"></video>
-    </div>
+<!-- Hamburger -->
+<div class="hamburger-container">
+  <div class="hamburger" onclick="toggleDropdown('dropdown-partnerships')">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
+  <div id="dropdown-partnerships" class="dropdown">
+    <a href="index.html">Home</a>
+  </div>
+</div>
 
-  <!-- Slideshow JS -->
-  <script>
-    let slideIndex = 0;
-    showSlides();
-    function showSlides() {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      slides[slideIndex-1].style.display = "block";  
-      setTimeout(showSlides, 3000); // Change image every 3 seconds
+<h2 onclick="toggleContent('farons-content')">Faron Paul | FazAmnesty</h2>
+<div id="farons-content" class="content">
+  <div class="slideshow">
+    <img src="faron1.jpg" style="opacity:1">
+    <img src="faron2.jpg">
+    <img src="faron3.jpg">
+  </div>
+  <p class="text-story">
+    SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support each other’s initiatives.<br>
+    I was honoured to work with Faron Paul at the Notting Hill Carnival. As a team, we assisted medics to reach the busy crowd, helped those who were passed out or injured, and dealt with weapon collections.
+  </p>
+  <video class="video" controls poster="fazamnesty-video-cover.PNG">
+    <source src="fazamnesty-video.mp4" type="video/mp4">
+  </video>
+  <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank">Read Faron Paul's Story</a></p>
+</div>
+
+<script>
+function toggleContent(id) {
+  const el = document.getElementById(id);
+  el.style.display = (el.style.display==='block') ? 'none' : 'block';
+}
+
+// Dropdown
+function toggleDropdown(id) {
+  const dropdown = document.getElementById(id);
+  dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.hamburger, .hamburger div')) {
+    const dropdowns = document.getElementsByClassName("dropdown");
+    for (let i=0;i<dropdowns.length;i++){
+      if(dropdowns[i].style.display==='block'){dropdowns[i].style.display='none';}
     }
-  </script>
+  }
+}
 
-  <footer>
-    &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
-    Registered in England and Wales — Company No. 16604543<br>
-    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
-  </footer>
+// Slideshow
+let slides = document.querySelectorAll('.slideshow img');
+let current = 0;
+setInterval(()=> {
+  slides[current].style.opacity = 0;
+  current = (current+1)%slides.length;
+  slides[current].style.opacity = 1;
+}, 3000);
+</script>
 </body>
 </html>
