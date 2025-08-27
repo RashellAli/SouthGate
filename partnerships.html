@@ -71,7 +71,7 @@
       padding: 15px;
       margin-bottom: 20px;
       cursor: pointer;
-      text-align: left;
+      text-align: center;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
@@ -88,6 +88,8 @@
       padding: 20px;
       text-align: center;
       color: #eee;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .slideshow {
@@ -126,7 +128,6 @@
     p.text-content {
       font-size: 0.95rem;
       margin-bottom: 15px;
-      text-align: left;
     }
 
   </style>
@@ -149,22 +150,24 @@
     Faron Paul | FazAmnesty <span id="arrow">▼</span>
   </div>
   <div class="dropdown-content" id="dropdownContent">
-    <div class="slideshow">
-      <img src="faron1.jpg" class="slide active" />
-      <img src="faron2.jpg" class="slide" />
-      <img src="faron3.jpg" class="slide" />
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="slideshow">
+        <img src="faron1.jpg" class="slide active" />
+        <img src="faron2.jpg" class="slide" />
+        <img src="faron3.jpg" class="slide" />
+      </div>
+
+      <p class="text-content">
+        I was honoured to work with Faron Paul at the Notting Hill Carnival. As a team we assisted medics through the busy crowd, supported those who were passed or injured, and conducted weapon collections.
+      </p>
+
+      <video controls poster="fazamnesty-video-cover.PNG">
+        <source src="fazamnesty-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" class="read-more">Read more about Faron Paul</a>
     </div>
-
-    <p class="text-content">
-      I was honoured to work with Faron Paul at the Notting Hill Carnival. As a team we assisted medics through the busy crowd, supported those who were passed or injured, and conducted weapon collections.
-    </p>
-
-    <video controls poster="fazamnesty-video-cover.PNG">
-      <source src="fazamnesty-video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-
-    <a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" class="read-more">Read more about Faron Paul</a>
   </div>
 
   <script>
