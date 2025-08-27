@@ -17,7 +17,7 @@
 
     .container {
       max-width: 800px;
-      margin: 40px auto;
+      margin: 80px auto 40px auto;
       padding: 0 20px;
     }
 
@@ -26,8 +26,16 @@
       margin-bottom: 20px;
     }
 
+    p.description {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    /* Accordion - Gold & Black Theme */
     .accordion {
-      background-color: #222;
+      background-color: #c9a24d;  /* Gold background */
+      color: #111;                /* Black text */
       border-radius: 8px;
       margin-bottom: 15px;
       cursor: pointer;
@@ -35,10 +43,11 @@
       text-align: left;
       outline: none;
       transition: background-color 0.3s;
+      font-weight: bold;
     }
 
     .accordion:hover {
-      background-color: #333;
+      background-color: #b08f40; /* Darker gold on hover */
     }
 
     .accordion h2 {
@@ -74,6 +83,41 @@
       margin-top: 15px;
     }
 
+    /* Hamburger Menu */
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 30px;
+      height: 4px;
+      background-color: #eee;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+
+    .menu-content {
+      display: none;
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background-color: #222;
+      border-radius: 8px;
+      padding: 10px 20px;
+      z-index: 999;
+    }
+
+    .menu-content a {
+      color: #eee;
+      text-decoration: none;
+      display: block;
+      padding: 8px 0;
+    }
+
     footer {
       margin-top: 50px;
       padding: 20px;
@@ -88,13 +132,32 @@
       text-decoration: underline;
       margin: 0 5px;
     }
+
+    @media (max-width: 700px) {
+      .panel video {
+        width: 80%;
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="menu-content" id="menuContent">
+    <a href="index.html">Home</a>
+  </div>
+
   <div class="container">
     <h1>Partnerships</h1>
-    <p>SouthGate Protection collaborates with trusted partners to strengthen community safety and support each other’s work.</p>
+    <p class="description">
+      SouthGate Protection collaborates with trusted partners to strengthen community safety and support each other’s work.
+    </p>
 
     <!-- Accordion for Faron Paul -->
     <button class="accordion">
@@ -121,6 +184,7 @@
   </footer>
 
   <script>
+    // Accordion
     const acc = document.getElementsByClassName("accordion");
     for (let i = 0; i < acc.length; i++) {
       acc[i].addEventListener("click", function() {
@@ -132,6 +196,25 @@
           panel.style.maxHeight = panel.scrollHeight + "px";
         }
       });
+    }
+
+    // Hamburger menu toggle
+    function toggleMenu() {
+      const menu = document.getElementById("menuContent");
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
+    }
+
+    // Close menu when clicking outside
+    window.onclick = function(event) {
+      const menu = document.getElementById("menuContent");
+      const hamburger = document.querySelector('.hamburger');
+      if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+        menu.style.display = "none";
+      }
     }
   </script>
 
