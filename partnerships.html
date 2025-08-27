@@ -1,92 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Partnerships | SouthGate Protection CIC</title>
+  <meta charset="UTF-8" />
+  <title>SouthGate Protection CIC | Partnerships</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #111;
       color: #eee;
-      padding: 30px 15px;
-      max-width: 700px;
-      margin: 0 auto;
+      margin: 0;
+      padding: 0;
       text-align: center;
     }
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.4;
-      margin-bottom: 20px;
-    }
-
-    .section {
-      padding: 20px;
-      border: 2px solid #444;
-      border-radius: 8px;
+    .header-bar {
       background-color: #222;
-      animation: fadeIn 1.5s ease-in forwards;
+      padding: 15px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 2px solid #444;
+      flex-wrap: wrap;
+    }
+
+    .header-bar a {
+      color: #eee;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+    }
+
+    .header-bar a img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #fff;
+      animation: fadeIn 2s ease-in forwards;
       opacity: 0;
     }
 
-    img {
+    p.description {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 30px;
+      animation: fadeIn 2.5s ease-in forwards;
+      opacity: 0;
+    }
+
+    .partner-section {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+      animation: fadeIn 3s ease-in forwards;
+      opacity: 0;
+    }
+
+    .partner-section img {
       max-width: 200px;
       height: auto;
+      border-radius: 8px;
       margin-bottom: 15px;
-      border-radius: 6px;
     }
 
     video {
       width: 100%;
+      max-width: 600px;
       border-radius: 8px;
-      margin-top: 15px;
-    }
-
-    a.back-home {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 10px 18px;
-      color: #eee;
-      background-color: #444;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: background-color 0.3s;
-    }
-    a.back-home:hover {
-      background-color: #666;
+      margin-top: 20px;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+      border-top: 1px solid #444;
+    }
+
+    footer a {
+      color: #aaa;
+      text-decoration: underline;
+      margin: 0 5px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Partnerships</h1>
-  <p>SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support each other’s initiatives.</p>
-
-  <!-- Single Partner Section -->
-  <div class="section">
-    <img src="faron.jpg" alt="Faron Paul">
-    <p><strong>Faron Paul</strong> runs FazAmnesty, a weapons amnesty initiative dedicated to reducing knife crime and promoting safer communities. Working together allows us to combine efforts on knife collections and community protection activities.</p>
-
-    <!-- Video -->
-    <video controls>
-      <source src="fazanmesty-video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  <div class="header-bar">
+    <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a>
+    <a href="https://www.instagram.com/ghost.sgp/">
+      <img src="instagram-logo.png" alt="Instagram"> Instagram
+    </a>
+    <a href="https://www.linkedin.com/in/ali10168523/">
+      <img src="linkedin-logo.png" alt="LinkedIn"> LinkedIn
+    </a>
   </div>
 
-  <a href="index.html" class="back-home">Back to Home</a>
+  <div class="container">
+    <h1>Partnerships</h1>
+    <p class="description">
+      SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support each other’s work.
+    </p>
+
+    <div class="partner-section">
+      <img src="faron-paul.jpg" alt="Faron Paul">
+      <h2>Faron Paul</h2>
+      <p>
+        Faron Paul runs the FazAmnesty weapons amnesty program, working alongside communities and authorities to safely collect knives and reduce violent incidents. SouthGate Protection has proudly partnered with Faron to support local events and community safety initiatives.
+      </p>
+
+      <video controls>
+        <source src="fazamnesty-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
+    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
+  </footer>
 
 </body>
 </html>
