@@ -25,51 +25,48 @@
       min-height: 100vh;
     }
 
-    /* Container for logo + text side by side */
-    .content-container {
+    /* Logo at the top */
+    .logo-container {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .logo-container img {
+      max-width: 280px;
+      height: auto;
+    }
+
+    /* Motto + mission diagonal layout */
+    .text-container {
       display: flex;
       flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      max-width: 1000px;
       flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 1000px;
       margin-bottom: 50px;
     }
-
-    .text-container {
-      flex: 1 1 400px;
-    }
-
-    p.motto {
+    .text-container p.motto {
       color: white;
       font-size: 1.8rem;
-      margin-bottom: 15px;
+      margin: 0;
     }
-
-    p.mission {
+    .text-container p.mission {
       color: #eee;
       font-size: 1.1rem;
       line-height: 1.5;
+      max-width: 600px;
     }
 
-    img.logo {
-      max-width: 280px;
-      height: auto;
-      flex: 0 1 280px;
-    }
-
-    /* Footer socials */
+    /* Socials above footer */
     .footer-socials {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 15px;
-      margin-top: auto;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       flex-wrap: wrap;
     }
-
     .footer-socials a img {
       width: 24px;
       height: 24px;
@@ -79,20 +76,22 @@
     .footer-socials a img:hover {
       filter: grayscale(0%) brightness(100%);
     }
-
     .footer-email {
       color: #eee;
       text-decoration: underline;
       font-size: 0.95rem;
+      display: block;
+      text-align: center;
+      margin-bottom: 10px;
     }
 
+    /* Footer legal info */
     footer {
       text-align: center;
       font-size: 0.9rem;
       color: #aaa;
-      margin-top: 10px;
+      margin-top: 0;
     }
-
     footer a {
       color: #aaa;
       text-decoration: underline;
@@ -103,32 +102,29 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
     p, footer {
       animation: fadeIn 2s ease-in forwards;
       opacity: 0;
     }
 
     @media (max-width: 800px) {
-      .content-container {
+      .text-container {
         flex-direction: column;
         text-align: center;
-      }
-      img.logo {
-        margin: 0 auto;
       }
     }
   </style>
 </head>
 <body>
-  <div class="content-container">
-    <div class="text-container">
-      <p class="motto">Presence. Purpose. Protection.</p>
-      <p class="mission">
-        An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening safety across the area and its surrounding communities through high-visibility patrols and a trusted, consistent presence.
-      </p>
-    </div>
-    <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo" />
+  <div class="logo-container">
+    <img src="logo.jpg" alt="SouthGate Protection Logo">
+  </div>
+
+  <div class="text-container">
+    <p class="motto">Presence. Purpose. Protection.</p>
+    <p class="mission">
+      An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening safety across the area and its surrounding communities through high-visibility patrols and a trusted, consistent presence.
+    </p>
   </div>
 
   <div class="footer-socials">
