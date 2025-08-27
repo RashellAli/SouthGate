@@ -15,31 +15,51 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px 20px;
       background-color: #111;
       color: #eee;
-      max-width: 800px;
-      margin: 0 auto;
+      margin: 0;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    img {
+    img.logo {
       max-width: 280px;
       height: auto;
-      margin-bottom: 30px;
+      display: block;
+      margin: 0 auto 30px auto;
     }
 
-    p.motto {
-      color: white;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-    }
-
-    p.mission {
+    .intro-text {
       font-size: 1.3rem;
+      line-height: 1.6;
       margin-bottom: 40px;
       color: #eee;
-      line-height: 1.5;
+      animation: fadeIn 2s ease-in forwards;
+      opacity: 0;
+      transform: rotate(-2deg); /* slight diagonal effect */
+    }
+
+    .social-bar {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      background-color: #222;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    .social-bar img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .social-bar a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 1rem;
     }
 
     footer {
@@ -57,121 +77,31 @@
       font-size: 0.9rem;
     }
 
-    /* Fade-in animation */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
-    p, footer {
-      animation: fadeIn 2s ease-in forwards;
-      opacity: 0;
-    }
-
-    /* Hamburger menu */
-    .hamburger {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 30px;
-      height: 25px;
-      cursor: pointer;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .hamburger div {
-      width: 100%;
-      height: 4px;
-      background-color: white; /* changed to white */
-    }
-    .menu {
-      position: fixed;
-      top: 60px;
-      right: 20px;
-      background-color: #222;
-      padding: 10px 20px;
-      display: none;
-      border-radius: 5px;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .menu a {
-      color: #eee;
-      text-decoration: none;
-    }
-
-    /* Social media / email bar */
-    .social-bar {
-      background-color: #333;
-      padding: 10px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px;
-      margin-bottom: 30px;
-      border-radius: 5px;
-    }
-
-    .social-bar .socials {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-    }
-
-    .social-bar img {
-      width: 24px;
-      height: 24px;
-    }
-
-    .social-bar a {
-      color: #eee;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
   </style>
 </head>
 <body>
-  <!-- Hamburger -->
-  <div class="hamburger" id="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <div class="menu" id="menu">
-    <a href="partnerships.html">Partnerships</a>
-  </div>
+  <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo" />
 
-  <img src="logo.jpg" alt="SouthGate Protection Logo" />
-  <p class="motto">Presence. Purpose. Protection.</p>
-  <p class="mission">
-    An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening safety across the area and its surrounding communities through high-visibility patrols and a trusted, consistent presence.
-  </p>
-
-  <!-- Social media & email -->
   <div class="social-bar">
-    <div class="socials">
-      <a href="https://www.instagram.com/ghost.sgp"><img src="instagram-logo.png" alt="Instagram"></a>
-      <a href="https://www.linkedin.com/in/ali10168523"><img src="linkedin-logo.png" alt="LinkedIn"></a>
-    </div>
+    <a href="https://www.instagram.com/ghost.sgp" target="_blank"><img src="instagram-logo.png" alt="Instagram" /></a>
+    <a href="https://www.linkedin.com/in/ali10168523" target="_blank"><img src="linkedin-logo.png" alt="LinkedIn" /></a>
     <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a>
   </div>
+
+  <p class="intro-text">
+    <strong>Presence. Purpose. Protection.</strong><br>
+    We patrol to protect those who need it most. From supporting vulnerable residents to maintaining a trusted presence in the streets, our mission is simple: safety, visibility, and community trust.<br><br>
+    We work to prevent harm, respond quickly when incidents arise, and build strong connections within the community. By combining high-visibility patrols with a consistent, approachable presence, we ensure everyone feels supported and secure. Our commitment is to act with integrity, professionalism, and compassion, creating safer environments where people can live, work, and thrive.
+  </p>
 
   <footer>
     &copy; 2025 SouthGate Protection CIC. All rights reserved.<br />
     Registered in England and Wales — Company No. 16604543<br />
     <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
   </footer>
-
-  <script>
-    // Hamburger toggle
-    const hamburger = document.getElementById('hamburger');
-    const menu = document.getElementById('menu');
-    hamburger.addEventListener('click', () => {
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    });
-  </script>
 </body>
 </html>
