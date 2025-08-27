@@ -5,7 +5,7 @@
   <title>SouthGate Protection CIC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Favicon -->
+  <!-- Favicon and Manifest -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
@@ -15,97 +15,43 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
       background-color: #111;
       color: #eee;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
+      max-width: 800px;
+      margin: 0 auto;
     }
-
-    /* Logo at the top */
-    .logo-container {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .logo-container img {
+    img {
       max-width: 280px;
       height: auto;
-    }
-
-    /* Motto + mission diagonal layout */
-    .text-container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 20px;
-      max-width: 1000px;
-      margin-bottom: 50px;
-    }
-    .text-container p.motto {
-      color: white;
-      font-size: 1.8rem;
-      margin: 0;
-    }
-    .text-container p.mission {
-      color: #eee;
-      font-size: 1.1rem;
-      line-height: 1.5;
-      max-width: 600px;
-    }
-
-    /* Footer socials and email */
-    .footer-socials-container {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-      max-width: 600px;
       margin-bottom: 30px;
     }
-    .footer-socials {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 5px;
-    }
-    .footer-socials a img {
-      width: 24px;
-      height: 24px;
-      filter: grayscale(100%) brightness(80%);
-      transition: filter 0.3s;
-    }
-    .footer-socials a img:hover {
-      filter: grayscale(0%) brightness(100%);
-    }
-    .footer-email {
-      color: #eee;
-      text-decoration: underline;
-      font-size: 0.95rem;
+    p.motto {
+      color: white;
+      font-size: 1.8rem;
       margin-bottom: 20px;
     }
-
-    /* Thin grey line */
-    .footer-line {
-      width: 100%;
-      max-width: 600px;
-      border-top: 1px solid #555;
-      margin-bottom: 15px;
+    p.mission {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      color: #eee;
+      line-height: 1.5;
     }
 
-    /* Footer legal info */
     footer {
-      text-align: center;
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
       font-size: 0.9rem;
       color: #aaa;
-      margin-top: 0;
     }
+
     footer a {
       color: #aaa;
       text-decoration: underline;
+      margin: 0 10px;
+      font-size: 0.9rem;
     }
 
     /* Fade-in animation */
@@ -113,52 +59,101 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
     p, footer {
       animation: fadeIn 2s ease-in forwards;
       opacity: 0;
     }
 
-    @media (max-width: 800px) {
-      .text-container {
-        flex-direction: column;
-        text-align: center;
-      }
-      .footer-socials-container {
-        align-items: center;
-      }
+    /* Hamburger menu */
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger div {
+      width: 100%;
+      height: 4px;
+      background-color: gold;
+    }
+    .menu {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background-color: #222;
+      padding: 10px 20px;
+      display: none;
+      border-radius: 5px;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .menu a {
+      color: #eee;
+      text-decoration: none;
+    }
+
+    /* Social media / email footer line */
+    .social-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .social-footer img {
+      width: 24px;
+      height: 24px;
+    }
+    .social-footer a {
+      color: #eee;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="logo.jpg" alt="SouthGate Protection Logo">
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="partnerships.html">Partnerships</a>
   </div>
 
-  <div class="text-container">
-    <p class="motto">Presence. Purpose. Protection.</p>
-    <p class="mission">
-      An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening safety across the area and its surrounding communities through high-visibility patrols and a trusted, consistent presence.
-    </p>
-  </div>
+  <img src="logo.jpg" alt="SouthGate Protection Logo" />
+  <p class="motto">Presence. Purpose. Protection.</p>
+  <p class="mission">
+    An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening safety across the area and its surrounding communities through high-visibility patrols and a trusted, consistent presence.
+  </p>
 
-  <div class="footer-socials-container">
-    <div class="footer-socials">
-      <a href="https://www.instagram.com/ghost.sgp/" target="_blank">
-        <img src="instagram-logo.png" alt="Instagram">
-      </a>
-      <a href="https://www.linkedin.com/in/ali10168523/" target="_blank">
-        <img src="linkedin-logo.png" alt="LinkedIn">
-      </a>
-    </div>
-    <a href="mailto:info@southgateprotection.co.uk" class="footer-email">info@southgateprotection.co.uk</a>
+  <!-- Socials and email -->
+  <div class="social-footer">
+    <a href="https://www.instagram.com/ghost.sgp"><img src="instagram-logo.png" alt="Instagram"></a>
+    <a href="https://www.linkedin.com/in/ali10168523"><img src="linkedin-logo.png" alt="LinkedIn"></a>
+    <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a>
   </div>
-
-  <div class="footer-line"></div>
 
   <footer>
     &copy; 2025 SouthGate Protection CIC. All rights reserved.<br />
     Registered in England and Wales — Company No. 16604543<br />
     <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
   </footer>
+
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    hamburger.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
 </body>
 </html>
