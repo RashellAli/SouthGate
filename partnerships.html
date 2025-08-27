@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Partnerships | SouthGate Protection CIC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>SouthGate Protection - Partnerships</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #111;
       color: #eee;
+      margin: 0;
       padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    h1, h2 {
       text-align: center;
     }
 
-    p {
-      line-height: 1.5;
+    h1, h2 {
+      margin-bottom: 15px;
     }
 
-    /* Fixed hamburger */
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: gold;
+      cursor: pointer;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+      max-width: 700px;
+      margin: 10px auto 30px auto;
+    }
+
+    /* Hamburger menu */
     .hamburger {
       position: fixed;
       top: 20px;
@@ -61,61 +74,51 @@
       display: block;
     }
 
-    /* Dropdown content */
-    .dropdown {
-      margin: 30px 0;
-      cursor: pointer;
-    }
-    .dropdown-header {
-      color: gold;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-    }
-    .dropdown-header::after {
-      content: '▼';
-      font-size: 0.8rem;
-    }
+    /* Drop-down */
     .dropdown-content {
       display: none;
-      margin-top: 20px;
+      margin-top: 15px;
       border-left: 3px solid #444;
       padding-left: 15px;
     }
-    .dropdown-content img {
-      display: block;
-      max-width: 250px;
-      margin: 10px auto;
-    }
-    .dropdown-content video {
-      display: block;
-      max-width: 300px;
-      margin: 20px auto;
-    }
-    .dropdown-content p {
-      text-align: center;
-      font-size: 1rem;
-    }
-    .dropdown-content a {
-      color: gold;
-      text-decoration: underline;
+
+    /* Slideshow */
+    .slideshow-container {
+      position: relative;
+      max-width: 400px;
+      height: 400px;
+      margin: 0 auto 20px auto;
+      overflow: hidden;
     }
 
-    footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #444;
-      font-size: 0.9rem;
-      color: #aaa;
-      text-align: center;
+    .slideshow-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow-container img.active {
+      opacity: 1;
+    }
+
+    video {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      margin-top: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 <body>
-
-  <!-- Fixed Hamburger -->
+  <!-- Hamburger menu -->
   <div class="hamburger" onclick="toggleMenu()">
     <div></div>
     <div></div>
@@ -126,30 +129,25 @@
   </div>
 
   <h1>Partnerships</h1>
-  <p style="text-align:center; max-width:600px; margin:auto;">
-    SouthGate Protection collaborates with trusted partners to strengthen community safety and support initiatives.
-  </p>
+  <p>SouthGate Protection collaborates with trusted partners to strengthen community safety and support each other's initiatives.</p>
 
-  <!-- Faron Paul Dropdown -->
-  <div class="dropdown" onclick="toggleDropdown()">
-    <div class="dropdown-header">Faron Paul | FazAmnesty</div>
-    <div class="dropdown-content" id="faronContent">
-      <img src="faron1.jpg" alt="Faron Paul">
-      <img src="faron2.jpg" alt="Faron Paul">
-      <img src="faron3.jpg" alt="Faron Paul">
-      <p>
-        I was honoured to work with Faron Paul at Notting Hill Carnival. As a team, we assisted medics through the busy crowd, helped those who were passed or injured, and supported weapon collections.
-      </p>
-      <video src="fazamnesty-video.mp4" controls poster="fazamnesty-video-cover.png"></video>
-      <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank">Read more about Faron Paul's story</a></p>
+  <h2 onclick="toggleDropdown()">Faron Paul | FazAmnesty &#9662;</h2>
+  <div class="dropdown-content" id="faronDropdown">
+    <div class="slideshow-container">
+      <img src="faron1.jpg" class="active" />
+      <img src="faron2.jpg" />
+      <img src="faron3.jpg" />
     </div>
-  </div>
 
-  <footer>
-    &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
-    Registered in England and Wales — Company No. 16604543<br>
-    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
-  </footer>
+    <p>We were honoured to work with Faron Paul at the Notting Hill Carnival. As a team, we assisted medics through the busy crowd, helped those who were passed out or injured, and supported weapon collections.</p>
+
+    <video controls poster="fazamnesty-video-cover.PNG">
+      <source src="fazamnesty-video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" style="color: gold;">Read more about Faron Paul's story</a></p>
+  </div>
 
   <script>
     function toggleMenu() {
@@ -158,19 +156,31 @@
         menu.style.display = 'none';
       } else {
         menu.style.display = 'flex';
-        menu.style.flexDirection = 'column';
       }
     }
 
     function toggleDropdown() {
-      var content = document.getElementById('faronContent');
-      if(content.style.display === 'block'){
-        content.style.display = 'none';
+      var dropdown = document.getElementById('faronDropdown');
+      if(dropdown.style.display === 'block') {
+        dropdown.style.display = 'none';
       } else {
-        content.style.display = 'block';
+        dropdown.style.display = 'block';
       }
     }
-  </script>
 
+    // Slideshow
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slideshow-container img');
+
+    function showSlides() {
+      slides.forEach(img => img.classList.remove('active'));
+      slideIndex++;
+      if(slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex-1].classList.add('active');
+      setTimeout(showSlides, 3000); // Change every 3 seconds
+    }
+
+    showSlides();
+  </script>
 </body>
 </html>
