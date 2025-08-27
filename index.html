@@ -5,39 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SouthGate Protection CIC</title>
 
-  <!-- Favicon and Manifest -->
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="manifest" href="site.webmanifest" />
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
   <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px 20px;
       background-color: #111;
       color: #eee;
-      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      max-width: 700px;
       margin: 0 auto;
     }
-    img {
-      max-width: 280px;
-      height: auto;
-      margin-bottom: 30px;
+
+    img { max-width: 280px; height: auto; margin-bottom: 30px; }
+
+    /* Fade-in Animation */
+    .fade-in { 
+      animation: fadeIn 1.8s ease-in forwards; 
+      opacity: 0; 
     }
-    p.motto {
-      color: white;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    p.mission {
-      font-size: 1.3rem;
-      margin-bottom: 40px;
-      color: #eee;
-      line-height: 1.5;
-    }
+
+    .motto { font-size: 2rem; margin-bottom: 20px; color: #fff; }
+    .mission { font-size: 1.3rem; line-height: 1.6; margin-bottom: 40px; }
 
     /* Contact & Social Border */
     .contact-social {
@@ -45,25 +48,20 @@
       justify-content: center;
       align-items: center;
       gap: 15px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
+      padding: 12px 20px;
       border: 2px solid #444;
-      padding: 10px 20px;
       border-radius: 8px;
       background-color: #222;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
     }
-    .contact-social a {
-      display: inline-block;
-    }
-    .contact-social img {
-      width: 30px;
-      height: 30px;
+    .contact-social a img {
+      width: 32px;
+      height: 32px;
       filter: brightness(0) invert(1);
       transition: transform 0.2s;
     }
-    .contact-social img:hover {
-      transform: scale(1.2);
-    }
+    .contact-social a img:hover { transform: scale(1.2); }
     .contact-social span {
       font-size: 0.95rem;
       color: #eee;
@@ -80,75 +78,60 @@
       right: 20px;
       z-index: 1000;
     }
-    nav input {
-      display: none;
-    }
+    nav input { display: none; }
     nav label {
-      font-size: 30px;
+      font-size: 32px;
       cursor: pointer;
       user-select: none;
+      color: #fff;
     }
     nav ul {
       display: none;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      background: #111;
       position: absolute;
-      right: 0;
       top: 50px;
+      right: 0;
       width: 200px;
-      text-align: left;
+      background-color: #111;
       border: 1px solid #444;
+      list-style: none;
     }
-    nav input:checked ~ ul {
-      display: block;
-    }
-    nav ul li {
-      border-bottom: 1px solid #333;
-    }
+    nav input:checked ~ ul { display: block; }
+    nav ul li { border-bottom: 1px solid #333; }
     nav ul li a {
-      color: white;
-      text-decoration: none;
       display: block;
       padding: 10px;
+      color: #eee;
+      text-decoration: none;
     }
+    nav ul li a:hover { background-color: #222; }
 
+    /* Footer */
     footer {
       margin-top: 60px;
       padding-top: 20px;
       border-top: 1px solid #444;
       font-size: 0.9rem;
       color: #aaa;
+      text-align: center;
     }
-
     footer a {
       color: #aaa;
       text-decoration: underline;
       margin: 0 10px;
-      font-size: 0.9rem;
     }
 
-    /* Fade-in animation */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    p, footer {
-      animation: fadeIn 2s ease-in forwards;
-      opacity: 0;
-    }
   </style>
 </head>
 <body>
-  <img src="logo.jpg" alt="SouthGate Protection Logo" />
-  <p class="motto">Presence. Purpose. Protection.</p>
-  <p class="mission">
+  <!-- Logo & Intro -->
+  <img src="logo.jpg" alt="SouthGate Protection Logo" class="fade-in">
+  <p class="motto fade-in">Presence. Purpose. Protection.</p>
+  <p class="mission fade-in">
     An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening safety across the area and its surrounding communities through high-visibility patrols and a trusted, consistent presence.
   </p>
 
   <!-- Contact + Social -->
-  <div class="contact-social">
+  <div class="contact-social fade-in">
     <span>Email: <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a></span>
     <a href="https://www.instagram.com/ghost.sgp/" target="_blank">
       <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
@@ -168,7 +151,8 @@
     </ul>
   </nav>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="fade-in">
     &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
     Registered in England and Wales — Company No. 16604543<br>
     <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
