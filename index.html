@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <title>SouthGate Protection CIC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Favicon and Manifest -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
@@ -31,22 +29,47 @@
       margin: 0 auto 20px auto;
     }
 
-    /* Fixed Hamburger */
-    .hamburger {
+    /* Fixed Hamburger with Dropdown */
+    .hamburger-container {
       position: fixed;
       top: 20px;
       right: 20px;
+      z-index: 1000;
+    }
+
+    .hamburger {
       width: 30px;
       height: 30px;
       cursor: pointer;
-      z-index: 1000;
     }
     .hamburger div {
       width: 100%;
       height: 4px;
-      background-color: #fff; /* White */
+      background-color: #fff;
       margin: 6px 0;
       transition: 0.4s;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #222;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .dropdown a {
+      display: block;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .dropdown a:hover {
+      background-color: #444;
     }
 
     .social-bar {
@@ -103,12 +126,18 @@
   </style>
 </head>
 <body>
-  <!-- Hamburger Menu -->
-  <a href="partnerships.html" class="hamburger" title="Partnerships">
-    <div></div>
-    <div></div>
-    <div></div>
-  </a>
+
+  <!-- Fixed Hamburger -->
+  <div class="hamburger-container">
+    <div class="hamburger" onclick="toggleDropdown('dropdown-home')">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div id="dropdown-home" class="dropdown">
+      <a href="partnerships.html">Partnerships</a>
+    </div>
+  </div>
 
   <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo" />
 
@@ -129,5 +158,24 @@
     Registered in England and Wales — Company No. 16604543<br />
     <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
   </footer>
+
+  <script>
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Optional: click outside to close
+    window.onclick = function(event) {
+      if (!event.target.matches('.hamburger, .hamburger div')) {
+        const dropdowns = document.getElementsByClassName("dropdown");
+        for (let i = 0; i < dropdowns.length; i++) {
+          if (dropdowns[i].style.display === 'block') {
+            dropdowns[i].style.display = 'none';
+          }
+        }
+      }
+    }
+  </script>
 </body>
 </html>
