@@ -22,16 +22,19 @@
       max-width: 800px;
       margin: 0 auto;
     }
+
     img {
       max-width: 280px;
       height: auto;
       margin-bottom: 30px;
     }
+
     p.motto {
       color: white;
       font-size: 1.8rem;
       margin-bottom: 20px;
     }
+
     p.mission {
       font-size: 1.3rem;
       margin-bottom: 40px;
@@ -81,7 +84,7 @@
     .hamburger div {
       width: 100%;
       height: 4px;
-      background-color: gold;
+      background-color: white; /* changed to white */
     }
     .menu {
       position: fixed;
@@ -99,22 +102,35 @@
       text-decoration: none;
     }
 
-    /* Social media / email footer line */
-    .social-footer {
+    /* Social media / email bar */
+    .social-bar {
+      background-color: #333;
+      padding: 10px 20px;
       display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 15px;
-      margin-bottom: 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+      margin-bottom: 30px;
+      border-radius: 5px;
     }
-    .social-footer img {
+
+    .social-bar .socials {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .social-bar img {
       width: 24px;
       height: 24px;
     }
-    .social-footer a {
+
+    .social-bar a {
       color: #eee;
       text-decoration: none;
+      font-size: 0.95rem;
     }
+
   </style>
 </head>
 <body>
@@ -134,10 +150,12 @@
     An independent frontline unit based in South Norwood, dedicated to safeguarding the vulnerable and strengthening safety across the area and its surrounding communities through high-visibility patrols and a trusted, consistent presence.
   </p>
 
-  <!-- Socials and email -->
-  <div class="social-footer">
-    <a href="https://www.instagram.com/ghost.sgp"><img src="instagram-logo.png" alt="Instagram"></a>
-    <a href="https://www.linkedin.com/in/ali10168523"><img src="linkedin-logo.png" alt="LinkedIn"></a>
+  <!-- Social media & email -->
+  <div class="social-bar">
+    <div class="socials">
+      <a href="https://www.instagram.com/ghost.sgp"><img src="instagram-logo.png" alt="Instagram"></a>
+      <a href="https://www.linkedin.com/in/ali10168523"><img src="linkedin-logo.png" alt="LinkedIn"></a>
+    </div>
     <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a>
   </div>
 
