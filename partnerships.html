@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Partnerships | SouthGate Protection CIC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #111;
       color: #eee;
-      margin: 0;
       padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1, h2 {
       text-align: center;
     }
 
-    h1 {
-      color: #eee;
-      margin-bottom: 10px;
+    p {
+      line-height: 1.5;
     }
 
-    .subtext {
-      color: #ccc;
-      font-size: 1rem;
-      margin-bottom: 30px;
-    }
-
-    /* Hamburger */
+    /* Fixed hamburger */
     .hamburger {
       position: fixed;
       top: 20px;
@@ -64,76 +61,61 @@
       display: block;
     }
 
-    /* Drop-down */
+    /* Dropdown content */
     .dropdown {
-      background-color: #111;
-      border-left: 4px solid #daa520; /* gold-yellow line */
-      padding: 15px;
-      margin-bottom: 20px;
+      margin: 30px 0;
       cursor: pointer;
-      text-align: center;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 1.1rem;
-      color: #daa520;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
-
+    .dropdown-header {
+      color: gold;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .dropdown-header::after {
+      content: '▼';
+      font-size: 0.8rem;
+    }
     .dropdown-content {
       display: none;
-      background-color: #222;
-      padding: 20px;
-      text-align: center;
-      color: #eee;
-      max-width: 600px;
-      margin: 0 auto;
+      margin-top: 20px;
+      border-left: 3px solid #444;
+      padding-left: 15px;
     }
-
-    .slideshow {
-      max-width: 400px;
-      height: 400px;
-      margin: 0 auto 20px auto;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .slide.active {
-      opacity: 1;
-    }
-
-    video {
-      max-width: 400px;
+    .dropdown-content img {
       display: block;
+      max-width: 250px;
+      margin: 10px auto;
+    }
+    .dropdown-content video {
+      display: block;
+      max-width: 300px;
       margin: 20px auto;
     }
-
-    a.read-more {
-      color: #daa520;
+    .dropdown-content p {
+      text-align: center;
+      font-size: 1rem;
+    }
+    .dropdown-content a {
+      color: gold;
       text-decoration: underline;
-      display: block;
-      margin-top: 10px;
     }
 
-    p.text-content {
-      font-size: 0.95rem;
-      margin-bottom: 15px;
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: center;
     }
-
   </style>
 </head>
 <body>
-  <!-- Hamburger -->
+
+  <!-- Fixed Hamburger -->
   <div class="hamburger" onclick="toggleMenu()">
     <div></div>
     <div></div>
@@ -144,31 +126,30 @@
   </div>
 
   <h1>Partnerships</h1>
-  <p class="subtext">SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support each other’s initiatives.</p>
+  <p style="text-align:center; max-width:600px; margin:auto;">
+    SouthGate Protection collaborates with trusted partners to strengthen community safety and support initiatives.
+  </p>
 
+  <!-- Faron Paul Dropdown -->
   <div class="dropdown" onclick="toggleDropdown()">
-    Faron Paul | FazAmnesty <span id="arrow">▼</span>
-  </div>
-  <div class="dropdown-content" id="dropdownContent">
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <div class="slideshow">
-        <img src="faron1.jpg" class="slide active" />
-        <img src="faron2.jpg" class="slide" />
-        <img src="faron3.jpg" class="slide" />
-      </div>
-
-      <p class="text-content">
-        I was honoured to work with Faron Paul at the Notting Hill Carnival. As a team we assisted medics through the busy crowd, supported those who were passed or injured, and conducted weapon collections.
+    <div class="dropdown-header">Faron Paul | FazAmnesty</div>
+    <div class="dropdown-content" id="faronContent">
+      <img src="faron1.jpg" alt="Faron Paul">
+      <img src="faron2.jpg" alt="Faron Paul">
+      <img src="faron3.jpg" alt="Faron Paul">
+      <p>
+        I was honoured to work with Faron Paul at Notting Hill Carnival. As a team, we assisted medics through the busy crowd, helped those who were passed or injured, and supported weapon collections.
       </p>
-
-      <video controls poster="fazamnesty-video-cover.PNG">
-        <source src="fazamnesty-video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      <a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" class="read-more">Read more about Faron Paul</a>
+      <video src="fazamnesty-video.mp4" controls poster="fazamnesty-video-cover.png"></video>
+      <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank">Read more about Faron Paul's story</a></p>
     </div>
   </div>
+
+  <footer>
+    &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
+    Registered in England and Wales — Company No. 16604543<br>
+    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
+  </footer>
 
   <script>
     function toggleMenu() {
@@ -177,29 +158,19 @@
         menu.style.display = 'none';
       } else {
         menu.style.display = 'flex';
+        menu.style.flexDirection = 'column';
       }
     }
 
     function toggleDropdown() {
-      var content = document.getElementById('dropdownContent');
-      var arrow = document.getElementById('arrow');
+      var content = document.getElementById('faronContent');
       if(content.style.display === 'block'){
         content.style.display = 'none';
-        arrow.textContent = '▼';
       } else {
         content.style.display = 'block';
-        arrow.textContent = '▲';
       }
     }
-
-    // Slideshow
-    let slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
-    setInterval(() => {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide+1) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }, 3000);
   </script>
+
 </body>
 </html>
