@@ -12,10 +12,11 @@
       color: #eee;
       margin: 0;
       padding: 0;
+      text-align: center;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 800px;
       margin: 40px auto;
       padding: 0 20px;
     }
@@ -23,64 +24,54 @@
     h1 {
       font-size: 2rem;
       margin-bottom: 20px;
-      text-align: center;
-      animation: fadeIn 2s ease-in forwards;
-      opacity: 0;
     }
 
-    p.description {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      margin-bottom: 40px;
-      text-align: center;
-      animation: fadeIn 2.5s ease-in forwards;
-      opacity: 0;
-    }
-
-    .partner-card {
-      display: flex;
+    .accordion {
       background-color: #222;
       border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 40px;
-      align-items: flex-start;
-      gap: 20px;
-      animation: fadeIn 3s ease-in forwards;
-      opacity: 0;
-      flex-wrap: wrap;
+      margin-bottom: 15px;
+      cursor: pointer;
+      padding: 15px 20px;
+      text-align: left;
+      outline: none;
+      transition: background-color 0.3s;
     }
 
-    .partner-card img {
-      max-width: 200px;
+    .accordion:hover {
+      background-color: #333;
+    }
+
+    .accordion h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      display: inline-block;
+    }
+
+    .panel {
+      background-color: #1a1a1a;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 20px;
+    }
+
+    .panel-content {
+      padding: 20px 0;
+    }
+
+    .panel img {
+      max-width: 150px;
+      height: auto;
       border-radius: 8px;
-      flex-shrink: 0;
+      margin-bottom: 15px;
     }
 
-    .partner-info {
-      flex: 1;
-      min-width: 250px;
-    }
-
-    .partner-info h2 {
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    .partner-info p {
-      line-height: 1.5;
-    }
-
-    .partner-video {
-      width: 300px;
-      height: 300px;
-      margin-top: 20px;
+    .panel video {
+      width: 250px;
+      height: 250px;
       border-radius: 8px;
       object-fit: cover;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      margin-top: 15px;
     }
 
     footer {
@@ -97,36 +88,25 @@
       text-decoration: underline;
       margin: 0 5px;
     }
-
-    @media (max-width: 700px) {
-      .partner-card {
-        flex-direction: column;
-        align-items: center;
-      }
-      .partner-video {
-        width: 80%;
-        height: auto;
-      }
-    }
   </style>
 </head>
 <body>
 
   <div class="container">
     <h1>Partnerships</h1>
-    <p class="description">
-      SouthGate Protection collaborates with trusted partners to strengthen community safety and effectively support each other’s work.
-    </p>
+    <p>SouthGate Protection collaborates with trusted partners to strengthen community safety and support each other’s work.</p>
 
-    <!-- Faron Paul Card -->
-    <div class="partner-card">
-      <img src="faron-paul.jpg" alt="Faron Paul">
-      <div class="partner-info">
-        <h2>Faron Paul</h2>
+    <!-- Accordion for Faron Paul -->
+    <button class="accordion">
+      <h2>Faron Paul</h2>
+    </button>
+    <div class="panel">
+      <div class="panel-content">
+        <img src="faron-paul.jpg" alt="Faron Paul">
         <p>
           Faron Paul runs the FazAmnesty weapons amnesty program, working alongside communities and authorities to safely collect knives and reduce violent incidents. I was honoured to work with Faron at the Notting Hill Carnival, supporting the amnesty and helping strengthen local community safety. SouthGate Protection has proudly partnered with Faron to support events and initiatives that make a real difference.
         </p>
-        <video class="partner-video" controls>
+        <video controls>
           <source src="fazamnesty-video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -139,6 +119,21 @@
     &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
     <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
   </footer>
+
+  <script>
+    const acc = document.getElementsByClassName("accordion");
+    for (let i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
