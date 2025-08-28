@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SouthGate Protection - Partnerships</title>
+  <title>SouthGate Protection CIC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicon and Manifest -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
   <style>
     body {
@@ -12,28 +19,72 @@
       color: #eee;
       margin: 0;
       padding: 40px 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
       text-align: center;
     }
 
-    h1, h2 {
-      margin-bottom: 15px;
+    img {
+      max-width: 280px;
+      height: auto;
+      margin-bottom: 30px;
     }
 
-    h1 {
-      font-size: 2rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      color: gold;
-      cursor: pointer;
-    }
-
-    p {
-      font-size: 1rem;
+    .mission {
+      color: white;
+      font-size: 1.1rem;
       line-height: 1.5;
-      max-width: 700px;
-      margin: 10px auto 30px auto;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    /* Social media and email section */
+    .contact-bar {
+      background-color: #222;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 15px;
+      border-left: 3px solid #555;
+      border-radius: 0;
+      margin-bottom: 20px;
+    }
+    .contact-bar img {
+      width: 24px;
+      height: 24px;
+    }
+    .contact-bar a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    footer a {
+      color: #aaa;
+      text-decoration: underline;
+      margin: 0 10px;
+      font-size: 0.9rem;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    p, footer, .contact-bar {
+      animation: fadeIn 2s ease-in forwards;
+      opacity: 0;
     }
 
     /* Hamburger menu */
@@ -73,76 +124,24 @@
       margin: 15px 0;
       display: block;
     }
-
-    /* Drop-down */
-    .dropdown-content {
-      display: none;
-      margin-top: 15px;
-      border-left: 3px solid #444;
-      padding-left: 15px;
-      text-align: center;
-    }
-
-    /* Slideshow */
-    .slideshow-container {
-      position: relative;
-      max-width: 300px;
-      height: 300px;
-      margin: 0 auto 20px auto;
-      overflow: hidden;
-    }
-    .slideshow-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .slideshow-container img.active {
-      opacity: 1;
-    }
-
-    /* Gallery dropdown */
-    .gallery-dropdown {
-      display: none;
-      margin-top: 15px;
-      border-left: 3px solid #444;
-      padding-left: 15px;
-      text-align: center;
-    }
-    .gallery-slide {
-      display: none;
-      max-width: 400px;
-      height: 400px;
-      margin: 0 auto 15px auto;
-      position: relative;
-    }
-    .gallery-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #444;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-
-    footer a {
-      color: #aaa;
-      text-decoration: underline;
-      margin: 0 10px;
-      font-size: 0.9rem;
-    }
   </style>
 </head>
 <body>
+  <img src="logo.jpg" alt="SouthGate Protection Logo" />
+
+  <p class="mission">
+    <strong>Presence. Purpose. Protection.</strong><br>
+    We patrol to protect those who need it most. From supporting vulnerable residents to maintaining a trusted presence in the streets, our mission is simple: safety, visibility, and community trust.<br><br>
+    We work to prevent harm, respond quickly when incidents arise, and build strong connections within the community. By combining high-visibility patrols with a consistent, approachable presence, we ensure everyone feels supported and secure. Our commitment is to act with integrity, professionalism, and compassion, creating safer environments where people can live, work, and thrive.
+  </p>
+
+  <!-- Contact bar -->
+  <div class="contact-bar">
+    <a href="https://www.instagram.com/ghost.sgp/"><img src="instagram-logo.png" alt="Instagram" /></a>
+    <a href="https://www.linkedin.com/in/ali10168523/"><img src="linkedin-logo.png" alt="LinkedIn" /></a>
+    <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a>
+  </div>
+
   <!-- Hamburger menu -->
   <div class="hamburger" onclick="toggleMenu()">
     <div></div>
@@ -151,34 +150,7 @@
   </div>
   <div class="menu" id="menu">
     <a href="index.html">Home</a>
-  </div>
-
-  <h1>Partnerships</h1>
-  <p style="text-align:center;">SouthGate Protection collaborates with trusted partners to strengthen community safety and support each other's initiatives.</p>
-
-  <h2 onclick="toggleDropdown('faronDropdown')">Faron Paul | FazAmnesty &#9662;</h2>
-  <div class="dropdown-content" id="faronDropdown">
-    <div class="slideshow-container">
-      <img src="faron1.jpg" class="active" />
-      <img src="faron2.jpg" />
-      <img src="faron3.jpg" />
-    </div>
-
-    <p style="text-align:center;">We were honoured to work with Faron Paul at the Notting Hill Carnival. As a team, we assisted medics through the busy crowd, helped those who were passed out or injured, and supported weapon collections.</p>
-
-    <p style="text-align:center;"><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" style="color: gold;">Read more about Faron Paul's story</a></p>
-  </div>
-
-  <h2 onclick="toggleDropdown('galleryDropdown')">Gallery &#9662;</h2>
-  <div class="gallery-dropdown" id="galleryDropdown">
-    <div class="gallery-slide"><img src="gallery1.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery2.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery3.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery4.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery5.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery6.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery7.jpg" /></div>
-    <div class="gallery-slide"><img src="gallery8.jpg" /></div>
+    <a href="partnerships.html">Partnerships</a>
   </div>
 
   <footer>
@@ -196,47 +168,6 @@
         menu.style.display = 'flex';
       }
     }
-
-    function toggleDropdown(id) {
-      var dropdown = document.getElementById(id);
-      if(dropdown.style.display === 'block') {
-        dropdown.style.display = 'none';
-      } else {
-        dropdown.style.display = 'block';
-      }
-    }
-
-    // Faron slideshow
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.slideshow-container img');
-
-    function showSlides() {
-      slides.forEach(img => img.classList.remove('active'));
-      slideIndex++;
-      if(slideIndex > slides.length) slideIndex = 1;
-      slides[slideIndex-1].classList.add('active');
-      if(!isPaused) setTimeout(showSlides, 3000);
-    }
-    let isPaused = false;
-    document.querySelector('.slideshow-container').addEventListener('mouseenter', () => { isPaused = true; });
-    document.querySelector('.slideshow-container').addEventListener('mouseleave', () => { isPaused = false; showSlides(); });
-    showSlides();
-
-    // Gallery slideshow
-    let galleryIndex = 0;
-    const gallerySlides = document.querySelectorAll('.gallery-slide');
-    let galleryPaused = false;
-
-    function showGallerySlides() {
-      gallerySlides.forEach(slide => slide.style.display = 'none');
-      galleryIndex++;
-      if(galleryIndex > gallerySlides.length) galleryIndex = 1;
-      gallerySlides[galleryIndex-1].style.display = 'block';
-      if(!galleryPaused) setTimeout(showGallerySlides, 3000);
-    }
-    document.getElementById('galleryDropdown').addEventListener('mouseenter', () => { galleryPaused = true; });
-    document.getElementById('galleryDropdown').addEventListener('mouseleave', () => { galleryPaused = false; showGallerySlides(); });
-    showGallerySlides();
   </script>
 </body>
 </html>
