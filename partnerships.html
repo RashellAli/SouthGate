@@ -80,9 +80,10 @@
       margin-top: 15px;
       border-left: 3px solid #444;
       padding-left: 15px;
+      text-align: center;
     }
 
-    /* Slideshow for Faron */
+    /* Slideshow */
     .slideshow-container {
       position: relative;
       max-width: 300px;
@@ -90,7 +91,6 @@
       margin: 0 auto 20px auto;
       overflow: hidden;
     }
-
     .slideshow-container img {
       width: 100%;
       height: 100%;
@@ -101,22 +101,11 @@
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
-
     .slideshow-container img.active {
       opacity: 1;
     }
 
-    video {
-      max-width: 300px;
-      width: 100%;
-      height: auto;
-      margin-top: 20px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* New gallery drop-down */
+    /* Gallery dropdown */
     .gallery-dropdown {
       display: none;
       margin-top: 15px;
@@ -124,21 +113,33 @@
       padding-left: 15px;
       text-align: center;
     }
-
     .gallery-slide {
       display: none;
-      max-width: 350px; /* slightly bigger */
-      height: 350px;
+      max-width: 400px;
+      height: 400px;
       margin: 0 auto 15px auto;
       position: relative;
     }
-
-    .gallery-slide img, .gallery-slide video {
+    .gallery-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    footer a {
+      color: #aaa;
+      text-decoration: underline;
+      margin: 0 10px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
@@ -155,7 +156,6 @@
   <h1>Partnerships</h1>
   <p style="text-align:center;">SouthGate Protection collaborates with trusted partners to strengthen community safety and support each other's initiatives.</p>
 
-  <!-- Faron Paul Section -->
   <h2 onclick="toggleDropdown('faronDropdown')">Faron Paul | FazAmnesty &#9662;</h2>
   <div class="dropdown-content" id="faronDropdown">
     <div class="slideshow-container">
@@ -166,47 +166,21 @@
 
     <p style="text-align:center;">We were honoured to work with Faron Paul at the Notting Hill Carnival. As a team, we assisted medics through the busy crowd, helped those who were passed out or injured, and supported weapon collections.</p>
 
-    <video controls poster="fazamnesty-video-cover.PNG">
-      <source src="fazamnesty-video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-
     <p style="text-align:center;"><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" style="color: gold;">Read more about Faron Paul's story</a></p>
   </div>
 
-  <!-- Gallery Section -->
   <h2 onclick="toggleDropdown('galleryDropdown')">Gallery &#9662;</h2>
   <div class="gallery-dropdown" id="galleryDropdown">
-    <div class="gallery-slide">
-      <img src="gallery1.jpg" />
-    </div>
-    <div class="gallery-slide">
-      <img src="gallery2.jpg" />
-    </div>
-    <div class="gallery-slide">
-      <img src="gallery3.jpg" />
-    </div>
-    <div class="gallery-slide">
-      <img src="gallery4.jpg" />
-    </div>
-    <div class="gallery-slide">
-      <img src="gallery5.jpg" />
-    </div>
-    <div class="gallery-slide">
-      <img src="gallery6.jpg" />
-    </div>
-    <div class="gallery-slide">
-      <img src="gallery7.jpg" />
-    </div>
-    <div class="gallery-slide">
-      <img src="gallery8.jpg" />
-    </div>
-    <div class="gallery-slide">
-      <video src="gallery1-video.mp4" muted autoplay loop></video>
-    </div>
+    <div class="gallery-slide"><img src="gallery1.jpg" /></div>
+    <div class="gallery-slide"><img src="gallery2.jpg" /></div>
+    <div class="gallery-slide"><img src="gallery3.jpg" /></div>
+    <div class="gallery-slide"><img src="gallery4.jpg" /></div>
+    <div class="gallery-slide"><img src="gallery5.jpg" /></div>
+    <div class="gallery-slide"><img src="gallery6.jpg" /></div>
+    <div class="gallery-slide"><img src="gallery7.jpg" /></div>
+    <div class="gallery-slide"><img src="gallery8.jpg" /></div>
   </div>
 
-  <!-- Legal footer -->
   <footer>
     &copy; 2025 SouthGate Protection CIC. All rights reserved.<br />
     Registered in England and Wales — Company No. 16604543<br />
@@ -241,32 +215,28 @@
       slideIndex++;
       if(slideIndex > slides.length) slideIndex = 1;
       slides[slideIndex-1].classList.add('active');
-      setTimeout(showSlides, 3000);
+      if(!isPaused) setTimeout(showSlides, 3000);
     }
-
+    let isPaused = false;
+    document.querySelector('.slideshow-container').addEventListener('mouseenter', () => { isPaused = true; });
+    document.querySelector('.slideshow-container').addEventListener('mouseleave', () => { isPaused = false; showSlides(); });
     showSlides();
 
     // Gallery slideshow
     let galleryIndex = 0;
     const gallerySlides = document.querySelectorAll('.gallery-slide');
+    let galleryPaused = false;
 
     function showGallerySlides() {
-      gallerySlides.forEach(slide => {
-        slide.style.display = 'none';
-        const vid = slide.querySelector('video');
-        if(vid) vid.pause();
-      });
+      gallerySlides.forEach(slide => slide.style.display = 'none');
       galleryIndex++;
       if(galleryIndex > gallerySlides.length) galleryIndex = 1;
-      const currentSlide = gallerySlides[galleryIndex-1];
-      currentSlide.style.display = 'block';
-      const vid = currentSlide.querySelector('video');
-      if(vid) vid.play();
-      setTimeout(showGallerySlides, 3000);
+      gallerySlides[galleryIndex-1].style.display = 'block';
+      if(!galleryPaused) setTimeout(showGallerySlides, 3000);
     }
-
+    document.getElementById('galleryDropdown').addEventListener('mouseenter', () => { galleryPaused = true; });
+    document.getElementById('galleryDropdown').addEventListener('mouseleave', () => { galleryPaused = false; showGallerySlides(); });
     showGallerySlides();
-
   </script>
 </body>
 </html>
