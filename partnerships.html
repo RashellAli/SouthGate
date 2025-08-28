@@ -126,7 +126,7 @@
 
     .gallery-container {
       position: relative;
-      max-width: 450px; /* Slightly bigger for less cropping */
+      max-width: 450px;
       height: 450px;
       margin: 0 auto 20px auto;
       overflow: hidden;
@@ -135,7 +135,7 @@
     .gallery-container img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain; /* prevent cropping */
       position: absolute;
       top: 0;
       left: 0;
@@ -149,17 +149,18 @@
 
     /* Footer */
     footer {
-      color: #ccc; /* Grey footer */
-      margin-top: 50px;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      font-size: 0.9rem;
+      color: #aaa;
     }
 
     footer a {
-      color: #ccc;
-      text-decoration: none;
-    }
-
-    footer a:hover {
+      color: #aaa;
       text-decoration: underline;
+      margin: 0 10px;
+      font-size: 0.9rem;
     }
 
   </style>
@@ -194,21 +195,21 @@
       Your browser does not support the video tag.
     </video>
 
-    <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank">Read more about Faron Paul's story</a></p>
+    <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" style="color: gold;">Read more about Faron Paul's story</a></p>
   </div>
 
   <!-- Additional Gallery Section -->
   <h2 onclick="toggleDropdown('galleryDropdown')">Gallery &#9662;</h2>
   <div class="gallery-dropdown" id="galleryDropdown">
     <div class="gallery-container" id="galleryContainer">
-      <img src="gallery1.jpg" class="active" />
-      <img src="gallery2.jpg" />
-      <img src="gallery3.jpg" />
-      <img src="gallery4.jpg" />
-      <img src="gallery5.jpg" />
-      <img src="gallery6.jpg" />
-      <img src="gallery7.jpg" />
-      <img src="gallery8.jpg" />
+      <img data-src="gallery1.jpg" class="active" />
+      <img data-src="gallery2.jpg" />
+      <img data-src="gallery3.jpg" />
+      <img data-src="gallery4.jpg" />
+      <img data-src="gallery5.jpg" />
+      <img data-src="gallery6.jpg" />
+      <img data-src="gallery7.jpg" />
+      <img data-src="gallery8.jpg" />
     </div>
   </div>
 
@@ -235,6 +236,7 @@
         dropdown.style.display = 'none';
       } else {
         dropdown.style.display = 'block';
+        if(id === 'galleryDropdown') loadGalleryImages();
       }
     }
 
@@ -252,9 +254,19 @@
 
     showFaronSlides();
 
-    // Gallery Slideshow (images only)
+    // Gallery Slideshow with lazy load
     let galleryIndex = 0;
+    let galleryLoaded = false;
     const gallerySlides = document.querySelectorAll('#galleryContainer img');
+
+    function loadGalleryImages() {
+      if(!galleryLoaded){
+        gallerySlides.forEach(img => {
+          img.src = img.dataset.src;
+        });
+        galleryLoaded = true;
+      }
+    }
 
     function showGallerySlides() {
       gallerySlides.forEach(img => img.classList.remove('active'));
@@ -265,6 +277,7 @@
     }
 
     showGallerySlides();
+
   </script>
 </body>
 </html>
