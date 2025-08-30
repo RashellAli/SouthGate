@@ -13,6 +13,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
   <style>
+    /* BODY */
     body {
       font-family: Arial, sans-serif;
       background-color: #111;
@@ -21,29 +22,29 @@
       padding: 0;
     }
 
-    /* Header: background matches logo background color */
+    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
-      background-color: #1a1a1a; /* change this to match your logo background */
+      padding: 10px 20px;
+      background-color: #1a1a1a; /* matches logo background */
       border-bottom: 1px solid #444;
-      position: relative; /* normal positioning, not fixed */
+      position: relative;
       z-index: 1000;
     }
 
     header img.logo {
-      height: 80px;
-      width: 200px;
+      height: 100px;        /* bigger flush logo */
+      width: auto;
       object-fit: contain;
     }
 
-    /* Hamburger menu (normal style, not fixed) */
+    /* HAMBURGER */
     .hamburger {
       cursor: pointer;
-      width: 30px;
-      height: 22px;
+      width: 35px;
+      height: 25px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -54,17 +55,18 @@
       background-color: white;
     }
 
-    /* Sliding menu */
+    /* MENU */
     .menu {
       position: absolute;
-      top: 100%; /* appears just below header */
-      right: 20px;
-      width: 250px;
+      top: 100%;
+      right: 10px;
+      width: 220px;      /* compact menu width */
       background-color: #111;
       padding: 20px;
       display: none;
       flex-direction: column;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border-radius: 5px;
     }
     .menu.show {
       display: flex;
@@ -73,10 +75,11 @@
       color: #eee;
       text-decoration: none;
       font-size: 1.2rem;
-      margin: 15px 0;
+      margin: 12px 0;
       cursor: pointer;
     }
 
+    /* MAIN */
     main {
       max-width: 800px;
       margin: 0 auto;
@@ -93,7 +96,7 @@
       opacity: 0;
     }
 
-    /* Contact bar */
+    /* CONTACT BAR */
     .contact-bar {
       background-color: #222;
       display: flex;
@@ -116,6 +119,7 @@
       font-size: 1rem;
     }
 
+    /* FOOTER */
     footer {
       text-align: center;
       margin-top: 40px;
@@ -142,8 +146,12 @@
         font-size: 1rem;
       }
       header img.logo {
-        height: 65px;
-        width: 160px;
+        height: 80px;
+        width: auto;
+      }
+      .menu {
+        width: 180px;   /* smaller menu for mobile */
+        right: 10px;
       }
     }
   </style>
