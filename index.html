@@ -34,8 +34,8 @@
     }
 
     header img.logo {
-      height: 60px;      /* perfect header size */
-      width: auto;       /* maintains aspect ratio */
+      height: 80px;      /* slightly taller */
+      width: 180px;      /* stretched for visibility */
       object-fit: contain;
     }
 
@@ -137,6 +137,10 @@
     @media (max-width: 600px) {
       .mission {
         font-size: 1rem;
+      }
+      header img.logo {
+        height: 60px;  /* slightly smaller on mobile */
+        width: 140px;  /* maintains rectangular look */
       }
     }
   </style>
