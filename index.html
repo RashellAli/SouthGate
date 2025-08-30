@@ -34,8 +34,8 @@
     }
 
     header img.logo {
-      height: 80px;      /* slightly taller */
-      width: 180px;      /* stretched for visibility */
+      height: 80px;
+      width: 200px;      /* slightly wider for visibility */
       object-fit: contain;
     }
 
@@ -55,16 +55,20 @@
     }
 
     .menu {
-      display: none;
       position: fixed;
       top: 0;
-      right: 0;
-      background-color: #111;
-      height: 100%;
+      right: -250px;   /* hidden off-screen */
       width: 250px;
-      flex-direction: column;
+      height: 100%;
+      background-color: #111;
       padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s ease-in-out;
       z-index: 999;
+    }
+    .menu.show {
+      right: 0; /* slide in */
     }
     .menu a {
       color: #eee;
@@ -122,7 +126,6 @@
       animation: fadeIn 2s ease-in forwards;
       opacity: 0;
     }
-
     footer a {
       color: #aaa;
       text-decoration: underline;
@@ -139,8 +142,8 @@
         font-size: 1rem;
       }
       header img.logo {
-        height: 60px;  /* slightly smaller on mobile */
-        width: 140px;  /* maintains rectangular look */
+        height: 65px;
+        width: 160px;
       }
     }
   </style>
@@ -148,7 +151,7 @@
 <body>
   <header>
     <img src="logo-rect.JPG" alt="SouthGate Protection Logo" class="logo" />
-    <div class="hamburger" onclick="toggleMenu()">
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
       <div></div>
       <div></div>
       <div></div>
@@ -183,11 +186,7 @@
   <script>
     function toggleMenu() {
       var menu = document.getElementById('menu');
-      if(menu.style.display === 'flex'){
-        menu.style.display = 'none';
-      } else {
-        menu.style.display = 'flex';
-      }
+      menu.classList.toggle('show');
     }
   </script>
 </body>
