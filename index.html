@@ -21,15 +21,15 @@
       padding: 0;
     }
 
+    /* Header: background matches logo background color */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 20px;
-      background-color: #111;
+      background-color: #1a1a1a; /* change this to match your logo background */
       border-bottom: 1px solid #444;
-      position: sticky;
-      top: 0;
+      position: relative; /* normal positioning, not fixed */
       z-index: 1000;
     }
 
@@ -39,7 +39,7 @@
       object-fit: contain;
     }
 
-    /* Hamburger menu */
+    /* Hamburger menu (normal style, not fixed) */
     .hamburger {
       cursor: pointer;
       width: 30px;
@@ -47,7 +47,6 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      z-index: 1001; /* ensures hamburger is clickable */
     }
     .hamburger div {
       width: 100%;
@@ -57,34 +56,32 @@
 
     /* Sliding menu */
     .menu {
-      position: fixed;
-      top: 0;
-      right: -250px;   /* hidden off-screen */
+      position: absolute;
+      top: 100%; /* appears just below header */
+      right: 20px;
       width: 250px;
-      height: 100%;
       background-color: #111;
-      padding: 60px 20px;
-      display: flex;
+      padding: 20px;
+      display: none;
       flex-direction: column;
-      transition: right 0.3s ease-in-out;
-      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     .menu.show {
-      right: 0; /* slide in */
+      display: flex;
     }
     .menu a {
       color: #eee;
       text-decoration: none;
       font-size: 1.2rem;
       margin: 15px 0;
-      display: block;
       cursor: pointer;
     }
 
     main {
       max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #111; /* mission section stays black */
     }
 
     .mission {
@@ -159,12 +156,12 @@
       <div></div>
       <div></div>
     </div>
-  </header>
 
-  <div class="menu" id="menu">
-    <a href="index.html">Home</a>
-    <a href="partnerships.html">Partnerships</a>
-  </div>
+    <div class="menu" id="menu">
+      <a href="index.html">Home</a>
+      <a href="partnerships.html">Partnerships</a>
+    </div>
+  </header>
 
   <main>
     <p class="mission">
