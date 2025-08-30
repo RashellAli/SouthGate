@@ -35,7 +35,7 @@
 
     header img.logo {
       height: 80px;
-      width: 200px;      /* slightly wider for visibility */
+      width: 200px;
       object-fit: contain;
     }
 
@@ -47,6 +47,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      z-index: 1001; /* ensures hamburger is clickable */
     }
     .hamburger div {
       width: 100%;
@@ -54,6 +55,7 @@
       background-color: white;
     }
 
+    /* Sliding menu */
     .menu {
       position: fixed;
       top: 0;
@@ -65,7 +67,7 @@
       display: flex;
       flex-direction: column;
       transition: right 0.3s ease-in-out;
-      z-index: 999;
+      z-index: 1000;
     }
     .menu.show {
       right: 0; /* slide in */
@@ -76,6 +78,7 @@
       font-size: 1.2rem;
       margin: 15px 0;
       display: block;
+      cursor: pointer;
     }
 
     main {
@@ -150,7 +153,7 @@
 </head>
 <body>
   <header>
-    <img src="logo-rect.JPG" alt="SouthGate Protection Logo" class="logo" />
+    <img src="logo-rect.jpg" alt="SouthGate Protection Logo" class="logo" />
     <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
       <div></div>
       <div></div>
@@ -185,8 +188,7 @@
 
   <script>
     function toggleMenu() {
-      var menu = document.getElementById('menu');
-      menu.classList.toggle('show');
+      document.getElementById('menu').classList.toggle('show');
     }
   </script>
 </body>
