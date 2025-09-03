@@ -84,9 +84,9 @@ body {
 /* Logo */
 .logo-img {
   display: block;
-  width: 100px;   /* Square logo width */
-  height: 100px;  /* Square logo height */
-  margin: 0 auto 30px; /* Center horizontally with spacing below */
+  width: 100px;   /* smaller square size */
+  height: 100px;  /* keeps it even */
+  margin: 20px auto; /* centers horizontally */
   border-radius: 10px;
 }
 
@@ -162,14 +162,12 @@ main {
   font-weight: bold;
   color: #a259ff;
   margin-bottom: 20px;
-  text-align: left;
 }
 
 /* Mission Section */
 .mission {
   font-size: 0.9rem;
   color: #ddd;
-  text-align: left;
 }
 
 .mission span {
