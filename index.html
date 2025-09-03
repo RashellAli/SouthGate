@@ -12,69 +12,243 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    .container {
+      position: relative;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    /* Abstract Purple Lines */
+    .abstract-line {
+      position: absolute;
+      background-color: #a259ff;
+      opacity: 0.4;
+      transform: rotate(-20deg);
+      z-index: -1;
+    }
+
+    .abstract-line-1 {
+      width: 300px;
+      height: 6px;
+      top: 50px;
+      left: 20px;
+    }
+
+    .abstract-line-2 {
+      width: 200px;
+      height: 6px;
+      bottom: 100px;
+      right: 30px;
+    }
+
+    .abstract-line-3 {
+      width: 400px;
+      height: 6px;
+      top: 300px;
+      left: 50%;
+      transform: translateX(-50%) rotate(15deg);
+    }
+
+    /* Purple Clouds */
+    .purple-cloud {
+      position: absolute;
+      background: radial-gradient(circle, rgba(162, 89, 255, 0.3) 0%, transparent 70%);
+      z-index: -2;
+      filter: blur(40px);
+    }
+
+    .purple-cloud-1 {
+      width: 250px;
+      height: 250px;
+      top: 100px;
+      left: -50px;
+    }
+
+    .purple-cloud-2 {
+      width: 300px;
+      height: 300px;
+      bottom: 150px;
+      right: 0;
+    }
+
+    .purple-cloud-3 {
+      width: 200px;
+      height: 200px;
+      top: 400px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Logo */
+    .logo-placeholder {
+      width: 150px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    .logo-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Content */
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      padding: 20px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    /* Main Text */
+    .main-text {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #a259ff;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    /* Mission Section */
+    .mission {
+      font-size: 0.9rem;
+      color: #ddd;
+      text-align: left;
+    }
+
+    .mission span {
+      color: #a259ff;
+      font-weight: bold;
+    }
+
+    /* Social Box */
+    .social-box {
+      max-width: 800px;
+      margin: 30px auto;
+      background-color: #111;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      border: 2px solid #a259ff;
+      position: relative;
+    }
+
+    .social-link {
+      display: inline-block;
+      margin: 0 10px;
+      color: #a259ff;
+      text-decoration: none;
+      font-size: 1rem;
+      align-items: center;
+    }
+
+    .social-link img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    .social-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 20px;
+      background: linear-gradient(to right, #333, #222);
+      padding: 20px;
+      color: #bbb;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    .footer-legal {
+      text-align: center;
+    }
+
+    .footer-terms a {
+      color: #a259ff;
+      text-decoration: none;
+    }
+
+    .footer-terms a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo">
+  <div class="container">
+    <header>
+      <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo-img">
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
 
-    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+      <div class="menu" id="menu">
+        <a href="partnerships.html">Partnerships</a>
+      </div>
+    </header>
 
-    <div class="menu" id="menu">
-      <a href="partnerships.html">Partnerships</a>
-    </div>
-  </header>
+    <div class="abstract-line abstract-line-1"></div>
+    <div class="abstract-line abstract-line-2"></div>
+    <div class="abstract-line abstract-line-3"></div>
 
-  <!-- Background abstract lines -->
-  <div class="abstract-line abstract-line-1"></div>
-  <div class="abstract-line abstract-line-2"></div>
-  <div class="abstract-line abstract-line-3"></div>
+    <div class="purple-cloud purple-cloud-1"></div>
+    <div class="purple-cloud purple-cloud-2"></div>
+    <div class="purple-cloud purple-cloud-3"></div>
 
-  <!-- Background purple clouds -->
-  <div class="purple-cloud purple-cloud-1"></div>
-  <div class="purple-cloud purple-cloud-2"></div>
-  <div class="purple-cloud purple-cloud-3"></div>
+    <main>
+      <div class="content">
+        <p class="main-text">Presence. Purpose. Protection.</p>
+        <p class="mission">
+          We patrol to protect those who need it most. From supporting vulnerable residents to maintaining a trusted presence in the streets, our mission is simple: safety, visibility, and community trust.<br><br>
+          We work to prevent harm, respond quickly when incidents arise, and build strong connections within the community. By combining high-visibility patrols with a consistent, approachable presence, we ensure everyone feels supported and secure. Our commitment is to act with integrity, professionalism, and compassion, creating safer environments where people can live, work, and thrive.
+        </p>
+      </div>
 
-  <!-- Main content -->
-  <main>
-    <div class="content">
-      <p class="main-text">Presence. Purpose. Protection.</p>
-      <p class="mission">
-        We patrol to protect those who need it most. From supporting vulnerable residents to maintaining a trusted presence in the streets, our mission is simple: safety, visibility, and community trust.<br><br>
-        We work to prevent harm, respond quickly when incidents arise, and build strong connections within the community. By combining high-visibility patrols with a consistent, approachable presence, we ensure everyone feels supported and secure. Our commitment is to act with integrity, professionalism, and compassion, creating safer environments where people can live, work, and thrive.
-      </p>
-    </div>
+      <div class="social-box">
+        <a href="https://www.instagram.com/ghost.sgp/" class="social-link">
+          <img src="instagram-logo.png" alt="Instagram"> Instagram
+        </a>
+        <a href="https://www.linkedin.com/in/ali10168523/" class="social-link">
+          <img src="linkedin-logo.png" alt="LinkedIn"> LinkedIn
+        </a>
+        <a href="mailto:info@southgateprotection.co.uk" class="social-link">Email</a>
+      </div>
+    </main>
 
-    <!-- Social links -->
-    <div class="social-box">
-      <a href="https://www.instagram.com/ghost.sgp/" class="social-link">
-        <img src="instagram-logo.png" alt="Instagram"> Instagram
-      </a>
-      <a href="https://www.linkedin.com/in/ali10168523/" class="social-link">
-        <img src="linkedin-logo.png" alt="LinkedIn"> LinkedIn
-      </a>
-      <a href="mailto:info@southgateprotection.co.uk" class="social-link">Email</a>
-    </div>
-  </main>
+    <footer>
+      <div class="footer-legal">
+        &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
+        Registered in England and Wales — Company No. 16604543
+      </div>
+      <div class="footer-terms">
+        <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
+      </div>
+    </footer>
+  </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-legal">
-      &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
-      Registered in England and Wales — Company No. 16604543
-    </div>
-    <div class="footer-terms">
-      <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
-    </div>
-  </footer>
-
-  <!-- Hamburger menu JS -->
   <script>
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('show');
