@@ -84,9 +84,9 @@ body {
 /* Logo */
 .logo-img {
   display: block;
-  width: 100px;   /* smaller square size */
-  height: 100px;  /* keeps it even */
-  margin: 20px auto; /* centers horizontally */
+  width: 120px;   /* slightly bigger logo */
+  height: 120px;  /* keep it square */
+  margin: 0 auto 30px;
   border-radius: 10px;
 }
 
