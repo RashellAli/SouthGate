@@ -12,70 +12,67 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-  <!-- Link to CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <!-- Header -->
+  <header>
+    <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo">
 
-    <!-- Header with centered logo and fixed hamburger -->
-    <header>
-      <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo">
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
 
-      <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+    <div class="menu" id="menu">
+      <a href="partnerships.html">Partnerships</a>
+    </div>
+  </header>
 
-      <div class="menu" id="menu">
-        <a href="partnerships.html">Partnerships</a>
-      </div>
-    </header>
+  <!-- Background abstract lines -->
+  <div class="abstract-line abstract-line-1"></div>
+  <div class="abstract-line abstract-line-2"></div>
+  <div class="abstract-line abstract-line-3"></div>
 
-    <!-- Background abstract lines -->
-    <div class="abstract-line abstract-line-1"></div>
-    <div class="abstract-line abstract-line-2"></div>
-    <div class="abstract-line abstract-line-3"></div>
+  <!-- Background purple clouds -->
+  <div class="purple-cloud purple-cloud-1"></div>
+  <div class="purple-cloud purple-cloud-2"></div>
+  <div class="purple-cloud purple-cloud-3"></div>
 
-    <!-- Background purple clouds -->
-    <div class="purple-cloud purple-cloud-1"></div>
-    <div class="purple-cloud purple-cloud-2"></div>
-    <div class="purple-cloud purple-cloud-3"></div>
+  <!-- Main content -->
+  <main>
+    <div class="content">
+      <p class="main-text">Presence. Purpose. Protection.</p>
+      <p class="mission">
+        We patrol to protect those who need it most. From supporting vulnerable residents to maintaining a trusted presence in the streets, our mission is simple: safety, visibility, and community trust.<br><br>
+        We work to prevent harm, respond quickly when incidents arise, and build strong connections within the community. By combining high-visibility patrols with a consistent, approachable presence, we ensure everyone feels supported and secure. Our commitment is to act with integrity, professionalism, and compassion, creating safer environments where people can live, work, and thrive.
+      </p>
+    </div>
 
-    <!-- Main content -->
-    <main>
-      <div class="content">
-        <p class="main-text">Presence. Purpose. Protection.</p>
-        <p class="mission">
-          We patrol to protect those who need it most. From supporting vulnerable residents to maintaining a trusted presence in the streets, our mission is simple: safety, visibility, and community trust.<br><br>
-          We work to prevent harm, respond quickly when incidents arise, and build strong connections within the community. By combining high-visibility patrols with a consistent, approachable presence, we ensure everyone feels supported and secure. Our commitment is to act with integrity, professionalism, and compassion, creating safer environments where people can live, work, and thrive.
-        </p>
-      </div>
+    <!-- Social links -->
+    <div class="social-box">
+      <a href="https://www.instagram.com/ghost.sgp/" class="social-link">
+        <img src="instagram-logo.png" alt="Instagram"> Instagram
+      </a>
+      <a href="https://www.linkedin.com/in/ali10168523/" class="social-link">
+        <img src="linkedin-logo.png" alt="LinkedIn"> LinkedIn
+      </a>
+      <a href="mailto:info@southgateprotection.co.uk" class="social-link">Email</a>
+    </div>
+  </main>
 
-      <!-- Social links -->
-      <div class="social-box">
-        <a href="https://www.instagram.com/ghost.sgp/" class="social-link">
-          <img src="instagram-logo.png" alt="Instagram"> Instagram
-        </a>
-        <a href="https://www.linkedin.com/in/ali10168523/" class="social-link">
-          <img src="linkedin-logo.png" alt="LinkedIn"> LinkedIn
-        </a>
-        <a href="mailto:info@southgateprotection.co.uk" class="social-link">Email</a>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer-legal">
-        &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
-        Registered in England and Wales — Company No. 16604543
-      </div>
-      <div class="footer-terms">
-        <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
-      </div>
-    </footer>
-  </div>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-legal">
+      &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
+      Registered in England and Wales — Company No. 16604543
+    </div>
+    <div class="footer-terms">
+      <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
+    </div>
+  </footer>
 
   <!-- Hamburger menu JS -->
   <script>
