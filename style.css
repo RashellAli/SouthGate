@@ -84,9 +84,9 @@ body {
 /* Logo */
 .logo-img {
   display: block;
-  max-width: 150px;
-  height: auto;
-  margin: 0 auto 30px;
+  width: 100px;       /* smaller square logo */
+  height: 100px;
+  margin: 0 auto;     /* center horizontally */
   border-radius: 10px;
 }
 
@@ -233,7 +233,8 @@ footer {
 /* Media Queries */
 @media (max-width: 600px) {
   .logo-img {
-    max-width: 100px;
+    width: 80px;
+    height: 80px;
   }
   .menu {
     width: 180px;
