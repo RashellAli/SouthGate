@@ -84,7 +84,7 @@ body {
 /* Logo */
 .logo-img {
   display: block;
-  width: 120px;   /* slightly bigger */
+  width: 120px;
   height: 120px;
   margin: 20px auto 30px;
   border-radius: 10px;
@@ -97,7 +97,7 @@ header {
 
 /* Hamburger */
 .hamburger {
-  position: absolute;
+  position: fixed; /* keep fixed so it’s always clickable */
   top: 20px;
   right: 20px;
   cursor: pointer;
@@ -115,33 +115,37 @@ header {
   background-color: white;
 }
 
-/* Sidebar / Dropdown menu */
+/* Sidebar / Vertical menu */
 .menu {
-  position: fixed;       /* slides over page */
-  top: 60px;             /* slightly below hamburger */
+  position: fixed;       /* fixed to viewport */
+  top: 0;
   right: 0;
-  width: 150px;          /* smaller sidebar */
+  height: 100%;
+  width: 80px;           /* thin sidebar */
   background-color: rgba(17, 17, 17, 0.95); /* semi-transparent */
-  padding: 20px 15px;
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  align-items: center;
+  padding-top: 80px;     /* push Partnerships below hamburger */
+  border-left: 1px solid #a259ff;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
   z-index: 25;
 
-  transform: translateX(100%); /* start hidden off-screen */
-  transition: transform 0.3s ease; /* smooth slide in/out */
+  transform: translateX(100%); /* hidden offscreen */
+  transition: transform 0.3s ease;
 }
 
 .menu.show {
-  transform: translateX(0); /* slide in fully */
+  transform: translateX(0);   /* slide in fully */
 }
 
 .menu a {
   color: #eee;
   text-decoration: none;
-  font-size: 1.2rem;
-  margin-top: 30px; /* push Partnerships down from hamburger */
+  font-size: 1rem;
+  margin: 20px 0;             
+  writing-mode: vertical-rl;  /* text rotated vertical */
+  text-orientation: mixed;    
   cursor: pointer;
 }
 
