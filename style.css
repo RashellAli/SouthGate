@@ -84,9 +84,9 @@ body {
 /* Logo */
 .logo-img {
   display: block;
-  width: 120px;   
+  width: 120px;   /* slightly bigger than 100px */
   height: 120px;
-  margin: 20px auto 30px; 
+  margin: 20px auto 30px; /* centered with some top margin */
   border-radius: 10px;
 }
 
@@ -106,7 +106,7 @@ header {
   justify-content: space-between;
   width: 35px;
   height: 25px;
-  z-index: 30;  
+  z-index: 10;
 }
 
 .hamburger div {
@@ -115,33 +115,32 @@ header {
   background-color: white;
 }
 
-/* Sidebar Menu */
+/* Dropdown / Sidebar menu */
 .menu {
-  position: fixed;          
-  top: 20px;                
-  right: -160px;            /* hidden initially */
+  position: absolute;
+  top: 100%;
+  right: 0;
   width: 120px;             /* thinner sidebar */
-  height: calc(100% - 40px); 
-  background-color: rgba(17,17,17,0.95);  
+  background-color: rgba(17, 17, 17, 0.95); /* semi-transparent */
   padding: 15px;
-  display: flex;
+  display: none;
   flex-direction: column;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.5);
-  border-left: 3px solid #a259ff;         
-  border-radius: 5px 0 0 5px;
-  z-index: 25;
-  transition: right 0.4s ease;            
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border: 2px solid #a259ff; /* purple outline */
+  border-radius: 5px;
+  z-index: 20;
+  transition: transform 0.3s ease; /* smooth slide in */
 }
 
 .menu.show {
-  right: 0;               
+  display: flex;
 }
 
 .menu a {
   color: #eee;
   text-decoration: none;
-  font-size: 1rem;         /* slightly smaller text */
-  margin: 50px 0 0 0;      /* pushed further below hamburger */
+  font-size: 1rem;         
+  margin: 90px 0 0 0;      /* moved further down below hamburger */
   cursor: pointer;
   transform: none;         
   display: block;
