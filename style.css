@@ -6,11 +6,12 @@
 }
 
 html, body {
-  height: 100%;
-  background-color: #000;   /* homepage black restored */
-  overscroll-behavior: none;  /* prevent white flash on pull */
-  touch-action: pan-y;
+  overscroll-behavior: none; /* Prevent white flash on overscroll */
+}
+
+body {
   font-family: Arial, sans-serif;
+  background-color: #000;
   color: #fff;
   line-height: 1.8;
   overflow-x: hidden;
@@ -21,7 +22,6 @@ html, body {
   position: relative;
   padding: 20px;
   overflow: hidden;
-  background-color: #000;  /* ensure container keeps black background */
 }
 
 /* Abstract Purple Lines */
@@ -97,12 +97,11 @@ html, body {
 /* Header */
 header {
   position: relative;
-  z-index: 10;
 }
 
 /* Hamburger */
 .hamburger {
-  position: fixed;  /* now fixed to stay with sidebar */
+  position: absolute;
   top: 20px;
   right: 20px;
   cursor: pointer;
@@ -111,7 +110,7 @@ header {
   justify-content: space-between;
   width: 35px;
   height: 25px;
-  z-index: 35;  
+  z-index: 30;  
 }
 
 .hamburger div {
@@ -125,7 +124,7 @@ header {
   position: fixed;          
   top: 20px;                
   right: -160px;            /* hidden initially */
-  width: 120px;             
+  width: 120px;             /* thinner sidebar */
   height: calc(100% - 40px); 
   background-color: rgba(17,17,17,0.95);  
   padding: 15px;
@@ -134,7 +133,7 @@ header {
   box-shadow: -2px 0 8px rgba(0,0,0,0.5);
   border-left: 3px solid #a259ff;         
   border-radius: 5px 0 0 5px;
-  z-index: 30;
+  z-index: 25;
   transition: right 0.4s ease;            
 }
 
@@ -145,8 +144,8 @@ header {
 .menu a {
   color: #eee;
   text-decoration: none;
-  font-size: 1rem;
-  margin: 110px 0 0 0;      /* partnerships text pushed below hamburger */
+  font-size: 1rem;         /* slightly smaller text */
+  margin: 50px 0 0 0;      /* pushed further below hamburger */
   cursor: pointer;
   transform: none;         
   display: block;
