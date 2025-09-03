@@ -84,9 +84,9 @@ body {
 /* Logo */
 .logo-img {
   display: block;
-  width: 120px;   /* slightly bigger than 100px */
+  width: 120px;   
   height: 120px;
-  margin: 20px auto 30px; /* centered with some top margin */
+  margin: 20px auto 30px; 
   border-radius: 10px;
 }
 
@@ -106,7 +106,7 @@ header {
   justify-content: space-between;
   width: 35px;
   height: 25px;
-  z-index: 30;
+  z-index: 10;
 }
 
 .hamburger div {
@@ -119,11 +119,11 @@ header {
 .menu {
   position: fixed;
   top: 0;
-  right: -220px; /* hidden off-screen */
-  width: 200px;
+  right: -160px; /* hidden off-screen */
+  width: 150px;  /* slimmer sidebar */
   height: 100%;
-  background-color: #111;
-  padding: 60px 20px;
+  background-color: rgba(17,17,17,0.95); /* semi-transparent black */
+  padding: 100px 15px 20px; /* push link lower under hamburger */
   display: flex;
   flex-direction: column;
   box-shadow: -2px 0 10px rgba(0,0,0,0.4);
@@ -138,8 +138,8 @@ header {
 .menu a {
   color: #eee;
   text-decoration: none;
-  font-size: 1.2rem;
-  margin: 15px 0;
+  font-size: 1rem;
+  margin: 12px 0;
   cursor: pointer;
 }
 
