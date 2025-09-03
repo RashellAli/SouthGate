@@ -5,6 +5,12 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color: #000;               /* fixes white flash on scroll */
+  overscroll-behavior: contain;         /* prevents bouncing effect */
+  -webkit-overflow-scrolling: touch;    /* smooth scrolling on iOS */
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #000;
@@ -97,7 +103,7 @@ header {
 
 /* Hamburger */
 .hamburger {
-  position: fixed;  /* changed from absolute to fixed */
+  position: absolute;
   top: 20px;
   right: 20px;
   cursor: pointer;
@@ -117,10 +123,10 @@ header {
 
 /* Sidebar Menu */
 .menu {
-  position: fixed;          
+  position: fixed;          /* fixed now, doesn’t move with scroll */
   top: 20px;                
-  right: -160px;            /* hidden initially */
-  width: 120px;             /* thinner sidebar */
+  right: -160px;            
+  width: 120px;             
   height: calc(100% - 40px); 
   background-color: rgba(17,17,17,0.95);  
   padding: 15px;
@@ -140,8 +146,8 @@ header {
 .menu a {
   color: #eee;
   text-decoration: none;
-  font-size: 1rem;         /* slightly smaller text */
-  margin: 90px 0 0 0;      /* moved Partnerships text further down */
+  font-size: 1rem;
+  margin: 90px 0 0 0;      
   cursor: pointer;
   transform: none;         
   display: block;
