@@ -5,76 +5,177 @@
   <title>Terms and Conditions | SouthGate Protection CIC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      overscroll-behavior: none;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #eee;
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    h1, h2 {
+      background-color: #000;
       color: #fff;
-      text-align: center;
+      line-height: 1.8;
+      overflow-x: hidden;
     }
-    p {
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #111;
+      border-radius: 10px;
+    }
+
+    h1 {
+      color: #a259ff;
+      text-align: center;
       margin-bottom: 20px;
     }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #aaa;
-      margin-top: 60px;
-      border-top: 1px solid #333;
-      padding-top: 20px;
+
+    h2 {
+      color: #a259ff;
+      margin-bottom: 15px;
     }
-    a {
-      color: #fff;
+
+    p {
+      margin-bottom: 20px;
+      color: #eee;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 35px;
+      height: 25px;
+      z-index: 30;  
+    }
+    .hamburger div {
+      width: 100%;
+      height: 4px;
+      background-color: white;
+    }
+
+    /* Sidebar Menu */
+    .menu {
+      position: fixed;
+      top: 20px;
+      right: -160px;
+      width: 120px;
+      height: calc(100% - 40px);
+      background-color: rgba(17,17,17,0.95);
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.5);
+      border-left: 3px solid #a259ff;
+      border-radius: 5px 0 0 5px;
+      z-index: 25;
+      transition: right 0.4s ease;
+    }
+    .menu.show {
+      right: 0;
+    }
+    .menu a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 1rem;
+      margin: 50px 0 0 0;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 40px;
+      background: linear-gradient(to right, #333, #222);
+      padding: 20px;
+      color: #bbb;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+    .footer-terms a {
+      color: #a259ff;
+      text-decoration: none;
+    }
+    .footer-terms a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Terms and Conditions</h1>
-  <p><strong>Effective Date:</strong> July 23, 2025</p>
+  <!-- Hamburger menu -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="partnerships.html">Partnerships</a>
+  </div>
 
-  <h2>1. Introduction</h2>
-  <p>
-    Welcome to the SouthGate Protection CIC website. By accessing or using our website, you agree to be bound by the terms outlined below. These terms are in place to ensure transparency and protect both you and our community-focused service.
-  </p>
+  <div class="container">
+    <h1>Terms and Conditions</h1>
+    <p><strong>Effective Date:</strong> July 23, 2025</p>
 
-  <h2>2. Who We Are</h2>
-  <p>
-    SouthGate Protection CIC is a community safety initiative committed to enhancing safety and wellbeing across South Norwood and its surrounding communities through visible and consistent local patrols.
-  </p>
+    <h2>1. Introduction</h2>
+    <p>
+      Welcome to the SouthGate Protection CIC website. By accessing or using our website, you agree to be bound by the terms outlined below. These terms are in place to ensure transparency and protect both you and our community-focused service.
+    </p>
 
-  <h2>3. Website Use</h2>
-  <p>
-    This website is designed to share information about our services and allow the public to contact us with enquiries. All content is provided in good faith for general informational purposes only.
-  </p>
+    <h2>2. Who We Are</h2>
+    <p>
+      SouthGate Protection CIC is a community protection initiative dedicated to enhancing safety and wellbeing across local neighbourhoods around Croydon through consistent local patrols.
+    </p>
 
-  <h2>4. Enquiry Submissions</h2>
-  <p>
-    If you submit an enquiry through our website, we may contact you via the email address you provide to respond appropriately. Your data will be handled with care and never shared with third parties without your consent. Please avoid submitting sensitive or confidential information.
-  </p>
+    <h2>3. Website Use</h2>
+    <p>
+      This website is designed to share information about our services and allow the public to contact us with enquiries. All content is provided in good faith for general informational purposes only.
+    </p>
 
-  <h2>5. Intellectual Property</h2>
-  <p>
-    All content on this site — including logos, text, and design — is the property of SouthGate Protection CIC. You may not copy, reproduce, or distribute any material without prior written permission.
-  </p>
+    <h2>4. Enquiry Submissions</h2>
+    <p>
+      If you contact us via email, we may respond using the email address you provide. We handle your data responsibly and do not share it with third parties without consent. Avoid sending highly sensitive or confidential information via email. Once we respond, you may choose to continue communication by phone or messaging if preferred.
+    </p>
 
-  <h2>6. Changes to These Terms</h2>
-  <p>
-    We may update these Terms and Conditions when necessary. Any updates will be posted on this page, and the effective date will reflect the latest revision.
-  </p>
+    <h2>5. Intellectual Property</h2>
+    <p>
+      All content on this site — including logos, text, and design — is the property of SouthGate Protection CIC. You may not copy, reproduce, or distribute any material without prior written permission.
+    </p>
 
-  <h2>7. Contact Us</h2>
-  <p>
-    If you have questions about these terms or how we operate, please email us at <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a>.
-  </p>
+    <h2>6. Updates to These Terms</h2>
+    <p>
+      We may revise these Terms and Conditions from time to time to reflect changes in our operations or legal requirements. Any updates will be posted on this page, and the effective date will be updated accordingly.
+    </p>
+
+    <h2>7. Contact Us</h2>
+    <p>
+      If you have questions about these terms or our practices, please email <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a>.
+    </p>
+  </div>
 
   <footer>
-    &copy; 2025 SouthGate Protection CIC. All rights reserved.
+    &copy; 2025 SouthGate Protection CIC. All rights reserved. <br />
+    Registered in England and Wales — Company No. 16604543 <br />
+    <span class="footer-terms"><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></span>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById('menu');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
