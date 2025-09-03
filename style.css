@@ -106,7 +106,7 @@ header {
   justify-content: space-between;
   width: 35px;
   height: 25px;
-  z-index: 10;
+  z-index: 30;
 }
 
 .hamburger div {
@@ -115,30 +115,31 @@ header {
   background-color: white;
 }
 
-/* Dropdown menu */
+/* Sidebar Menu */
 .menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
+  position: fixed;
+  top: 0;
+  right: -220px; /* hidden off-screen */
   width: 200px;
+  height: 100%;
   background-color: #111;
-  padding: 15px;
-  display: none;
+  padding: 60px 20px;
+  display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  border-radius: 5px;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.4);
+  transition: right 0.3s ease; /* smooth slide */
   z-index: 20;
 }
 
 .menu.show {
-  display: flex;
+  right: 0; /* slides in */
 }
 
 .menu a {
   color: #eee;
   text-decoration: none;
   font-size: 1.2rem;
-  margin: 12px 0;
+  margin: 15px 0;
   cursor: pointer;
 }
 
