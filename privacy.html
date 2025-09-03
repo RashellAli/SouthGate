@@ -19,42 +19,37 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #000;
-      color: #eee;
-      line-height: 1.6;
+      color: #fff;
+      line-height: 1.8;
       overflow-x: hidden;
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
+      position: relative;
     }
 
-    h1, h2 {
-      text-align: center;
+    /* Abstract Purple Lines */
+    .abstract-line {
+      position: absolute;
+      background-color: #a259ff;
+      opacity: 0.4;
+      transform: rotate(-20deg);
+      z-index: -1;
     }
+    .abstract-line-1 { width: 300px; height: 6px; top: 50px; left: 20px; }
+    .abstract-line-2 { width: 200px; height: 6px; bottom: 100px; right: 30px; }
+    .abstract-line-3 { width: 400px; height: 6px; top: 300px; left: 50%; transform: translateX(-50%) rotate(15deg); }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: #fff;
+    /* Purple Clouds */
+    .purple-cloud {
+      position: absolute;
+      background: radial-gradient(circle, rgba(162, 89, 255, 0.3) 0%, transparent 70%);
+      z-index: -2;
+      filter: blur(40px);
     }
+    .purple-cloud-1 { width: 250px; height: 250px; top: 100px; left: -50px; }
+    .purple-cloud-2 { width: 300px; height: 300px; bottom: 150px; right: 0; }
+    .purple-cloud-3 { width: 200px; height: 200px; top: 400px; left: 50%; transform: translateX(-50%); }
 
-    h2 {
-      color: #fff;
-      margin-bottom: 16px;
-    }
-
-    p {
-      margin-bottom: 16px;
-      line-height: 1.5;
-    }
-
-    a {
-      color: #66ccff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    /* Header */
+    header { position: relative; }
 
     /* Hamburger */
     .hamburger {
@@ -62,61 +57,77 @@
       top: 20px;
       right: 20px;
       cursor: pointer;
-      z-index: 999;
-      width: 35px;
-      height: 25px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      width: 35px;
+      height: 25px;
+      z-index: 30;
     }
-    .hamburger div {
-      width: 100%;
-      height: 4px;
-      background-color: white;
-    }
+    .hamburger div { width: 100%; height: 4px; background-color: white; }
 
     /* Sidebar Menu */
     .menu {
-      position: fixed;
-      top: 0;
-      right: -160px;   
-      width: 140px;    
-      height: 100vh;   
-      background-color: rgba(17,17,17,0.95);
-      padding: 70px 15px 15px;
+      position: fixed;          
+      top: 20px;                
+      right: -160px;            
+      width: 120px;             
+      height: calc(100% - 40px); 
+      background-color: rgba(17,17,17,0.95);  
+      padding: 15px;
       display: flex;
       flex-direction: column;
       box-shadow: -2px 0 8px rgba(0,0,0,0.5);
-      border-left: 3px solid #a259ff;
+      border-left: 3px solid #a259ff;         
       border-radius: 5px 0 0 5px;
-      z-index: 998;
-      transition: right 0.4s ease;
+      z-index: 25;
+      transition: right 0.4s ease;            
     }
-
-    .menu.show {
-      right: 0;
-    }
-
+    .menu.show { right: 0; }
     .menu a {
       color: #eee;
       text-decoration: none;
       font-size: 1rem;
-      margin: 20px 0;
+      margin: 50px 0 0 0;      
+      cursor: pointer;
       display: block;
     }
 
+    /* Main Content */
+    .container {
+      position: relative;
+      padding: 20px;
+      overflow: hidden;
+      max-width: 800px;
+      margin: 80px auto 20px auto; /* space for fixed hamburger */
+    }
+    h1 { font-size: 2rem; color: #a259ff; text-align: center; margin-bottom: 20px; }
+    h2 { font-size: 1.5rem; color: #fff; margin-bottom: 15px; }
+    p { font-size: 1rem; color: #ddd; margin-bottom: 20px; text-align: left; }
+
     /* Footer */
     footer {
-      margin-top: 40px;
+      margin-top: 20px;
+      background: linear-gradient(to right, #333, #222);
+      padding: 20px;
+      color: #bbb;
       font-size: 0.9rem;
-      color: #aaa;
-      text-align: center;
-      border-top: 1px solid #444;
-      padding-top: 20px;
+      text-align: left;
     }
+    .footer-terms a { color: #a259ff; text-decoration: none; }
+    .footer-terms a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
+  <!-- Background Decorations -->
+  <div class="abstract-line abstract-line-1"></div>
+  <div class="abstract-line abstract-line-2"></div>
+  <div class="abstract-line abstract-line-3"></div>
+
+  <div class="purple-cloud purple-cloud-1"></div>
+  <div class="purple-cloud purple-cloud-2"></div>
+  <div class="purple-cloud purple-cloud-3"></div>
+
   <!-- Hamburger menu -->
   <div class="hamburger" onclick="toggleMenu()">
     <div></div>
@@ -124,35 +135,34 @@
     <div></div>
   </div>
 
-  <!-- Sidebar menu -->
   <div class="menu" id="menu">
     <a href="index.html">Home</a>
     <a href="partnerships.html">Partnerships</a>
   </div>
 
-  <!-- Main Content -->
-  <h1>Privacy Policy</h1>
+  <div class="container">
+    <h1>Privacy Policy</h1>
 
-  <p>At <strong>SouthGate Protection CIC</strong>, your privacy is important to us. This policy explains how we collect, use, and protect any personal information you provide when you contact us through our website.</p>
+    <p>At <strong>SouthGate Protection CIC</strong>, your privacy is important to us. This policy explains how we collect, use, and protect any personal information you provide when you contact us via email.</p>
 
-  <h2>Information We Collect</h2>
-  <p>When you contact us via email, we collect your name, email address, and the message you send to us. This information is necessary for us to respond to your enquiries effectively.</p>
+    <h2>Information We Collect</h2>
+    <p>When you email us, we may collect your name, email address, and the message you send. This is necessary for us to respond to your enquiry effectively.</p>
 
-  <h2>How We Use Your Information</h2>
-  <p>The personal data you provide is used solely to communicate with you and respond to your questions or requests. We do not share your information with third parties for marketing or any other purposes.</p>
+    <h2>How We Use Your Information</h2>
+    <p>Your personal data is used solely to communicate with you and respond to your questions or requests. We do not share your information with third parties for marketing or other purposes.</p>
 
-  <h2>Data Security</h2>
-  <p>We take reasonable measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
+    <h2>Data Security</h2>
+    <p>We take reasonable measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
 
-  <h2>Your Rights</h2>
-  <p>You have the right to access, correct, or request deletion of your personal data. If you wish to exercise any of these rights or have questions about our privacy practices, please contact us at <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a>.</p>
+    <h2>Your Rights</h2>
+    <p>You have the right to access, correct, or request deletion of your personal data. If you wish to exercise these rights or have questions, please contact us at <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a>.</p>
 
-  <h2>Updates to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date.</p>
+    <h2>Updates to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date.</p>
+  </div>
 
   <footer>
-    <p><strong>Effective Date:</strong> July 2025</p>
-    <p>&copy; 2025 SouthGate Protection CIC. All rights reserved.</p>
+    &copy; 2025 SouthGate Protection CIC. All rights reserved.
   </footer>
 
   <script>
