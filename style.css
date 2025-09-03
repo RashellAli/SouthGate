@@ -97,7 +97,7 @@ header {
 
 /* Hamburger */
 .hamburger {
-  position: absolute;
+  position: fixed;  /* changed from absolute to fixed */
   top: 20px;
   right: 20px;
   cursor: pointer;
