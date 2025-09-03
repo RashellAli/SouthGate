@@ -93,6 +93,14 @@ body {
   border-radius: 10px;
 }
 
+/* FIXED SQUARE LOGO */
+header img.logo {
+  width: 120px;       /* square width */
+  height: 120px;      /* square height */
+  object-fit: cover;  /* ensures it fills square without distortion */
+  border-radius: 10px; /* optional: rounded corners */
+}
+
 /* Content */
 .content {
   max-width: 800px;
