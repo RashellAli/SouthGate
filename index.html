@@ -12,188 +12,72 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111; /* consistent black background everywhere */
-      color: #eee;
-      overflow-x: hidden;
-    }
-
-    /* HEADER */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: #1a1a1a; /* matches logo background */
-      border-bottom: 1px solid #444;
-      position: relative;
-      z-index: 1000;
-      margin: 0; /* flush top */
-    }
-
-    header img.logo {
-      height: 100px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    /* HAMBURGER */
-    .hamburger {
-      cursor: pointer;
-      width: 35px;
-      height: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .hamburger div {
-      width: 100%;
-      height: 4px;
-      background-color: white;
-    }
-
-    /* MENU */
-    .menu {
-      position: absolute;
-      top: 100%;
-      right: 10px;
-      width: 220px;
-      background-color: #111;
-      padding: 20px;
-      display: none;
-      flex-direction: column;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      border-radius: 5px;
-    }
-    .menu.show {
-      display: flex;
-    }
-    .menu a {
-      color: #eee;
-      text-decoration: none;
-      font-size: 1.2rem;
-      margin: 12px 0;
-      cursor: pointer;
-    }
-
-    /* MAIN CONTENT */
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #111;
-      min-height: calc(100vh - 100px - 50px); /* full viewport minus header/footer */
-    }
-
-    .mission {
-      color: #eee;
-      font-size: 1.2rem;
-      line-height: 1.5;
-      text-align: left;
-      animation: fadeIn 2s ease-in forwards;
-      opacity: 0;
-    }
-
-    /* CONTACT BAR */
-    .contact-bar {
-      background-color: #222;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 15px;
-      padding: 10px 15px;
-      border-radius: 5px;
-      margin: 30px 0;
-      animation: fadeIn 2s ease-in forwards;
-      opacity: 0;
-    }
-    .contact-bar img {
-      width: 24px;
-      height: 24px;
-    }
-    .contact-bar a {
-      color: #eee;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid #444;
-      font-size: 0.9rem;
-      color: #aaa;
-      background-color: #111;
-      animation: fadeIn 2s ease-in forwards;
-      opacity: 0;
-    }
-    footer a {
-      color: #aaa;
-      text-decoration: underline;
-      margin: 0 10px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @media (max-width: 600px) {
-      .mission {
-        font-size: 1rem;
-      }
-      header img.logo {
-        height: 80px;
-        width: auto;
-      }
-      .menu {
-        width: 180px;
-        right: 10px;
-      }
-    }
-  </style>
+  <!-- Link to new CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <img src="logo-rect.jpg" alt="SouthGate Protection Logo" class="logo" />
-    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+  <div class="container">
 
-    <div class="menu" id="menu">
-      <a href="partnerships.html">Partnerships</a>
-    </div>
-  </header>
+    <!-- Header with logo and hamburger menu -->
+    <header>
+      <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo">
+      
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
 
-  <main>
-    <p class="mission">
-      <strong>Presence. Purpose. Protection.</strong><br>
-      We patrol to protect those who need it most. From supporting vulnerable residents to maintaining a trusted presence in the streets, our mission is simple: safety, visibility, and community trust.<br><br>
-      We work to prevent harm, respond quickly when incidents arise, and build strong connections within the community. By combining high-visibility patrols with a consistent, approachable presence, we ensure everyone feels supported and secure. Our commitment is to act with integrity, professionalism, and compassion, creating safer environments where people can live, work, and thrive.
-    </p>
+      <div class="menu" id="menu">
+        <a href="partnerships.html">Partnerships</a>
+      </div>
+    </header>
 
-    <div class="contact-bar">
-      <a href="https://www.instagram.com/ghost.sgp/"><img src="instagram-logo.png" alt="Instagram" /></a>
-      <a href="https://www.linkedin.com/in/ali10168523/"><img src="linkedin-logo.png" alt="LinkedIn" /></a>
-      <a href="mailto:info@southgateprotection.co.uk">info@southgateprotection.co.uk</a>
-    </div>
-  </main>
+    <!-- Background abstract lines -->
+    <div class="abstract-line abstract-line-1"></div>
+    <div class="abstract-line abstract-line-2"></div>
+    <div class="abstract-line abstract-line-3"></div>
 
-  <footer>
-    &copy; 2025 SouthGate Protection CIC. All rights reserved.<br />
-    Registered in England and Wales — Company No. 16604543<br />
-    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
-  </footer>
+    <!-- Background purple clouds -->
+    <div class="purple-cloud purple-cloud-1"></div>
+    <div class="purple-cloud purple-cloud-2"></div>
+    <div class="purple-cloud purple-cloud-3"></div>
 
+    <!-- Main content -->
+    <main>
+      <div class="content">
+        <p class="main-text">Presence. Purpose. Protection.</p>
+        <p class="mission">
+          We patrol to protect those who need it most. From supporting vulnerable residents to maintaining a trusted presence in the streets, our mission is simple: safety, visibility, and community trust.<br><br>
+          We work to prevent harm, respond quickly when incidents arise, and build strong connections within the community. By combining high-visibility patrols with a consistent, approachable presence, we ensure everyone feels supported and secure. Our commitment is to act with integrity, professionalism, and compassion, creating safer environments where people can live, work, and thrive.
+        </p>
+      </div>
+
+      <!-- Social links -->
+      <div class="social-box">
+        <a href="https://www.instagram.com/ghost.sgp/" class="social-link">
+          <img src="instagram-logo.png" alt="Instagram"> Instagram
+        </a>
+        <a href="https://www.linkedin.com/in/ali10168523/" class="social-link">
+          <img src="linkedin-logo.png" alt="LinkedIn"> LinkedIn
+        </a>
+        <a href="mailto:info@southgateprotection.co.uk" class="social-link">Email</a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-legal">
+        &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
+        Registered in England and Wales — Company No. 16604543
+      </div>
+      <div class="footer-terms">
+        <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Hamburger menu JS -->
   <script>
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('show');
