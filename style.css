@@ -17,11 +17,11 @@ html, body {
 
 /* Background elements */
 .abstract-line {
-  position: fixed;
+  position: absolute;
   background-color: #a259ff;
   opacity: 0.4;
   transform: rotate(-20deg);
-  z-index: 0; /* behind main content */
+  z-index: -2; /* behind content */
 }
 
 .abstract-line-1 {
@@ -47,10 +47,10 @@ html, body {
 }
 
 .purple-cloud {
-  position: fixed;
+  position: absolute;
   background: radial-gradient(circle, rgba(162, 89, 255, 0.3) 0%, transparent 70%);
   filter: blur(40px);
-  z-index: -1; /* behind lines */
+  z-index: -3; /* behind lines */
 }
 
 .purple-cloud-1 {
@@ -147,15 +147,15 @@ main {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #000;
-  z-index: 5;
+  background: transparent; /* let clouds show through */
+  z-index: 1;
 }
 
-.content {
-  text-align: left;
-  padding: 20px;
-  border-radius: 10px;
+.container {
   position: relative;
+  padding: 0; /* remove extra padding to avoid white edges */
+  background: transparent;
+  z-index: 1;
 }
 
 /* Main Text */
@@ -164,6 +164,7 @@ main {
   font-weight: bold;
   color: #a259ff;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 /* Mission Section */
