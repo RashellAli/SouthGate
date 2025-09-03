@@ -11,25 +11,48 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     html, body {
       overscroll-behavior: none;
       height: 100%;
     }
-
     body {
       font-family: Arial, sans-serif;
       background-color: #000;
       color: #fff;
       line-height: 1.8;
       overflow-x: hidden;
+      position: relative;
     }
 
+    /* Abstract Purple Lines */
+    .abstract-line {
+      position: absolute;
+      background-color: #a259ff;
+      opacity: 0.4;
+      transform: rotate(-20deg);
+      z-index: -1;
+    }
+    .abstract-line-1 { width: 300px; height: 6px; top: 50px; left: 20px; }
+    .abstract-line-2 { width: 200px; height: 6px; bottom: 100px; right: 30px; }
+    .abstract-line-3 { width: 400px; height: 6px; top: 300px; left: 50%; transform: translateX(-50%) rotate(15deg); }
+
+    /* Purple Clouds */
+    .purple-cloud {
+      position: absolute;
+      background: radial-gradient(circle, rgba(162, 89, 255, 0.3) 0%, transparent 70%);
+      z-index: -2;
+      filter: blur(40px);
+    }
+    .purple-cloud-1 { width: 250px; height: 250px; top: 100px; left: -50px; }
+    .purple-cloud-2 { width: 300px; height: 300px; bottom: 150px; right: 0; }
+    .purple-cloud-3 { width: 200px; height: 200px; top: 400px; left: 50%; transform: translateX(-50%); }
+
+    /* Container */
     .container {
       position: relative;
-      padding: 60px 20px 20px 20px; /* space for fixed hamburger */
+      padding: 60px 20px 20px 20px; 
       max-width: 800px;
-      margin: 0 auto 20px auto;      /* removed top margin */
+      margin: 0 auto 20px auto;
       background-color: #111;
       border-radius: 10px;
       overflow: hidden;
@@ -40,12 +63,10 @@
       text-align: center;
       margin-bottom: 20px;
     }
-
     h2 {
       color: #a259ff;
       margin-bottom: 15px;
     }
-
     p {
       margin-bottom: 20px;
       color: #eee;
@@ -87,9 +108,7 @@
       z-index: 25;
       transition: right 0.4s ease;
     }
-    .menu.show {
-      right: 0;
-    }
+    .menu.show { right: 0; }
     .menu a {
       color: #eee;
       text-decoration: none;
@@ -117,6 +136,16 @@
   </style>
 </head>
 <body>
+  <!-- Abstract lines -->
+  <div class="abstract-line abstract-line-1"></div>
+  <div class="abstract-line abstract-line-2"></div>
+  <div class="abstract-line abstract-line-3"></div>
+
+  <!-- Purple clouds -->
+  <div class="purple-cloud purple-cloud-1"></div>
+  <div class="purple-cloud purple-cloud-2"></div>
+  <div class="purple-cloud purple-cloud-3"></div>
+
   <!-- Hamburger menu -->
   <div class="hamburger" onclick="toggleMenu()">
     <div></div>
