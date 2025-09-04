@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Partnerships Page Specific Styles */
-
     h1 {
       text-align: center;
       color: #fff;
@@ -161,14 +160,15 @@
   <h2 onclick="toggleDropdown('galleryDropdown')">Gallery &#9662;</h2>
   <div class="gallery-dropdown" id="galleryDropdown">
     <div class="gallery-container" id="galleryContainer">
-      <img data-src="gallery1.jpg" class="active" />
-      <img data-src="gallery2.jpg" />
-      <img data-src="gallery3.jpg" />
-      <img data-src="gallery4.jpg" />
-      <img data-src="gallery5.jpg" />
-      <img data-src="gallery6.jpg" />
-      <img data-src="gallery7.jpg" />
-      <img data-src="gallery8.jpg" />
+      <img src="gallery1.jpg" class="active" />
+      <img src="gallery2.jpg" />
+      <img src="gallery3.jpg" />
+      <img src="gallery4.jpg" />
+      <img src="gallery5.jpg" />
+      <img src="gallery6.jpg" />
+      <img src="gallery7.jpg" />
+      <img src="gallery8.jpg" />
+      <img src="gallery9.jpg" />
     </div>
   </div>
 
@@ -187,7 +187,6 @@
     function toggleDropdown(id) {
       var dropdown = document.getElementById(id);
       dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
-      if (id === 'galleryDropdown') loadGalleryImages();
     }
 
     // Faron Paul slideshow
@@ -202,22 +201,15 @@
     }
     showFaronSlides();
 
-    // Gallery
-    let galleryIndex = 0;
-    let galleryLoaded = false;
+    // Gallery Slideshow (2s interval)
     const gallerySlides = document.querySelectorAll('#galleryContainer img');
-    function loadGalleryImages() {
-      if (!galleryLoaded) {
-        gallerySlides.forEach(img => { img.src = img.dataset.src; });
-        galleryLoaded = true;
-      }
-    }
+    let galleryIndex = 0;
     function showGallerySlides() {
       gallerySlides.forEach(img => img.classList.remove('active'));
       galleryIndex++;
       if (galleryIndex > gallerySlides.length) galleryIndex = 1;
       gallerySlides[galleryIndex - 1].classList.add('active');
-      setTimeout(showGallerySlides, 3000);
+      setTimeout(showGallerySlides, 2000); // 2 seconds per image
     }
     showGallerySlides();
   </script>
