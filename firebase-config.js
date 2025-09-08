@@ -1,4 +1,6 @@
-// Firebase configuration for SouthGate Protection
+// firebase-config.js
+
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCfDWx6xC0DdgCNgk_dAd1pLD2zpqWeCYs",
   authDomain: "southgateprotection.firebaseapp.com",
@@ -8,9 +10,9 @@ const firebaseConfig = {
   appId: "1:19042058562:web:fe2b6be92f73b47ccbc8db"
 };
 
-// Initialize Firebase (compat version)
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Shortcut references
+// Firebase services
 const auth = firebase.auth();
 const db = firebase.firestore();
