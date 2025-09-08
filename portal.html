@@ -7,18 +7,18 @@
 
   <link rel="stylesheet" href="style.css">
 
-  <!-- Firebase SDKs (compat version) -->
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore-compat.js"></script>
 
   <!-- Firebase config -->
-  <script src="firebase-config.js"></script>
+  <script src="firebase-config.js" defer></script>
   <!-- App logic -->
   <script src="app.js" defer></script>
 </head>
 <body>
-  <!-- Background decorations -->
+  <!-- Background Decorations -->
   <div class="abstract-line abstract-line-1"></div>
   <div class="abstract-line abstract-line-2"></div>
   <div class="abstract-line abstract-line-3"></div>
@@ -31,6 +31,7 @@
     <div></div><div></div><div></div>
   </div>
 
+  <!-- Sidebar Menu -->
   <div class="menu" id="menu">
     <a href="index.html">Home</a>
     <a href="partnerships.html">Partnerships</a>
@@ -52,7 +53,7 @@
     <!-- REPORT FORM -->
     <div id="formDiv" style="display:none;">
       <h2 style="color:#a259ff;text-align:center;">Submit Incident Report</h2>
-      
+
       <label for="type" style="color:#fff;">Report Type:</label>
       <select id="type" style="width:100%;padding:8px;margin:10px 0;">
         <option value="Knife Amnesty">Knife Amnesty</option>
