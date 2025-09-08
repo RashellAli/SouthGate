@@ -5,37 +5,32 @@
   <title>SouthGate Protection: Staff Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Your CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Firebase SDKs (compat version) -->
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore-compat.js"></script>
-  
+
   <!-- Firebase config -->
-  <script src="firebase-config.js"></script>
+  <script src="firebase-config.js" defer></script>
   <!-- App logic -->
   <script src="app.js" defer></script>
 </head>
 <body>
-  <!-- Background Decorations -->
+  <!-- Background decorations remain unchanged -->
   <div class="abstract-line abstract-line-1"></div>
   <div class="abstract-line abstract-line-2"></div>
   <div class="abstract-line abstract-line-3"></div>
-
   <div class="purple-cloud purple-cloud-1"></div>
   <div class="purple-cloud purple-cloud-2"></div>
   <div class="purple-cloud purple-cloud-3"></div>
 
   <!-- Hamburger menu -->
   <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
+    <div></div><div></div><div></div>
   </div>
 
-  <!-- Sidebar Menu -->
   <div class="menu" id="menu">
     <a href="index.html">Home</a>
     <a href="partnerships.html">Partnerships</a>
@@ -44,7 +39,6 @@
 
   <div class="container">
     <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo-img">
-
     <p class="main-text">Presence. Purpose. Protection.</p>
 
     <!-- LOGIN FORM -->
@@ -68,7 +62,7 @@
 
       <label for="notes" style="color:#fff;">Details:</label>
       <textarea id="notes" rows="5" placeholder="Enter details here..." style="width:100%;padding:8px;margin:10px 0;"></textarea>
-      
+
       <button onclick="submitReport()" style="width:100%;padding:10px;background:#a259ff;color:#fff;border:none;border-radius:5px;margin-bottom:10px;">Submit Report</button>
       <button onclick="logout()" style="width:100%;padding:10px;background:#ff4d4d;color:#fff;border:none;border-radius:5px;">Logout</button>
     </div>
