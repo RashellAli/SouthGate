@@ -14,7 +14,7 @@ async function login() {
       localStorage.setItem("deviceId", deviceId);
     }
 
-    // Check Firestore for existing device ID
+    // Reference user doc in Firestore
     const userDoc = db.collection("users").doc(user.uid);
     const docSnap = await userDoc.get();
 
