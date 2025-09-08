@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>SouthGate Protection: Staff Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <link rel="stylesheet" href="style.css">
 
   <!-- Firebase SDKs -->
@@ -11,13 +12,13 @@
   <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore-compat.js"></script>
 
-  <!-- Firebase config -->
-  <script src="firebase-config.js"></script> <!-- no defer -->
-
+  <!-- Firebase config (no defer!) -->
+  <script src="firebase-config.js"></script>
   <!-- App logic -->
   <script src="app.js" defer></script>
 </head>
 <body>
+  <!-- Background Decorations -->
   <div class="abstract-line abstract-line-1"></div>
   <div class="abstract-line abstract-line-2"></div>
   <div class="abstract-line abstract-line-3"></div>
@@ -25,7 +26,10 @@
   <div class="purple-cloud purple-cloud-2"></div>
   <div class="purple-cloud purple-cloud-3"></div>
 
-  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <!-- Hamburger menu -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
 
   <div class="menu" id="menu">
     <a href="index.html">Home</a>
@@ -37,6 +41,7 @@
     <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo-img">
     <p class="main-text">Presence. Purpose. Protection.</p>
 
+    <!-- LOGIN FORM -->
     <div id="loginDiv">
       <h2 style="color:#a259ff;text-align:center;">Staff Login</h2>
       <input type="email" id="email" placeholder="Email" style="width:100%;padding:8px;margin:10px 0;">
@@ -44,8 +49,10 @@
       <button onclick="login()" style="width:100%;padding:10px;background:#a259ff;color:#fff;border:none;border-radius:5px;">Login</button>
     </div>
 
+    <!-- REPORT FORM -->
     <div id="formDiv" style="display:none;">
       <h2 style="color:#a259ff;text-align:center;">Submit Incident Report</h2>
+      
       <label for="type" style="color:#fff;">Report Type:</label>
       <select id="type" style="width:100%;padding:8px;margin:10px 0;">
         <option value="Knife Amnesty">Knife Amnesty</option>
@@ -55,19 +62,9 @@
 
       <label for="notes" style="color:#fff;">Details:</label>
       <textarea id="notes" rows="5" placeholder="Enter details here..." style="width:100%;padding:8px;margin:10px 0;"></textarea>
-
+      
       <button onclick="submitReport()" style="width:100%;padding:10px;background:#a259ff;color:#fff;border:none;border-radius:5px;margin-bottom:10px;">Submit Report</button>
       <button onclick="logout()" style="width:100%;padding:10px;background:#ff4d4d;color:#fff;border:none;border-radius:5px;">Logout</button>
-    </div>
-
-    <div class="social-box">
-      <a href="https://www.instagram.com/ghost.sgp/" class="social-link">
-        <img src="instagram-logo.png" alt="Instagram"> Instagram
-      </a>
-      <a href="https://www.linkedin.com/in/ali10168523/" class="social-link">
-        <img src="linkedin-logo.png" alt="LinkedIn"> LinkedIn
-      </a>
-      <a href="mailto:info@southgateprotection.co.uk" class="social-link">Email</a>
     </div>
   </div>
 
