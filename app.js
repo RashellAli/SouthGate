@@ -1,55 +1,28 @@
-// ----- LOGIN LOGIC WITH SINGLE DEVICE ENFORCEMENT -----
+// ----- LOGIN LOGIC -----
 async function login() {
-  alert("Login button clicked"); // debug alert
-
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  if (!email || !password) {
-    alert("Enter email and password");
-    return;
-  }
-
-  alert(`Trying to login with email: ${email}`); // debug alert
+  console.log("Login button clicked with email:", email);
 
   try {
     const userCredential = await auth.signInWithEmailAndPassword(email, password);
     const user = userCredential.user;
-    alert("Firebase login successful"); // debug alert
 
-    // Generate a device ID for this session
-    let deviceId = localStorage.getItem("deviceId");
-    if (!deviceId) {
-      deviceId = Math.random().toString(36).substring(2, 15); // simple unique string
-      localStorage.setItem("deviceId", deviceId);
-    }
+    console.log("User logged in:", user.uid);
 
-    // Check Firestore for existing device ID
-    const userDoc = db.collection("users").doc(user.uid);
-    const docSnap = await userDoc.get();
-
-    if (!docSnap.exists) {
-      // First time login, save device ID
-      await userDoc.set({ deviceId: deviceId });
-    } else {
-      const storedDevice = docSnap.data().deviceId;
-      if (storedDevice && storedDevice !== deviceId) {
-        await auth.signOut();
-        alert("Login blocked: this account is only allowed on its registered device.");
-        return;
-      }
-    }
-
+    // Show report form
     document.getElementById("loginDiv").style.display = "none";
     document.getElementById("formDiv").style.display = "block";
-    alert("Login successful! Form visible now.");
+    alert("Login successful!");
 
   } catch (error) {
+    console.error("Login failed:", error);
     alert("Login failed: " + error.message);
   }
 }
 
-// ----- LOGOUT LOGIC -----
+// ----- LOGOUT -----
 function logout() {
   auth.signOut().then(() => {
     document.getElementById("loginDiv").style.display = "block";
@@ -75,21 +48,9 @@ function submitReport() {
   })
   .then(() => {
     alert("Report submitted successfully!");
-    document.getElementById("notes").value = ""; // clear textarea
+    document.getElementById("notes").value = "";
   })
   .catch(error => {
     alert("Error submitting report: " + error.message);
   });
 }
-
-// ----- BLUR WHEN TAB HIDDEN -----
-document.addEventListener('visibilitychange', () => {
-  const formDiv = document.getElementById('formDiv');
-  if (!formDiv) return;
-
-  if (document.hidden) {
-    formDiv.style.filter = 'blur(8px)';
-  } else {
-    formDiv.style.filter = 'none';
-  }
-});
