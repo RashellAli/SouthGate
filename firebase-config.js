@@ -8,12 +8,12 @@ const firebaseConfig = {
   appId: "1:19042058562:web:fe2b6be92f73b47ccbc8db"
 };
 
-// Initialize Firebase
+// Initialize Firebase (compat version)
 firebase.initializeApp(firebaseConfig);
 
 // Shortcut references
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// Debug alert for iPhone
+// Debug: confirm Firebase loaded
 console.log("Firebase loaded successfully");
