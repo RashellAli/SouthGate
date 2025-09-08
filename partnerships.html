@@ -7,131 +7,31 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Partnerships Page Specific Styles */
-    h1 {
-      text-align: center;
-      color: #fff;
-      margin-top: 60px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 30px;
-      color: #ddd;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      color: gold;
-      text-align: center;
-      cursor: pointer;
-      margin: 30px 0 15px;
-    }
-
-    .dropdown-content {
-      display: none;
-      margin: 0 auto 30px;
-      text-align: center;
-      max-width: 700px;
-    }
-
-    /* Faron slideshow */
-    .slideshow-container {
-      position: relative;
-      max-width: 400px;
-      height: 400px;
-      margin: 0 auto 20px auto;
-      overflow: hidden;
-      border: 2px solid #a259ff;
-      border-radius: 10px;
-    }
-
-    .slideshow-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .slideshow-container img.active {
-      opacity: 1;
-    }
-
-    video {
-      max-width: 400px;
-      width: 100%;
-      margin: 20px auto;
-      display: block;
-      border-radius: 10px;
-      border: 2px solid #a259ff;
-    }
-
-    /* Gallery */
-    .gallery-dropdown {
-      display: none;
-      margin: 0 auto 30px;
-      text-align: center;
-      max-width: 700px;
-    }
-
-    .gallery-container {
-      position: relative;
-      max-width: 450px;
-      height: 450px;
-      margin: 0 auto 20px auto;
-      overflow: hidden;
-      border: 2px solid #a259ff;
-      border-radius: 10px;
-    }
-
-    .gallery-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .gallery-container img.active {
-      opacity: 1;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 50px;
-    }
+    h1 { text-align:center; color:#fff; margin:60px 0 20px; }
+    p { text-align:center; max-width:700px; margin:0 auto 30px; color:#ddd; }
+    h2 { font-size:1.5rem; color:gold; text-align:center; cursor:pointer; margin:30px 0 15px; }
+    .dropdown-content { display:none; margin:0 auto 30px; text-align:center; max-width:700px; }
+    .slideshow-container { position:relative; max-width:400px; height:400px; margin:0 auto 20px; overflow:hidden; border:2px solid #a259ff; border-radius:10px; }
+    .slideshow-container img { width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0; opacity:0; transition:opacity 1s ease-in-out; }
+    .slideshow-container img.active { opacity:1; }
+    .gallery-container { position:relative; max-width:450px; height:450px; margin:0 auto 20px; overflow:hidden; border:2px solid #a259ff; border-radius:10px; }
+    .gallery-container img { width:100%; height:100%; object-fit:contain; position:absolute; top:0; left:0; opacity:0; transition:opacity 1s ease-in-out; }
+    .gallery-container img.active { opacity:1; }
+    footer { text-align:center; margin-top:50px; }
   </style>
 </head>
 <body>
-  <!-- Abstract Purple Lines -->
+  <!-- Abstract Lines & Clouds -->
   <div class="abstract-line abstract-line-1"></div>
   <div class="abstract-line abstract-line-2"></div>
   <div class="abstract-line abstract-line-3"></div>
-
-  <!-- Purple Clouds -->
   <div class="purple-cloud purple-cloud-1"></div>
   <div class="purple-cloud purple-cloud-2"></div>
   <div class="purple-cloud purple-cloud-3"></div>
 
-  <!-- Hamburger -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
-  <!-- Sidebar Menu -->
-  <div class="menu" id="menu">
-    <a href="index.html">Home</a>
-  </div>
+  <!-- Hamburger & Sidebar -->
+  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <div class="menu" id="menu"><a href="index.html">Home</a></div>
 
   <!-- Partnerships Content -->
   <h1>Partnerships</h1>
@@ -145,20 +45,13 @@
       <img src="faron2.jpg" />
       <img src="faron3.jpg" />
     </div>
-
     <p>We were honoured to work with Faron Paul at the Notting Hill Carnival. As a team, we assisted medics through the busy crowd, helped those who were passed out or injured, and supported weapon collections.</p>
-
-    <video controls poster="fazamnesty-video-cover.PNG">
-      <source src="fazamnesty-video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-
     <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" style="color: gold;">Read more about Faron Paul's story</a></p>
   </div>
 
   <!-- Gallery Section -->
   <h2 onclick="toggleDropdown('galleryDropdown')">Gallery &#9662;</h2>
-  <div class="gallery-dropdown" id="galleryDropdown">
+  <div class="dropdown-content" id="galleryDropdown">
     <div class="gallery-container" id="galleryContainer">
       <img src="gallery1.jpg" class="active" />
       <img src="gallery2.jpg" />
@@ -180,14 +73,18 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('menu').classList.toggle('show');
-    }
-
+    function toggleMenu() { document.getElementById('menu').classList.toggle('show'); }
     function toggleDropdown(id) {
-      var dropdown = document.getElementById(id);
+      const dropdown = document.getElementById(id);
       dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
     }
+
+    // Preload images for faster display
+    const preloadImages = [
+      'faron1.jpg','faron2.jpg','faron3.jpg',
+      'gallery1.jpg','gallery2.jpg','gallery3.jpg','gallery4.jpg','gallery5.jpg','gallery6.jpg','gallery7.jpg','gallery8.jpg','gallery9.jpg'
+    ];
+    preloadImages.forEach(src => { const img = new Image(); img.src = src; });
 
     // Faron Paul slideshow
     let faronIndex = 0;
@@ -195,20 +92,20 @@
     function showFaronSlides() {
       faronSlides.forEach(img => img.classList.remove('active'));
       faronIndex++;
-      if (faronIndex > faronSlides.length) faronIndex = 1;
-      faronSlides[faronIndex - 1].classList.add('active');
+      if(faronIndex > faronSlides.length) faronIndex = 1;
+      faronSlides[faronIndex-1].classList.add('active');
       setTimeout(showFaronSlides, 3000);
     }
     showFaronSlides();
 
-    // Gallery Slideshow (2s interval)
-    const gallerySlides = document.querySelectorAll('#galleryContainer img');
+    // Gallery slideshow
     let galleryIndex = 0;
+    const gallerySlides = document.querySelectorAll('#galleryContainer img');
     function showGallerySlides() {
       gallerySlides.forEach(img => img.classList.remove('active'));
       galleryIndex++;
-      if (galleryIndex > gallerySlides.length) galleryIndex = 1;
-      gallerySlides[galleryIndex - 1].classList.add('active');
+      if(galleryIndex > gallerySlides.length) galleryIndex = 1;
+      gallerySlides[galleryIndex-1].classList.add('active');
       setTimeout(showGallerySlides, 2000);
     }
     showGallerySlides();
