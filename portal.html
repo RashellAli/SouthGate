@@ -3,43 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Portal - SouthGateProtection</title>
+    <title>Staff Portal - SouthGate Protection</title>
     <link rel="stylesheet" href="style.css">
 
-    <!-- REQUIRED: Firebase SDK v8 CDN links -->
-    <!-- Make sure these are the correct versions for your project, 8.10.1 is a common stable v8 -->
+    <!-- Firebase v8 SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <!-- Add other Firebase services you might use, e.g., storage, messaging, etc. if needed later -->
-
 </head>
 <body>
-    <div id="loginDiv">
-        <h2>Staff Login</h2>
-        <input type="email" id="email" placeholder="Email" required><br>
-        <input type="password" id="password" placeholder="Password" required><br>
-        <button onclick="login()">Login</button>
+    <!-- Background Decorations -->
+    <div class="abstract-line abstract-line-1"></div>
+    <div class="abstract-line abstract-line-2"></div>
+    <div class="abstract-line abstract-line-3"></div>
+
+    <div class="purple-cloud purple-cloud-1"></div>
+    <div class="purple-cloud purple-cloud-2"></div>
+    <div class="purple-cloud purple-cloud-3"></div>
+
+    <!-- Hamburger menu -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
     </div>
 
-    <div id="formDiv" style="display:none;">
-        <h2>Incident Report</h2>
-        <select id="type">
-            <option value="incident">Incident</option>
-            <option value="other">Other</option>
-        </select><br>
-        <textarea id="notes" placeholder="Report details" rows="5" cols="40"></textarea><br>
-        <button onclick="submitReport()">Submit Report</button>
-        <button onclick="logout()">Logout</button>
+    <!-- Sidebar Menu -->
+    <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="partnerships.html">Partnerships</a>
+        <a href="portal.html">Staff Portal</a>
     </div>
 
-    <!-- 
-        CRITICAL FIX: Script Loading Order and Type 
-        1. firebase-config.js MUST load BEFORE app.js.
-        2. NEITHER script should have type="module" because your code uses Firebase v8 namespaced syntax.
-    -->
+    <div class="container">
+        <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo-img">
+        <p class="main-text">Presence. Purpose. Protection.</p>
+
+        <!-- LOGIN FORM -->
+        <div id="loginDiv">
+            <h2 style="color:#a259ff;text-align:center;">Staff Login</h2>
+            <input type="email" id="email" placeholder="Email" style="width:100%;padding:8px;margin:10px 0;">
+            <input type="password" id="password" placeholder="Password" style="width:100%;padding:8px;margin:10px 0;">
+            <button onclick="login()" style="width:100%;padding:10px;background:#a259ff;color:#fff;border:none;border-radius:5px;">Login</button>
+        </div>
+
+        <!-- REPORT FORM -->
+        <div id="formDiv" style="display:none;">
+            <h2 style="color:#a259ff;text-align:center;">Submit Incident Report</h2>
+
+            <label for="type" style="color:#fff;">Report Type:</label>
+            <select id="type" style="width:100%;padding:8px;margin:10px 0;">
+                <option value="Knife Amnesty">Knife Amnesty</option>
+                <option value="Incident">Incident</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="notes" style="color:#fff;">Details:</label>
+            <textarea id="notes" rows="5" placeholder="Enter details here..." style="width:100%;padding:8px;margin:10px 0;"></textarea>
+
+            <button onclick="submitReport()" style="width:100%;padding:10px;background:#a259ff;color:#fff;border:none;border-radius:5px;margin-bottom:10px;">Submit Report</button>
+            <button onclick="logout()" style="width:100%;padding:10px;background:#ff4d4d;color:#fff;border:none;border-radius:5px;">Logout</button>
+        </div>
+
+        <div class="social-box">
+            <a href="https://www.instagram.com/ghost.sgp/" class="social-link">
+                <img src="instagram-logo.png" alt="Instagram"> Instagram
+            </a>
+            <a href="https://www.linkedin.com/in/ali10168523/" class="social-link">
+                <img src="linkedin-logo.png" alt="LinkedIn"> LinkedIn
+            </a>
+            <a href="mailto:info@southgateprotection.co.uk" class="social-link">Email</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
+        Registered in England and Wales — Company No. 16604543<br>
+        <span class="footer-terms"><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></span>
+    </footer>
+
+    <!-- Scripts -->
     <script src="firebase-config.js"></script>
     <script src="app.js"></script>
-
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('show');
+        }
+    </script>
 </body>
 </html>
