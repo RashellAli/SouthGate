@@ -95,10 +95,6 @@ body {
 }
 
 /* Header */
-header {
-  position: relative;
-}
-
 /* Hamburger */
 .hamburger {
   position: absolute;
@@ -124,7 +120,7 @@ header {
   position: fixed;          
   top: 20px;                
   right: -160px;            /* hidden initially */
-  width: 120px;             /* thinner sidebar */
+  width: 120px;             
   height: calc(100% - 40px); 
   background-color: rgba(17,17,17,0.95);  
   padding: 15px;
@@ -144,10 +140,9 @@ header {
 .menu a {
   color: #eee;
   text-decoration: none;
-  font-size: 1rem;         /* slightly smaller text */
-  margin: 50px 0 0 0;      /* pushed further below hamburger */
-  cursor: pointer;
-  transform: none;         
+  font-size: 1rem;         
+  margin: 50px 0 0 0;      
+  cursor: pointer;        
   display: block;
 }
 
@@ -238,4 +233,43 @@ footer {
 
 .footer-terms a:hover {
   text-decoration: underline;
+}
+
+/* Staff Portal Form */
+#loginDiv, #formDiv {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #a259ff;
+}
+
+#loginDiv input, #formDiv input, #formDiv select, #formDiv textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #a259ff;
+  background-color: #000;
+  color: #fff;
+}
+
+#loginDiv button, #formDiv button {
+  background-color: #a259ff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#loginDiv button:hover, #formDiv button:hover {
+  background-color: #7a1eff;
+}
+
+#formDiv textarea {
+  min-height: 100px;
+  resize: vertical;
 }
