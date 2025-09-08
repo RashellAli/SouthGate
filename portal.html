@@ -1,94 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>SouthGate Protection: Staff Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+// ----- LOGIN LOGIC -----
+async function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-  <link rel="stylesheet" href="style.css">
+  console.log("Login button clicked with email:", email);
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore-compat.js"></script>
+  try {
+    const userCredential = await auth.signInWithEmailAndPassword(email, password);
+    const user = userCredential.user;
 
-  <!-- Firebase config -->
-  <script src="firebase-config.js" defer></script>
-  <!-- App logic -->
-  <script src="app.js" defer></script>
-</head>
-<body>
-  <!-- Background Decorations -->
-  <div class="abstract-line abstract-line-1"></div>
-  <div class="abstract-line abstract-line-2"></div>
-  <div class="abstract-line abstract-line-3"></div>
-  <div class="purple-cloud purple-cloud-1"></div>
-  <div class="purple-cloud purple-cloud-2"></div>
-  <div class="purple-cloud purple-cloud-3"></div>
+    console.log("User logged in:", user.uid);
 
-  <!-- Hamburger menu -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div><div></div><div></div>
-  </div>
+    // Show report form
+    document.getElementById("loginDiv").style.display = "none";
+    document.getElementById("formDiv").style.display = "block";
+    alert("Login successful!");
 
-  <!-- Sidebar Menu -->
-  <div class="menu" id="menu">
-    <a href="index.html">Home</a>
-    <a href="partnerships.html">Partnerships</a>
-    <a href="portal.html">Staff Portal</a>
-  </div>
+  } catch (error) {
+    console.error("Login failed:", error);
+    alert("Login failed: " + error.message);
+  }
+}
 
-  <div class="container">
-    <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo-img">
-    <p class="main-text">Presence. Purpose. Protection.</p>
+// ----- LOGOUT -----
+function logout() {
+  auth.signOut().then(() => {
+    document.getElementById("loginDiv").style.display = "block";
+    document.getElementById("formDiv").style.display = "none";
+  });
+}
 
-    <!-- LOGIN FORM -->
-    <div id="loginDiv">
-      <h2 style="color:#a259ff;text-align:center;">Staff Login</h2>
-      <input type="email" id="email" placeholder="Email" style="width:100%;padding:8px;margin:10px 0;">
-      <input type="password" id="password" placeholder="Password" style="width:100%;padding:8px;margin:10px 0;">
-      <button onclick="login()" style="width:100%;padding:10px;background:#a259ff;color:#fff;border:none;border-radius:5px;">Login</button>
-    </div>
+// ----- SUBMIT REPORT -----
+function submitReport() {
+  const type = document.getElementById("type").value;
+  const notes = document.getElementById("notes").value;
 
-    <!-- REPORT FORM -->
-    <div id="formDiv" style="display:none;">
-      <h2 style="color:#a259ff;text-align:center;">Submit Incident Report</h2>
+  if (!notes) {
+    alert("Please enter report details.");
+    return;
+  }
 
-      <label for="type" style="color:#fff;">Report Type:</label>
-      <select id="type" style="width:100%;padding:8px;margin:10px 0;">
-        <option value="Knife Amnesty">Knife Amnesty</option>
-        <option value="Incident">Incident</option>
-        <option value="Other">Other</option>
-      </select>
-
-      <label for="notes" style="color:#fff;">Details:</label>
-      <textarea id="notes" rows="5" placeholder="Enter details here..." style="width:100%;padding:8px;margin:10px 0;"></textarea>
-
-      <button onclick="submitReport()" style="width:100%;padding:10px;background:#a259ff;color:#fff;border:none;border-radius:5px;margin-bottom:10px;">Submit Report</button>
-      <button onclick="logout()" style="width:100%;padding:10px;background:#ff4d4d;color:#fff;border:none;border-radius:5px;">Logout</button>
-    </div>
-
-    <div class="social-box">
-      <a href="https://www.instagram.com/ghost.sgp/" class="social-link">
-        <img src="instagram-logo.png" alt="Instagram"> Instagram
-      </a>
-      <a href="https://www.linkedin.com/in/ali10168523/" class="social-link">
-        <img src="linkedin-logo.png" alt="LinkedIn"> LinkedIn
-      </a>
-      <a href="mailto:info@southgateprotection.co.uk" class="social-link">Email</a>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
-    Registered in England and Wales — Company No. 16604543<br>
-    <span class="footer-terms"><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></span>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById('menu').classList.toggle('show');
-    }
-  </script>
-</body>
-</html>
+  db.collection("reports").add({
+    type: type,
+    notes: notes,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    user: auth.currentUser.email
+  })
+  .then(() => {
+    alert("Report submitted successfully!");
+    document.getElementById("notes").value = "";
+  })
+  .catch(error => {
+    alert("Error submitting report: " + error.message);
+  });
+}
