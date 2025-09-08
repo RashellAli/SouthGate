@@ -15,4 +15,4 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-alert("Firebase loaded successfully"); // debug for iPhone
+console.log("Firebase loaded successfully"); // debug for iPhone
