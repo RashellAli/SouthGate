@@ -1,25 +1,26 @@
-// Ensure Firebase is loaded
-if (!firebase || !firebase.auth) {
-  alert("Firebase not loaded. Check your firebase-config.js and HTML script order.");
-}
-
-// Shortcut references
-const auth = firebase.auth();
-const db = firebase.firestore();
-
 // ----- LOGIN LOGIC WITH SINGLE DEVICE ENFORCEMENT -----
 async function login() {
+  alert("Login button clicked"); // debug alert
+
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+
+  if (!email || !password) {
+    alert("Enter email and password");
+    return;
+  }
+
+  alert(`Trying to login with email: ${email}`); // debug alert
 
   try {
     const userCredential = await auth.signInWithEmailAndPassword(email, password);
     const user = userCredential.user;
+    alert("Firebase login successful"); // debug alert
 
     // Generate a device ID for this session
     let deviceId = localStorage.getItem("deviceId");
     if (!deviceId) {
-      deviceId = Math.random().toString(36).substring(2, 15);
+      deviceId = Math.random().toString(36).substring(2, 15); // simple unique string
       localStorage.setItem("deviceId", deviceId);
     }
 
@@ -41,7 +42,8 @@ async function login() {
 
     document.getElementById("loginDiv").style.display = "none";
     document.getElementById("formDiv").style.display = "block";
-    alert("Login successful!");
+    alert("Login successful! Form visible now.");
+
   } catch (error) {
     alert("Login failed: " + error.message);
   }
@@ -73,7 +75,7 @@ function submitReport() {
   })
   .then(() => {
     alert("Report submitted successfully!");
-    document.getElementById("notes").value = "";
+    document.getElementById("notes").value = ""; // clear textarea
   })
   .catch(error => {
     alert("Error submitting report: " + error.message);
