@@ -8,12 +8,11 @@ const firebaseConfig = {
   appId: "1:19042058562:web:fe2b6be92f73b47ccbc8db"
 };
 
-// Initialize Firebase (compat version)
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 // Shortcut references
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// Debug: confirm Firebase loaded
-console.log("Firebase loaded successfully");
+console.log("Firebase loaded successfully"); // for debugging
