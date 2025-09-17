@@ -7,34 +7,66 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Partnerships Page Specific Styles */
-    h1 { text-align:center; color:#fff; margin:60px 0 20px; }
-    p { text-align:center; max-width:700px; margin:0 auto 30px; color:#ddd; }
-    h2 { font-size:1.5rem; color:gold; text-align:center; cursor:pointer; margin:30px 0 15px; }
-    .dropdown-content { display:none; margin:0 auto 30px; text-align:center; max-width:700px; }
-
-    .slideshow-container { position:relative; max-width:400px; height:400px; margin:0 auto 20px; overflow:hidden; border:2px solid #a259ff; border-radius:10px; }
-    .slideshow-container img { width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0; opacity:0; transition:opacity 1s ease-in-out; }
-    .slideshow-container img.active { opacity:1; }
-
-    .gallery-container { position:relative; max-width:450px; height:450px; margin:0 auto 20px; overflow:hidden; border:2px solid #a259ff; border-radius:10px; }
-    .gallery-container img {
+    .container {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #ddd;
+    }
+    .container img.logo-img {
+      max-width: 200px;
+      margin: 20px auto;
+      display: block;
+    }
+    h1 {
+      font-weight: 700;
+      color: #fff;
+      margin: 40px 0 20px;
+    }
+    p {
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: gold;
+      cursor: pointer;
+      margin: 30px 0 15px;
+    }
+    .dropdown-content {
+      display: none;
+      margin: 0 auto 30px;
+      max-width: 700px;
+      text-align: center;
+    }
+    .slideshow-container, .gallery-container {
+      position: relative;
+      max-width: 450px;
+      height: 400px;
+      margin: 0 auto 20px;
+      overflow: hidden;
+      border: 2px solid #a259ff;
+      border-radius: 10px;
+    }
+    .slideshow-container img, .gallery-container img {
       width: 100%;
       height: 100%;
-      object-fit: contain;       /* zoom out so full image is visible */
-      object-position: center;   /* center image in container */
+      object-fit: cover;
       position: absolute;
       top: 0;
       left: 0;
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
-    .gallery-container img.active { opacity:1; }
-
-    footer { text-align:center; margin-top:50px; }
+    .slideshow-container img.active, .gallery-container img.active {
+      opacity: 1;
+    }
+    footer { text-align:center; margin-top:50px; color: #ddd; }
   </style>
 </head>
 <body>
-  <!-- Abstract Lines & Clouds -->
+  <!-- Background Decorations -->
   <div class="abstract-line abstract-line-1"></div>
   <div class="abstract-line abstract-line-2"></div>
   <div class="abstract-line abstract-line-3"></div>
@@ -42,39 +74,48 @@
   <div class="purple-cloud purple-cloud-2"></div>
   <div class="purple-cloud purple-cloud-3"></div>
 
-  <!-- Hamburger & Sidebar -->
+  <!-- Hamburger menu -->
   <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
-  <div class="menu" id="menu"><a href="index.html">Home</a></div>
 
-  <!-- Partnerships Content -->
-  <h1>Partnerships</h1>
-  <p>Working with trusted partners, SouthGate Protection strengthens community safety, supports knife crime prevention and local programs.</p>
-
-  <!-- Faron Paul Section -->
-  <h2 onclick="toggleDropdown('faronDropdown')">Faron Paul | FazAmnesty &#9662;</h2>
-  <div class="dropdown-content" id="faronDropdown">
-    <div class="slideshow-container">
-      <img src="faron1.jpg" class="active" />
-      <img src="faron2.jpg" />
-      <img src="faron3.jpg" />
-    </div>
-    <p>SouthGate Protection CIC was proud to work alongside Faron Paul and his team at the Notting Hill Carnival. Together, we ensured public safety by assisting medics through busy crowds, helping individuals who were unwell or injured, and coordinating weapon collection efforts, resulting in 14 weapon surrenders over the carnival weekend to enhance community safety.</p>
-    <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" style="color: gold;">Read more about Faron Paul's story</a></p>
+  <!-- Sidebar Menu -->
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="partnerships.html">Partnerships</a>
   </div>
 
-  <!-- Gallery Section -->
-  <h2 onclick="toggleDropdown('galleryDropdown')">Gallery &#9662;</h2>
-  <div class="dropdown-content" id="galleryDropdown">
-    <div class="gallery-container" id="galleryContainer">
-      <img src="gallery1.jpg" class="active" />
-      <img src="gallery2.jpg" />
-      <img src="gallery3.jpg" />
-      <img src="gallery4.jpg" />
-      <img src="gallery5.jpg" />
-      <img src="gallery6.jpg" />
-      <img src="gallery7.jpg" />
-      <img src="gallery8.jpg" />
-      <img src="gallery9.jpg" />
+  <div class="container">
+    <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo-img">
+
+    <h1>Partnerships</h1>
+    <p>Working with trusted partners, SouthGate Protection CIC strengthens community safety, supports knife crime prevention, and local programs across Croydon.</p>
+
+    <!-- Faron Paul Section -->
+    <h2 onclick="toggleDropdown('faronDropdown')">Faron Paul | FazAmnesty &#9662;</h2>
+    <div class="dropdown-content" id="faronDropdown">
+      <div class="slideshow-container">
+        <img src="faron1.jpg" class="active" />
+        <img src="faron2.jpg" />
+        <img src="faron3.jpg" />
+      </div>
+      <p>Together, we ensured public safety by assisting medics through busy crowds and helping individuals who were unwell or injured. We also coordinated weapon collection efforts, resulting in 14 weapon surrenders over the carnival weekend to enhance community safety.</p>
+      <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" style="color: gold;">Read more about Faron Paul's story</a></p>
+    </div>
+
+    <!-- Gallery Section -->
+    <h2 onclick="toggleDropdown('galleryDropdown')">Gallery &#9662;</h2>
+    <div class="dropdown-content" id="galleryDropdown">
+      <div class="gallery-container" id="galleryContainer">
+        <img src="gallery1.jpg" class="active" />
+        <img src="gallery2.jpg" />
+        <img src="gallery3.jpg" />
+        <img src="gallery4.jpg" />
+        <img src="gallery5.jpg" />
+        <img src="gallery6.jpg" />
+        <img src="gallery7.jpg" />
+        <img src="gallery8.jpg" />
+        <img src="gallery9.jpg" />
+      </div>
     </div>
   </div>
 
@@ -92,7 +133,7 @@
       dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
     }
 
-    // Preload images for faster display
+    // Preload images
     const preloadImages = [
       'faron1.jpg','faron2.jpg','faron3.jpg',
       'gallery1.jpg','gallery2.jpg','gallery3.jpg','gallery4.jpg','gallery5.jpg','gallery6.jpg','gallery7.jpg','gallery8.jpg','gallery9.jpg'
