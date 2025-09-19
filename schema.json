@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SouthGate Protection CIC",
+  "alternateName": "SouthGate Protection",
+  "url": "https://www.southgateprotection.co.uk",
+  "logo": "https://www.southgateprotection.co.uk/logo.png",
+  "founder": {
+    "@type": "Person",
+    "name": "Rashell Ali Chowdhury"
+  },
+  "description": "SouthGate Protection CIC provides visible professional patrols across Croydon, engaging with residents and the community to prevent harm, respond when needed, and create a safer, more connected neighbourhood for everyone.",
+  "sameAs": [
+    "https://www.instagram.com/saferstreets.sgp",
+    "https://www.linkedin.com/in/ali10168523"
+  ],
+  "foundingDate": "2025",
+  "legalName": "SouthGate Protection CIC",
+  "department": {
+    "@type": "Organization",
+    "name": "Partnerships",
+    "description": "Collaborates with local organizations to enhance community safety and support initiatives like knife crime prevention.",
+    "member": [
+      {
+        "@type": "Person",
+        "name": "Faron Paul",
+        "description": "Partnered during the Notting Hill Carnival to assist medics and support weapon collections, resulting in 14 weapon surrenders over the carnival weekend."
+      }
+    ]
+  }
+}
