@@ -7,7 +7,8 @@
   "logo": "https://www.southgateprotection.co.uk/logo.png",
   "founder": {
     "@type": "Person",
-    "name": "Rashell Ali Chowdhury"
+    "name": "Rashell Ali Chowdhury",
+    "url": "https://southgateprotection.co.uk/about.html"
   },
   "description": "SouthGate Protection CIC provides visible professional patrols across Croydon, engaging with residents and the community to prevent harm, respond when needed, and create a safer, more connected neighbourhood for everyone.",
   "sameAs": [
