@@ -1,4 +1,4 @@
-/* General Styles */
+/* ================= General Styles ================= */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@
 }
 
 html, body {
-  overscroll-behavior: none;
+  overscroll-behavior: none; /* prevent white flash on overscroll */
 }
 
 body {
@@ -17,7 +17,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Container */
+/* ================= Container ================= */
 .container {
   position: relative;
   text-align: center;
@@ -28,7 +28,7 @@ body {
   font-size: 0.95rem;
 }
 
-/* Logo */
+/* ================= Logo ================= */
 .logo-img {
   display: block;
   max-width: 200px;
@@ -36,7 +36,7 @@ body {
   border-radius: 10px;
 }
 
-/* Headings and paragraphs */
+/* ================= Headings & Text ================= */
 h1 {
   font-weight: 700;
   color: #fff;
@@ -60,7 +60,7 @@ a.gold-link {
   text-decoration: none;
 }
 
-/* Dropdown content */
+/* ================= Dropdown Content ================= */
 .dropdown-content {
   display: none;
   margin: 0 auto 30px;
@@ -68,7 +68,7 @@ a.gold-link {
   text-align: center;
 }
 
-/* Slideshow styles */
+/* ================= Slideshow Styles ================= */
 .slideshow-container {
   position: relative;
   max-width: 400px;
@@ -94,7 +94,7 @@ a.gold-link {
   opacity: 1;
 }
 
-/* Gallery slideshow */
+/* ================= Gallery Slideshow ================= */
 .gallery-container {
   position: relative;
   max-width: 600px;
@@ -121,7 +121,7 @@ a.gold-link {
   opacity: 1;
 }
 
-/* Abstract Purple Lines */
+/* ================= Abstract Purple Lines ================= */
 .abstract-line {
   position: absolute;
   background-color: #a259ff;
@@ -134,7 +134,7 @@ a.gold-link {
 .abstract-line-2 { width: 200px; height: 6px; bottom: 100px; right: 30px; }
 .abstract-line-3 { width: 400px; height: 6px; top: 300px; left: 50%; transform: translateX(-50%) rotate(15deg); }
 
-/* Purple Clouds */
+/* ================= Purple Clouds ================= */
 .purple-cloud {
   position: absolute;
   background: radial-gradient(circle, rgba(162, 89, 255, 0.3) 0%, transparent 70%);
@@ -146,7 +146,7 @@ a.gold-link {
 .purple-cloud-2 { width: 300px; height: 300px; bottom: 150px; right: 0; }
 .purple-cloud-3 { width: 200px; height: 200px; top: 400px; left: 50%; transform: translateX(-50%); }
 
-/* Hamburger */
+/* ================= Hamburger ================= */
 .hamburger {
   position: absolute;
   top: 20px;
@@ -166,7 +166,7 @@ a.gold-link {
   background-color: white;
 }
 
-/* Sidebar Menu */
+/* ================= Sidebar Menu ================= */
 .menu {
   position: fixed;
   top: 20px;
@@ -197,7 +197,7 @@ a.gold-link {
   display: block;
 }
 
-/* Footer */
+/* ================= Footer ================= */
 footer {
   margin-top: 20px;
   background: linear-gradient(to right, #333, #222);
@@ -205,4 +205,66 @@ footer {
   color: #bbb;
   font-size: 0.9rem;
   text-align: left;
+}
+
+.footer-terms a {
+  color: #a259ff;
+  text-decoration: none;
+}
+
+.footer-terms a:hover {
+  text-decoration: underline;
+}
+
+/* ================= Homepage Specific ================= */
+.main-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #a259ff;
+  margin: 40px 0 20px;
+  text-align: center;
+}
+
+.mission {
+  font-size: 1rem;
+  color: #ddd;
+  max-width: 750px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.social-box {
+  max-width: 600px;
+  margin: 20px auto 50px;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid #a259ff;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 15px;
+  color: #a259ff;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.social-link img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.social-link:hover {
+  text-decoration: underline;
+}
+
+/* Adjust homepage container spacing */
+.container {
+  position: relative;
+  padding: 60px 20px 40px;
+  text-align: center;
 }
