@@ -5,21 +5,22 @@
   <title>SouthGate Protection: Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Optional inline tweaks for homepage spacing and heading style */
-    .container h1 {
-      font-weight: 700;
-      margin-top: 40px;
-      margin-bottom: 20px;
-    }
-    .container p {
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-  </style>
 
-  <!-- Link to JSON-LD schema for structured data -->
-  <script type="application/ld+json" src="schema.json"></script>
+  <!-- Embedded JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SouthGate Protection CIC",
+    "url": "https://www.southgateprotection.co.uk",
+    "logo": "https://www.southgateprotection.co.uk/logo.jpg",
+    "sameAs": [
+      "https://www.instagram.com/ghost.sgp/",
+      "https://www.linkedin.com/in/ali10168523/"
+    ],
+    "description": "SouthGate Protection CIC provides visible professional patrols across Croydon, engaging with residents and the community to prevent harm, respond when needed, and create a safer, more connected neighbourhood for everyone."
+  }
+  </script>
 </head>
 <body>
   <!-- Background Decorations -->
@@ -67,17 +68,17 @@
 
   <footer>
     <div id='company_verification_badge'></div>
-    <script>
+    <script defer>
       var badge_url="https://www.aaronsdepartment.com/app/company_verification/badge/I5Y5NB8U";
     </script>
-    <script src="https://www.aaronsdepartment.com/app/js/external/company_verification_badge.js"></script>
+    <script defer src="https://www.aaronsdepartment.com/app/js/external/company_verification_badge.js"></script>
 
     &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
     Registered in England and Wales — Company No. 16604543<br>
     <span class="footer-terms"><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></span>
   </footer>
 
-  <script>
+  <script defer>
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('show');
     }
