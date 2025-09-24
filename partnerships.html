@@ -69,10 +69,20 @@
   </footer>
 
   <script>
-    function toggleMenu() { document.getElementById('menu').classList.toggle('show'); }
+    // Hamburger menu toggle
+    function toggleMenu() { 
+      document.getElementById('menu').classList.toggle('show'); 
+    }
+
+    // Dropdown toggle
     function toggleDropdown(id) {
       const dropdown = document.getElementById(id);
-      dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+      const isVisible = dropdown.style.display === 'block';
+      dropdown.style.display = isVisible ? 'none' : 'block';
+      if (!isVisible) {
+        if(id === 'faronDropdown') showFaronSlides();
+        if(id === 'galleryDropdown') showGallerySlides();
+      }
     }
 
     // Preload images
@@ -90,9 +100,10 @@
       faronIndex++;
       if(faronIndex > faronSlides.length) faronIndex = 1;
       faronSlides[faronIndex-1].classList.add('active');
-      setTimeout(showFaronSlides, 3000);
+      if(document.getElementById('faronDropdown').style.display === 'block') {
+        setTimeout(showFaronSlides, 3000);
+      }
     }
-    showFaronSlides();
 
     // Gallery slideshow
     let galleryIndex = 0;
@@ -102,9 +113,10 @@
       galleryIndex++;
       if(galleryIndex > gallerySlides.length) galleryIndex = 1;
       gallerySlides[galleryIndex-1].classList.add('active');
-      setTimeout(showGallerySlides, 2000);
+      if(document.getElementById('galleryDropdown').style.display === 'block') {
+        setTimeout(showGallerySlides, 2000);
+      }
     }
-    showGallerySlides();
   </script>
 </body>
 </html>
