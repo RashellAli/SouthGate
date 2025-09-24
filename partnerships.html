@@ -41,7 +41,7 @@
         <img src="faron3.jpg" />
       </div>
       <p>SouthGate Protection CIC was proud to work alongside Faron Paul and his team at the Notting Hill Carnival. Together, we ensured public safety by assisting medics through the busy crowd, helping those who were passed out or injured, and supported weapon collections, resulting in 14 weapon surrenders over the carnival weekend.</p>
-      <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" style="color: gold;">Read more about Faron Paul's story</a></p>
+      <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" class="gold-link">Read more about Faron Paul's story</a></p>
     </div>
 
     <!-- Gallery Section -->
@@ -69,28 +69,21 @@
   </footer>
 
   <script>
-    // Hamburger menu toggle
     function toggleMenu() { 
       document.getElementById('menu').classList.toggle('show'); 
     }
 
-    // Dropdown toggle
     function toggleDropdown(id) {
       const dropdown = document.getElementById(id);
       const isVisible = dropdown.style.display === 'block';
       dropdown.style.display = isVisible ? 'none' : 'block';
+
+      // Only start slideshow when opening dropdown
       if (!isVisible) {
-        if(id === 'faronDropdown') showFaronSlides();
-        if(id === 'galleryDropdown') showGallerySlides();
+        if (id === 'faronDropdown') showFaronSlides();
+        if (id === 'galleryDropdown') showGallerySlides();
       }
     }
-
-    // Preload images
-    const preloadImages = [
-      'faron1.jpg','faron2.jpg','faron3.jpg',
-      'gallery1.jpg','gallery2.jpg','gallery3.jpg','gallery4.jpg','gallery5.jpg','gallery6.jpg','gallery7.jpg','gallery8.jpg','gallery9.jpg'
-    ];
-    preloadImages.forEach(src => { const img = new Image(); img.src = src; });
 
     // Faron Paul slideshow
     let faronIndex = 0;
