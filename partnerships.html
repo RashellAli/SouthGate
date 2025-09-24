@@ -4,89 +4,8 @@
   <meta charset="UTF-8" />
   <title>SouthGate Protection: Partnerships</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex, follow">
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Partnerships Page Specific Styles */
-    .container {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-      color: #ddd;
-      font-size: 0.95rem; /* slightly smaller text */
-    }
-    .container img.logo-img {
-      max-width: 200px;
-      margin: 20px auto;
-      display: block;
-    }
-    h1 {
-      font-weight: 700;
-      color: #fff;
-      margin: 40px 0 20px;
-    }
-    p {
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-    h2 {
-      font-size: 1.5rem;
-      color: gold;
-      cursor: pointer;
-      margin: 30px 0 15px;
-    }
-    .dropdown-content {
-      display: none;
-      margin: 0 auto 30px;
-      max-width: 700px;
-      text-align: center;
-    }
-    .slideshow-container {
-      position: relative;
-      max-width: 400px;
-      height: 400px;
-      margin: 0 auto 20px;
-      overflow: hidden;
-      border: 2px solid #a259ff;
-      border-radius: 10px;
-    }
-    .slideshow-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .slideshow-container img.active { opacity:1; }
-
-    .gallery-container {
-      position: relative;
-      max-width: 600px; /* expanded width */
-      height: 500px;    /* expanded height */
-      margin: 0 auto 20px;
-      overflow: hidden;
-      border: 2px solid #a259ff;
-      border-radius: 10px;
-    }
-    .gallery-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* show full image */
-      object-position: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .gallery-container img.active { opacity:1; }
-
-    footer { text-align:center; margin-top:50px; color: #ddd; }
-  </style>
+  <meta name="robots" content="noindex, follow">
 </head>
 <body>
   <!-- Background Decorations -->
@@ -97,8 +16,12 @@
   <div class="purple-cloud purple-cloud-2"></div>
   <div class="purple-cloud purple-cloud-3"></div>
 
-  <!-- Hamburger menu -->
-  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
   <!-- Sidebar Menu -->
   <div class="menu" id="menu">
@@ -113,7 +36,6 @@
     <h1>Partnerships</h1>
     <p>Working with trusted partners, SouthGate Protection strengthens community safety, supports knife crime prevention and local programs across Croydon.</p>
 
-    <!-- Faron Paul Section -->
     <h2 onclick="toggleDropdown('faronDropdown')">Faron Paul | FazAmnesty &#9662;</h2>
     <div class="dropdown-content" id="faronDropdown">
       <div class="slideshow-container">
@@ -122,10 +44,9 @@
         <img src="faron3.jpg" />
       </div>
       <p>SouthGate Protection CIC was proud to work alongside Faron Paul and his team at the Notting Hill Carnival. Together, we ensured public safety by assisting medics through the busy crowd, helping those who were passed out or injured, and supported weapon collections, resulting in 14 weapon surrenders over the carnival weekend.</p>
-      <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" style="color: gold;">Read more about Faron Paul's story</a></p>
+      <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" class="gold-link">Read more about Faron Paul's story</a></p>
     </div>
 
-    <!-- Gallery Section -->
     <h2 onclick="toggleDropdown('galleryDropdown')">Gallery &#9662;</h2>
     <div class="dropdown-content" id="galleryDropdown">
       <div class="gallery-container" id="galleryContainer">
@@ -142,38 +63,42 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     &copy; 2025 SouthGate Protection CIC. All rights reserved.<br />
     Registered in England and Wales — Company No. 16604543<br />
     <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
   </footer>
 
-  <script>
-    function toggleMenu() { document.getElementById('menu').classList.toggle('show'); }
-    function toggleDropdown(id) {
-      const dropdown = document.getElementById(id);
-      dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+  <script defer>
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
     }
 
-    // Preload images
-    const preloadImages = [
-      'faron1.jpg','faron2.jpg','faron3.jpg',
-      'gallery1.jpg','gallery2.jpg','gallery3.jpg','gallery4.jpg','gallery5.jpg','gallery6.jpg','gallery7.jpg','gallery8.jpg','gallery9.jpg'
-    ];
-    preloadImages.forEach(src => { const img = new Image(); img.src = src; });
+    // Dropdown toggle and slideshow starter
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      const isVisible = dropdown.style.display === 'block';
+      dropdown.style.display = isVisible ? 'none' : 'block';
 
-    // Faron Paul slideshow
+      if (!isVisible) {
+        if (id === 'faronDropdown') showFaronSlides();
+        if (id === 'galleryDropdown') showGallerySlides();
+      }
+    }
+
+    // Faron slideshow
     let faronIndex = 0;
     const faronSlides = document.querySelectorAll('#faronDropdown .slideshow-container img');
     function showFaronSlides() {
       faronSlides.forEach(img => img.classList.remove('active'));
       faronIndex++;
-      if(faronIndex > faronSlides.length) faronIndex = 1;
-      faronSlides[faronIndex-1].classList.add('active');
-      setTimeout(showFaronSlides, 3000);
+      if (faronIndex > faronSlides.length) faronIndex = 1;
+      faronSlides[faronIndex - 1].classList.add('active');
+      if (document.getElementById('faronDropdown').style.display === 'block') {
+        setTimeout(showFaronSlides, 3000);
+      }
     }
-    showFaronSlides();
 
     // Gallery slideshow
     let galleryIndex = 0;
@@ -181,11 +106,12 @@
     function showGallerySlides() {
       gallerySlides.forEach(img => img.classList.remove('active'));
       galleryIndex++;
-      if(galleryIndex > gallerySlides.length) galleryIndex = 1;
-      gallerySlides[galleryIndex-1].classList.add('active');
-      setTimeout(showGallerySlides, 2000);
+      if (galleryIndex > gallerySlides.length) galleryIndex = 1;
+      gallerySlides[galleryIndex - 1].classList.add('active');
+      if (document.getElementById('galleryDropdown').style.display === 'block') {
+        setTimeout(showGallerySlides, 2000);
+      }
     }
-    showGallerySlides();
   </script>
 </body>
 </html>
