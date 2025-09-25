@@ -44,6 +44,16 @@
       <p><a href="https://www.gov.uk/government/news/faron-pauls-story" target="_blank" class="gold-link">Read more about Faron Paul's story</a></p>
     </div>
 
+    <!-- CCAG Section -->
+    <h2 onclick="toggleDropdown('ccagDropdown')">Croydon Community Action Guardians (CCAG) &#9662;</h2>
+    <div class="dropdown-content" id="ccagDropdown">
+      <div class="slideshow-container">
+        <img src="ccag-group.jpg" class="active" />
+      </div>
+      <p>SouthGate Protection CIC is proud to partner with Croydon Community Action Guardians (CCAG), supporting their mission to safeguard young people in the community after school hours. Together, we help make Croydon safer and stronger.</p>
+      <p><a href="https://cag-croydon.org/about/" target="_blank" class="gold-link">Read more about CCAG</a></p>
+    </div>
+
     <!-- Gallery Section -->
     <h2 onclick="toggleDropdown('galleryDropdown')">Gallery &#9662;</h2>
     <div class="dropdown-content" id="galleryDropdown">
@@ -82,6 +92,7 @@
       if (!isVisible) {
         if (id === 'faronDropdown') showFaronSlides();
         if (id === 'galleryDropdown') showGallerySlides();
+        if (id === 'ccagDropdown') showCCAGSlides();
       }
     }
 
@@ -108,6 +119,19 @@
       gallerySlides[galleryIndex-1].classList.add('active');
       if(document.getElementById('galleryDropdown').style.display === 'block') {
         setTimeout(showGallerySlides, 2000);
+      }
+    }
+
+    // CCAG slideshow (single image works, auto-slideshow ready if more images added)
+    let ccagIndex = 0;
+    const ccagSlides = document.querySelectorAll('#ccagDropdown .slideshow-container img');
+    function showCCAGSlides() {
+      ccagSlides.forEach(img => img.classList.remove('active'));
+      ccagIndex++;
+      if(ccagIndex > ccagSlides.length) ccagIndex = 1;
+      ccagSlides[ccagIndex-1].classList.add('active');
+      if(document.getElementById('ccagDropdown').style.display === 'block') {
+        setTimeout(showCCAGSlides, 3000);
       }
     }
   </script>
