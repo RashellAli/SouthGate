@@ -217,54 +217,74 @@ footer {
 }
 
 /* ================= Homepage Specific ================= */
-.main-text {
+body.homepage .main-text {
   font-size: 2rem;
   font-weight: bold;
   color: #a259ff;
-  margin: 40px 0 20px;
-  text-align: center;
+  text-align: left; /* left-aligned for clean horizontal layout */
+  margin: 20px 0 15px;
 }
 
-.mission {
-  font-size: 1rem;
+body.homepage .mission {
+  font-size: 0.95rem;
   color: #ddd;
   max-width: 750px;
-  margin: 0 auto 30px;
-  text-align: center;
+  text-align: left;
+  margin: 0 0 30px 0;
 }
 
-.social-box {
+/* Homepage social box */
+body.homepage .social-box {
   max-width: 600px;
   margin: 20px auto 50px;
   background-color: #111;
   padding: 20px;
   border-radius: 10px;
-  text-align: center;
+  text-align: left; /* left-aligned */
   border: 2px solid #a259ff;
 }
 
-.social-link {
+body.homepage .social-link {
   display: inline-flex;
   align-items: center;
-  margin: 0 15px;
+  margin: 0 15px 10px 0;
   color: #a259ff;
   font-size: 1rem;
   text-decoration: none;
 }
 
-.social-link img {
+body.homepage .social-link img {
   width: 24px;
   height: 24px;
   margin-right: 8px;
 }
 
-.social-link:hover {
+body.homepage .social-link:hover {
   text-decoration: underline;
 }
 
-/* Adjust homepage container spacing */
-.container {
-  position: relative;
-  padding: 60px 20px 40px;
-  text-align: center;
+/* ================= About Page Specific ================= */
+body.about-page .main-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #a259ff;
+  text-align: left;
+  margin: 20px 0 15px;
+}
+
+body.about-page .mission,
+body.about-page .story,
+body.about-page .other-section { 
+  font-size: 0.95rem;
+  color: #ddd; /* paragraph text */
+  text-align: left;
+  max-width: 700px;
+  margin: 0 0 30px 0;
+}
+
+body.about-page .mission span,
+body.about-page .story span,
+body.about-page .other-section span {
+  color: gold; /* highlighted section headings */
+  font-weight: bold;
 }
