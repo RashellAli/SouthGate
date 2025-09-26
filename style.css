@@ -202,6 +202,38 @@ a.gold-link {
   display: block;
 }
 
+/* ================= Unified Social Box for All Pages ================= */
+.social-box {
+  max-width: 600px;
+  margin: 20px auto 50px;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  border: 2px solid #a259ff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  color: #a259ff;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.social-link img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.social-link:hover {
+  text-decoration: underline;
+}
+
 /* ================= Footer ================= */
 footer {
   margin-top: 20px;
@@ -236,36 +268,6 @@ body.homepage .mission {
   max-width: 750px;
   text-align: left;
   margin: 0 0 30px 0;
-}
-
-/* Homepage social box */
-body.homepage .social-box {
-  max-width: 600px;
-  margin: 20px auto 50px;
-  background-color: #111;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: left;
-  border: 2px solid #a259ff;
-}
-
-body.homepage .social-link {
-  display: inline-flex;
-  align-items: center;
-  margin: 0 15px 10px 0;
-  color: #a259ff;
-  font-size: 1rem;
-  text-decoration: none;
-}
-
-body.homepage .social-link img {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-}
-
-body.homepage .social-link:hover {
-  text-decoration: underline;
 }
 
 /* ================= About Page Specific ================= */
