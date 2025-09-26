@@ -6,7 +6,7 @@
 }
 
 html, body {
-  overscroll-behavior: none;
+  overscroll-behavior: none; /* prevent white flash on overscroll */
 }
 
 body {
@@ -148,7 +148,7 @@ a.gold-link {
 
 /* ================= Hamburger ================= */
 .hamburger {
-  position: fixed;
+  position: fixed; /* fixed so it stays on scroll */
   top: 20px;
   right: 20px;
   cursor: pointer;
@@ -158,7 +158,6 @@ a.gold-link {
   width: 35px;
   height: 25px;
   z-index: 50;
-  transition: transform 0.4s ease;
 }
 
 .hamburger div {
@@ -168,33 +167,23 @@ a.gold-link {
   transition: all 0.4s ease;
 }
 
-.hamburger.active div:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-.hamburger.active div:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active div:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
 /* ================= Sidebar Menu ================= */
 .menu {
   position: fixed;
-  top: 0; /* start at top so it scrolls smoothly top-to-bottom */
-  right: -160px; 
-  width: 120px;
-  height: 100%;
+  top: 0; /* start at top */
+  right: -160px; /* hidden by default */
+  width: 140px;
+  height: 100%; /* full height */
   background-color: rgba(17,17,17,0.95);
-  padding: 20px;
+  padding: 20px 10px;
   display: flex;
   flex-direction: column;
   box-shadow: -2px 0 8px rgba(0,0,0,0.5);
   border-left: 3px solid #a259ff;
   border-radius: 5px 0 0 5px;
   z-index: 40;
-  transition: right 0.4s ease;
-  overflow-y: auto; 
+  transition: right 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* smoother */
+  overflow-y: auto; /* smooth scroll if needed */
 }
 
 .menu.show {
@@ -205,7 +194,10 @@ a.gold-link {
   color: #eee;
   text-decoration: none;
   font-size: 1rem;
-  margin: 50px 0 0 0;
+  margin: 20px 0 0 0; /* spacing between links */
+  padding: 5px 0;
+  width: 100%; /* full width links */
+  box-sizing: border-box;
   cursor: pointer;
   display: block;
 }
@@ -246,6 +238,7 @@ body.homepage .mission {
   margin: 0 0 30px 0;
 }
 
+/* Homepage social box */
 body.homepage .social-box {
   max-width: 600px;
   margin: 20px auto 50px;
@@ -299,4 +292,22 @@ body.about-page .story span,
 body.about-page .other-section span {
   color: gold;
   font-weight: bold;
+}
+
+/* ================= Partnerships Page Specific ================= */
+body.partnerships-page .main-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #a259ff;
+  text-align: left;
+  margin: 20px 0 15px;
+}
+
+body.partnerships-page p,
+body.partnerships-page .dropdown-content {
+  font-size: 0.95rem;
+  color: #ddd;
+  text-align: left;
+  max-width: 700px;
+  margin: 0 0 30px 0;
 }
