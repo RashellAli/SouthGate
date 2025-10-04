@@ -6,14 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, follow">
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Ensure slideshow images display fully and scale naturally */
-    #ccagDropdown .slideshow-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-  </style>
 </head>
 <body class="partnerships-page">
   <!-- Background Decorations -->
@@ -55,10 +47,10 @@
     <!-- CCAG Section -->
     <h2 onclick="toggleDropdown('ccagDropdown')">Croydon Community Action Guardians (CCAG) &#9662;</h2>
     <div class="dropdown-content" id="ccagDropdown">
-      <div class="slideshow-container">
-        <img src="ccag-group.jpg" class="active" alt="SouthGate Protection with CCAG after-school patrols" />
-        <img src="ccag1.jpg" alt="SouthGate Protection with CCAG after-school patrols" />
-        <img src="ccag2.jpg" alt="SouthGate Protection with CCAG after-school patrols" />
+      <div class="slideshow-container" id="ccagContainer">
+        <img src="ccag-group.jpg" class="active" />
+        <img src="ccag1.jpg" />
+        <img src="ccag2.jpg" />
       </div>
       <p>SouthGate Protection CIC is proud to partner with Croydon Community Action Guardians (CCAG), supporting their mission to safeguard young people in the community after school hours. Together, we help make Croydon safer and stronger.</p>
       <p><a href="https://cag-croydon.org/about/" target="_blank" class="gold-link">Read more about CCAG</a></p>
@@ -132,9 +124,9 @@
       }
     }
 
-    // CCAG slideshow
+    // CCAG slideshow (matches gallery behavior)
     let ccagIndex = 0;
-    const ccagSlides = document.querySelectorAll('#ccagDropdown .slideshow-container img');
+    const ccagSlides = document.querySelectorAll('#ccagContainer img');
     function showCCAGSlides() {
       ccagSlides.forEach(img => img.classList.remove('active'));
       ccagIndex++;
