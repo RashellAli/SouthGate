@@ -77,17 +77,20 @@
   <div class="container">
     <img src="logo.jpg" alt="SouthGate Protection Logo" class="logo-img">
 
-    <h1 class="main-text" style="font-size: 2rem;">
+    <!-- ADDED: fade-up-item and delay-1 class for transition -->
+    <h1 class="main-text fade-up-item delay-1" style="font-size: 2rem;">
       Proactive Patrols. Safer Neighbourhoods.
     </h1>
 
-    <p class="mission">
+    <!-- ADDED: fade-up-item and delay-2 class for transition -->
+    <p class="mission fade-up-item delay-2">
       Southgate Protection CIC provides expert, community-focused security across Croydon. 
       We run Vulnerability Period Patrols, delivering proactive crime reduction through immediate 
       engagement and dynamic partnerships.
     </p>
 
-    <div class="social-box">
+    <!-- ADDED: fade-up-item and delay-3 class for transition -->
+    <div class="social-box fade-up-item delay-3">
       <a href="https://www.instagram.com/saferstreets.sgp/" class="social-link">
         <img src="instagram-logo.png" alt="Instagram"> Instagram
       </a>
@@ -105,7 +108,7 @@
     <script defer>
       var badge_url="https://www.aaronsdepartment.com/app/company_verification/badge/I5Y5NB8U";
     </script>
-    <script defer src="https://www.aaronsdepartment.com/app/js/external/company_verification_badge.js"></script>
+    <script src="https://www.aaronsdepartment.com/app/js/external/company_verification_badge.js"></script>
 
     &copy; 2025 SouthGate Protection CIC. All rights reserved.<br>
     Registered in England and Wales — Company No. 16604543<br>
@@ -113,9 +116,45 @@
   </footer>
 
   <script defer>
+    // Original Menu Toggle Function
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('show');
     }
+
+    // ===============================================
+    // NEW JAVASCRIPT FOR FADE-IN TRANSITIONS
+    // This watches for elements with 'fade-up-item' and adds the 'visible' class
+    // ===============================================
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Select all elements that should fade in
+        const elementsToAnimate = document.querySelectorAll('.fade-up-item');
+
+        // 2. Options for the observer (when should it trigger?)
+        const options = {
+            root: null, // relative to the viewport
+            rootMargin: '0px',
+            threshold: 0.1 // trigger when 10% of the element is visible
+        };
+
+        // 3. Create the observer callback function
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Check if the element is currently intersecting (visible)
+                if (entry.isIntersecting) {
+                    // Add the 'visible' class, triggering the CSS transition
+                    entry.target.classList.add('visible');
+                    // Stop observing this element once it's visible
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        // 4. Start observing each element
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+    });
   </script>
 </body>
 </html>
+
